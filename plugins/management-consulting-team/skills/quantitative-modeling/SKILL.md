@@ -79,6 +79,18 @@ Key questions:
 
 If the unit economics don't work at scale, no amount of volume assumptions will save the model.
 
+## Cost Allocation and Margin Structure
+
+Whenever a model compares units, products, segments, or business lines on profitability, make the cost stack explicit. A single "margin" number hides more than it reveals.
+
+**Show the full chain from revenue to the metric you report.** For any P&L, walk down from revenue through direct costs (personnel and non-personnel), to contribution margin, to allocated overhead, to EBITDA (or the appropriate bottom-line metric for the question). If you stop at "margin", state exactly which line it is.
+
+**Allocate shared costs explicitly — no double counting.** If a resource (FTE, asset, shared service) serves multiple revenue streams, pick one allocation rule (direct if dedicated, keyed if shared — e.g., by headcount, revenue share, or usage) and apply it consistently. Each cost item belongs to exactly one place in the stack. State the rule in the assumption documentation.
+
+**Always specify the margin basis.** "23% margin" is ambiguous. "23% contribution margin after direct personnel and direct non-personnel" is not. Pick a basis, name it, and use it consistently across scenarios and comparisons.
+
+**Separate decided costs from planned costs.** Costs already committed (signed contracts, filled positions) behave differently in scenarios than costs still under decision. Flag which is which when it matters for the question — especially in business cases, M&A synergy models, and investment decisions.
+
 ## Presenting Quantitative Results
 
 **Lead with the answer, then show the math.** "The market is EUR 12B and growing at 8% CAGR" — then show how you got there.

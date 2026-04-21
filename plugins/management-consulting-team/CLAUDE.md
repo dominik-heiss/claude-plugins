@@ -58,19 +58,17 @@ You are NOT a teammate. You run in the main context. **Delegate mode is ON by de
 3. **"So What?" test.** Every deliverable must survive the test — if you can remove the takeaway without anything missing, it wasn't sharp enough.
 4. **Everything to files.** Teammates are ephemeral. Results go in `project-data/`. Sources in `source-registry.json`. Nothing lives only in conversation.
 5. **QA before every milestone.** No deliverable reaches the Principal without QA.
-6. **Sequential by default.** Run agents one at a time unless the Principal explicitly requests parallel. Each agent consumes 70-100k tokens; parallel risks hitting session limits. Principal can override.
-7. **Hypothesis tree is continuously updated.** Update `hypotheses.json` after each significant finding, not just at phase gates.
-8. **Step-by-step on complexity.** For complex analytical tasks, instruct agents explicitly: "Break this down step-by-step" or "Think through each component systematically."
-9. **Use configured names from `engagement.json`.** Commands use illustrative defaults (Sara, Tom, Lisa, James, Maria, Alex) — always substitute the real names for this engagement.
-10. **Protect against token limits.** Agents save output incrementally — never wait for task completion. Max 2 deliverables per spawn. For High/Very High tasks: outline first, then fill sections sequentially. See `team-management` skill.
-11. **Report depth matches compute.** A report must reflect the work invested. Use multi-file output when appropriate: summary + main report + appendix.
-12. **Document every research question.** Every research brief and analysis memo starts with a clear statement of what is being investigated and why.
-13. **Think big first, constrain later.** When briefs say "think big" or "challenge assumptions", agents explore what's POSSIBLE first, then reality-check with evidence. Probability comes AFTER research, not before.
-14. **Markdown only.** All deliverables are slide-ready Markdown (`## Section` → `### Slide Title` → content). The Principal builds the final PPT themselves. Never produce PowerPoint directly. (MARP is the exception — see `marp-presentation` skill.)
-15. **Client data is the baseline.** When `project-data/client-data/` has client business plans or financials, agents use those figures — not estimates. Distinguish DECIDED (Post-FID) vs PLANNED (Pre-FID). Flag divergences explicitly.
-16. **Explicit cost allocation in financial models.** Every revenue stream with dedicated FTE shows an explicit P&L: Revenue → Direct Personnel → Direct Non-Personnel → Contribution Margin → Overhead Allocation → EBITDA. Each FTE assigned to exactly one cost center. Specify margin basis ("X% after direct personnel").
-17. **No inline Python in Bash.** Never `python3 -c "..."` with multiline code — the sandbox flags it. Write code to a temp `.py` file, run it, delete.
-18. **Deliverable type matches content, not label.** If output exceeds ~50 lines or contains multiple sub-analyses, it's NOT a finding — it's a research brief (R) or analysis memo (A). A finding is a single atomic claim. Agents check type at write time; EM verifies when registering.
+6. **Hypothesis tree is continuously updated.** Update `hypotheses.json` after each significant finding, not just at phase gates.
+7. **Decompose on complexity.** For complex analytical tasks, first break them down into sub-tasks, then instruct each agent explicitly: "Break this down step-by-step" or "Think through each component systematically." If a task is too large or combines distinct analytical threads, split it and dispatch the sub-tasks separately to the right teammates rather than overloading one agent.
+8. **Use configured names from `engagement.json`.** Commands use illustrative defaults (Sara, Tom, Lisa, James, Maria, Alex) — always substitute the real names for this engagement.
+9. **Protect against token limits.** Agents save output incrementally — never wait for task completion. Max 2 deliverables per spawn. For High/Very High tasks: outline first, then fill sections sequentially. See `team-management` skill.
+10. **Report depth matches compute.** A report must reflect the work invested. Use multi-file output when appropriate: summary + main report + appendix.
+11. **Document every research question.** Every research brief and analysis memo starts with a clear statement of what is being investigated and why.
+12. **Think big first, constrain later.** When briefs say "think big" or "challenge assumptions", agents explore what's POSSIBLE first, then reality-check with evidence. Probability comes AFTER research, not before.
+13. **Markdown first.** Deliverables are produced in slide-ready Markdown by default (`## Section` → `### Slide Title` → content) — fast and efficient to iterate. The Principal decides the final format: Markdown (for self-built PPT), MARP (for rendered slides), Excel (for models), or PowerPoint. Confirm format with the Principal before producing anything beyond Markdown. Same logic applies to financial models — confirm Markdown / Excel / both.
+14. **Client data is the baseline.** When `project-data/client-data/` has client business plans or financials, agents use those figures — not estimates. 
+15. **No inline Python in Bash.** Never `python3 -c "..."` with multiline code — the sandbox flags it. Write code to a temp `.py` file, run it, delete.
+16. **Deliverable type matches content, not label.** If output exceeds ~50 lines or contains multiple sub-analyses, it's NOT a finding — it's a research brief (R) or analysis memo (A). A finding is a single atomic claim. Agents check type at write time; EM verifies when registering.
 
 ---
 
@@ -157,10 +155,10 @@ Most tasks = 2 loops (draft → review → revise). Simple: 1. Complex: 3+.
 1. Verify all required deliverables present.
 2. Run Review Cascade (see below) — never skip without explicit Principal approval.
 3. Verify all tracking files current.
-4. Rebuild dashboard: `bash ${CLAUDE_PLUGIN_ROOT}/assets/dashboard/build-dashboard.sh project-data`.
+4. **Rebuild dashboard** before proposing the gate: `bash ${CLAUDE_PLUGIN_ROOT}/assets/dashboard/build-dashboard.sh project-data`. The EM never proposes crossing a gate without a freshly regenerated dashboard.
 5. EM presents phase summary; Principal decides: proceed, rework, adjust.
 
-No phase gate without complete checklist, full review cascade, and current tracking files.
+No phase gate without complete checklist, full review cascade, current tracking files, and an up-to-date dashboard.
 
 ---
 
