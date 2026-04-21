@@ -20,14 +20,14 @@ End-to-end strategy consulting team simulation. Multi-agent orchestration with a
 /plugin install mct@dh-claude-plugins
 ```
 
-Details: [`plugins/mct/README.md`](./plugins/mct/README.md).
+Details: [`plugins/management-consulting-team/README.md`](./plugins/management-consulting-team/README.md).
 
 ## Local development
 
 Clone the repo and point Claude Code at the plugin directory directly:
 
 ```shell
-claude --plugin-dir ~/claude-plugins/plugins/mct
+claude --plugin-dir ~/claude-plugins/plugins/management-consulting-team
 ```
 
 Or add the local marketplace and install from it (closer to production install):
@@ -44,7 +44,7 @@ claude-plugins/
 ├── .claude-plugin/
 │   └── marketplace.json       # Marketplace catalog
 ├── plugins/
-│   └── mct/                   # Management consulting team plugin
+│   └── management-consulting-team/   # Management consulting team plugin (/mct:)
 └── README.md
 ```
 
