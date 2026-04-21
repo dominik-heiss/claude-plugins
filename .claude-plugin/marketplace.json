@@ -4,13 +4,12 @@
     "name": "Dominik Heiß"
   },
   "metadata": {
-    "description": "Dominik Heiß's personal marketplace of Claude Code plugins",
-    "pluginRoot": "./plugins"
+    "description": "Dominik Heiß's personal marketplace of Claude Code plugins"
   },
   "plugins": [
     {
       "name": "mct",
-      "source": "management-consulting-team",
+      "source": "./plugins/management-consulting-team",
       "description": "Management consulting team — end-to-end strategy consulting simulation with multi-agent orchestration, hypothesis-driven workflows, review cascades, and professional deliverables.",
       "version": "1.0.0",
       "author": {
