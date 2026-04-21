@@ -1,0 +1,23 @@
+{
+  "name": "dh-claude-plugins",
+  "owner": {
+    "name": "Dominik Heiß"
+  },
+  "metadata": {
+    "description": "Dominik Heiß's personal marketplace of Claude Code plugins",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "mct",
+      "source": "mct",
+      "description": "Management consulting team — end-to-end strategy consulting simulation with multi-agent orchestration, hypothesis-driven workflows, review cascades, and professional deliverables.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Dominik Heiß"
+      },
+      "license": "MIT",
+      "keywords": ["consulting", "strategy", "multi-agent", "hypothesis-driven", "mece"]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+# Claude Code session-local settings
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+*:Zone.Identifier
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python artefacts anywhere in the tree
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/

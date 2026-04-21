@@ -1,0 +1,79 @@
+{
+  "_template": "Finding schema — each key finding is saved as FXXX-[topic].md in project-data/findings/",
+  "_instructions": "Every finding must include all required fields. Optional fields improve traceability.",
+  "schema": {
+    "id": {
+      "type": "string",
+      "pattern": "F[0-9]{3}",
+      "required": true,
+      "description": "Sequential finding ID: F001, F002, ..."
+    },
+    "claim": {
+      "type": "string",
+      "required": true,
+      "description": "The factual claim in one sentence. Specific, measurable where possible.",
+      "example": "The European EV charging market will reach EUR 45B by 2030"
+    },
+    "evidence": {
+      "type": "array",
+      "items": "source_id",
+      "required": true,
+      "description": "Source IDs from source-registry.json. Minimum 2 for high-confidence claims.",
+      "example": ["SRC001", "SRC003"]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["high", "medium", "low"],
+      "required": true,
+      "description": "high: ≥2 independent sources, no conflicts. medium: 1 source or conflicting data resolved. low: single source, proxy estimate, or significant uncertainty."
+    },
+    "so_what": {
+      "type": "string",
+      "required": true,
+      "description": "The implication — what does this finding mean for the project and recommendation?",
+      "example": "Market is large enough to justify entry, but growth is decelerating — timing matters"
+    },
+    "linked_hypotheses": {
+      "type": "array",
+      "items": "hypothesis_id",
+      "required": true,
+      "description": "Hypothesis IDs this finding supports or contradicts",
+      "example": ["H1", "H1a"]
+    },
+    "linked_deliverables": {
+      "type": "array",
+      "items": "string",
+      "required": false,
+      "description": "Slide IDs, section references, analysis memo IDs that reference this finding"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["confirmed", "needs_validation", "contradicted", "superseded"],
+      "required": true,
+      "description": "confirmed: accepted as fact base. needs_validation: used provisionally, flag for verification. contradicted: conflicts with other evidence. superseded: replaced by a newer finding."
+    },
+    "author": {
+      "type": "string",
+      "required": true,
+      "description": "Agent who produced this finding",
+      "example": "Sara (Research Analyst)"
+    },
+    "date": {
+      "type": "string",
+      "format": "YYYY-MM-DD",
+      "required": true
+    }
+  },
+  "_example_finding": {
+    "id": "F001",
+    "claim": "The European EV charging market will reach EUR 45B by 2030",
+    "evidence": ["SRC001", "SRC003"],
+    "confidence": "medium",
+    "so_what": "Market is large enough to justify dedicated infrastructure investment, but CAGR is decelerating from 15% to 8% — growth premium window is closing",
+    "linked_hypotheses": ["H1", "H1a"],
+    "linked_deliverables": ["slide-7", "A001-issue-tree"],
+    "status": "needs_validation",
+    "author": "Sara (Research Analyst)",
+    "date": "2026-03-05"
+  }
+}

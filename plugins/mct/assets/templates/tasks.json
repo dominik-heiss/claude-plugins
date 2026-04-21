@@ -1,0 +1,22 @@
+{
+  "_template": "tasks.json — copy to project-data/ at engagement start. EM creates tasks before spawning agents; agents update status via EM after each loop.",
+  "tasks": [
+    {
+      "_example": true,
+      "id": "T001",
+      "workstream": "WS1",
+      "description": "Market sizing — European heat pump market",
+      "assigned_to": "[agent name from engagement.json]",
+      "role": "research-analyst",
+      "status": "pending",
+      "loops": 2,
+      "compute": "High",
+      "output_file": "project-data/research/R001-market-sizing-V01.md",
+      "created": "2026-04-05",
+      "completed": null,
+      "notes": ""
+    }
+  ],
+  "_status_values": ["pending", "in-progress", "review", "done"],
+  "_roles": ["research-analyst", "business-analyst", "slide-architect", "qa-reviewer", "financial-modeler", "partner-advisor", "client-lens", "ad-hoc"]
+}

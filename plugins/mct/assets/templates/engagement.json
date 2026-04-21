@@ -1,0 +1,98 @@
+{
+  "_template": "engagement.json — copy to project-data/ when starting a new engagement",
+  "name": "Market Entry Strategy — [Company] into [Market]",
+  "core_question": "Should [Company] enter [Market], and if so, how?",
+  "status": "active",
+  "phase": "0-scoping",
+  "autonomy_level": "standard",
+  "start_date": "2026-03-04",
+  "client": {
+    "description": "[Brief description of the company and its current situation]",
+    "industry": "[Primary industry]",
+    "stakeholders": [
+      {
+        "name": "[Name or title]",
+        "role": "Decision Maker",
+        "influence": "high",
+        "interest": "high"
+      }
+    ]
+  },
+  "constraints": {
+    "timeline": "[e.g., 8 weeks]",
+    "budget": null,
+    "data_limitations": "[Any known data gaps or access restrictions]",
+    "sensitive_topics": "[Any topics to handle carefully]"
+  },
+  "_team_note": "Team composition is configured per engagement during /mct:start-engagement. Backgrounds are tuned to the engagement type (M&A, market entry, ops improvement, etc.). These defaults are fallbacks only.",
+  "team": {
+    "core": [
+      {
+        "agent": "research-analyst",
+        "name": "Sara",
+        "background": "CONFIGURE PER ENGAGEMENT — e.g. 'Ex-Goldman Sachs, 10 years M&A due diligence' for M&A, 'Ex-McKinsey, 8 years tech strategy' for tech market entry",
+        "style": "CONFIGURE PER ENGAGEMENT — e.g. 'Skeptical of projections, stress-tests market sizing'"
+      },
+      {
+        "agent": "business-analyst",
+        "name": "Tom",
+        "background": "CONFIGURE PER ENGAGEMENT — e.g. 'Ex-BCG Digital Ventures, 6 years platform strategy' for digital, 'Ex-McKinsey ops practice, 7 years Lean/TOM' for ops improvement",
+        "style": "CONFIGURE PER ENGAGEMENT"
+      },
+      {
+        "agent": "slide-architect",
+        "name": "Lisa",
+        "background": "CONFIGURE PER ENGAGEMENT — e.g. 'Ex-Bain, 5 years investor presentations' for M&A, 'Ex-BCG, 6 years board-level strategy decks' for corporate strategy",
+        "style": "CONFIGURE PER ENGAGEMENT"
+      },
+      {
+        "agent": "qa-reviewer",
+        "name": "James",
+        "background": "CONFIGURE PER ENGAGEMENT — e.g. 'Ex-AlixPartners, 12 years restructuring QA' for ops, 'Ex-Oliver Wyman, 10 years financial services' for FS engagements",
+        "style": "CONFIGURE PER ENGAGEMENT"
+      }
+    ],
+    "specialists": [
+      {
+        "_note": "Add specialists as needed. Common: partner-advisor, financial-modeler, client-lens",
+        "agent": "partner-advisor",
+        "name": "Maria",
+        "background": "CONFIGURE PER ENGAGEMENT — default: Ex-McKinsey Senior Partner, 22 years across 6 industries",
+        "style": "CONFIGURE PER ENGAGEMENT"
+      },
+      {
+        "agent": "financial-modeler",
+        "name": "Alex",
+        "background": "CONFIGURE PER ENGAGEMENT — default: Ex-Lazard, 8 years financial modeling and valuation",
+        "style": "CONFIGURE PER ENGAGEMENT"
+      },
+      {
+        "agent": "client-lens",
+        "name": null,
+        "_note": "Client Lens identity comes from client_lens config below, not from team entry"
+      }
+    ]
+  },
+  "extended_team": [],
+  "_extended_team_note": "Ad-hoc specialists spawned during the engagement. Register here before or immediately after spawning. Format: { agent: 'ad-hoc', name, role, background, task, session }",
+  "client_lens": [
+    {
+      "id": "CL1",
+      "role": "CEO",
+      "name": null,
+      "priorities": ["Growth", "Market position", "Shareholder value"],
+      "style": "Visionary, impatient with detail, wants the big picture",
+      "concerns": ["Execution risk", "Board communication"]
+    }
+  ],
+  "model_overrides": {
+    "_note": "Override model per agent role. Default is sonnet for all agents. Use opus for high-stakes reviews, haiku for lightweight tasks.",
+    "partner-advisor": "opus"
+  },
+  "output_preferences": {
+    "intermediate_format": "markdown",
+    "financial_model_format": "ASK PRINCIPAL — markdown tables, Excel (openpyxl), or both",
+    "deliverable_format": "pptx",
+    "report_format": "markdown"
+  }
+}

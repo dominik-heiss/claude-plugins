@@ -1,0 +1,107 @@
+{
+  "_template": "hypotheses.json — copy to project-data/ and populate during Phase 0 scoping",
+  "core_question": "Should [Company] enter [Market], and if so, how?",
+  "hypotheses": [
+    {
+      "id": "H1",
+      "statement": "The market is large enough and growing fast enough to justify entry",
+      "status": "testing",
+      "priority": "critical",
+      "evidence_for": [],
+      "evidence_against": [],
+      "confidence": "low",
+      "refinement": null,
+      "last_updated": "2026-03-04",
+      "sub_hypotheses": [
+        {
+          "id": "H1a",
+          "statement": "Total addressable market exceeds EUR [X]B",
+          "status": "testing",
+          "priority": "critical",
+          "evidence_for": [],
+          "evidence_against": [],
+          "confidence": "low"
+        },
+        {
+          "id": "H1b",
+          "statement": "Market is growing at >5% CAGR with structural tailwinds",
+          "status": "testing",
+          "priority": "high",
+          "evidence_for": [],
+          "evidence_against": [],
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "id": "H2",
+      "statement": "[Company] can achieve a defensible competitive position",
+      "status": "testing",
+      "priority": "critical",
+      "evidence_for": [],
+      "evidence_against": [],
+      "confidence": "low",
+      "refinement": null,
+      "last_updated": "2026-03-04",
+      "sub_hypotheses": [
+        {
+          "id": "H2a",
+          "statement": "[Company] has a differentiated value proposition vs. incumbents",
+          "status": "testing",
+          "priority": "critical",
+          "evidence_for": [],
+          "evidence_against": [],
+          "confidence": "low"
+        },
+        {
+          "id": "H2b",
+          "statement": "[Company] has or can acquire the capabilities needed to compete",
+          "status": "testing",
+          "priority": "high",
+          "evidence_for": [],
+          "evidence_against": [],
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "id": "H3",
+      "statement": "The economics of entry are attractive on a risk-adjusted basis",
+      "status": "testing",
+      "priority": "high",
+      "evidence_for": [],
+      "evidence_against": [],
+      "confidence": "low",
+      "refinement": null,
+      "last_updated": "2026-03-04",
+      "sub_hypotheses": [
+        {
+          "id": "H3a",
+          "statement": "NPV is positive under base-case assumptions",
+          "status": "testing",
+          "priority": "high",
+          "evidence_for": [],
+          "evidence_against": [],
+          "confidence": "low"
+        },
+        {
+          "id": "H3b",
+          "statement": "Entry mode (organic / JV / acquisition) is accessible and optimal",
+          "status": "testing",
+          "priority": "high",
+          "evidence_for": [],
+          "evidence_against": [],
+          "confidence": "low"
+        }
+      ]
+    }
+  ],
+  "critical_path": ["H1a", "H2a"],
+  "last_updated": "2026-03-04",
+  "_status_vocabulary": {
+    "testing": "Evidence gathering in progress — no conclusion yet",
+    "confirmed": "Strong evidence (≥2 independent sources) supports hypothesis as stated",
+    "refined": "Hypothesis partially correct — statement updated, ID preserved",
+    "rejected": "Evidence contradicts hypothesis — see refinement field for replacement"
+  }
+}
