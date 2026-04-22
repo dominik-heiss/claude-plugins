@@ -11,7 +11,7 @@
       "name": "mct",
       "source": "./plugins/management-consulting-team",
       "description": "Management consulting team — end-to-end strategy consulting simulation with multi-agent orchestration, hypothesis-driven workflows, review cascades, and professional deliverables.",
-      "version": "1.0.0",
+      "version": "1.20260422",
       "author": {
         "name": "Dominik Heiß"
       },
