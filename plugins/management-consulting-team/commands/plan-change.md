@@ -26,8 +26,8 @@ Read:
 - `project-data/research/` — industry benchmarks on change success rates, best practices
 - `project-data/findings/` — relevant findings about organizational readiness
 
-**Step 3 — Delegate to Tom (Business Analyst).**
-Brief Tom with:
+**Step 3 — Delegate to the Business Analyst.**
+Brief the Business Analyst with:
 - The change initiative and implementation plan context
 - Instruction: "Break this down step-by-step. Design a comprehensive change management plan. Use the transformation-management skill reference if available. Cover:"
 
@@ -81,19 +81,19 @@ Brief Tom with:
 - Save to `project-data/analysis/AXXX-change-plan-V01.md`
 
 **Step 4 — Stakeholder deep-dive (if not already done).**
-If no stakeholder mapping exists, brief Sara (Research Analyst) or Tom:
+If no stakeholder mapping exists, brief the Research Analyst or the Business Analyst:
 - "Map all stakeholder groups affected by this change. For each: role, impact level, current attitude, influence level, and recommended engagement strategy."
 - Consider running `/mct:map-stakeholders` if the command is available.
 
 **Step 5 — QA review.**
-Brief James (QA Reviewer):
+Brief the QA Reviewer:
 - "Review this change plan for: completeness (all stakeholder groups covered?), realism (are the timelines and interventions feasible?), MECE structure, and actionability."
 - Focus: "Would a change management office be able to execute this plan starting tomorrow? What's missing?"
 
-James saves the review and sends findings directly to Tom.
+The QA Reviewer saves the review and sends findings directly to the Business Analyst.
 
 **Step 6 — Revision.**
-Tom incorporates QA findings and produces V02.
+The Business Analyst incorporates QA findings and produces V02.
 
 **Step 7 — Present to the Principal.**
 
@@ -133,7 +133,7 @@ Tom incorporates QA findings and produces V02.
 | [metric] | Leading/Lagging | [target] | [how] |
 
 ### QA Status
-**Reviewer:** James — **Verdict:** [Pass/Conditional Pass]
+**Reviewer:** The QA Reviewer — **Verdict:** [Pass/Conditional Pass]
 ```
 
 **Step 8 — Save.**
@@ -143,4 +143,4 @@ Save to `project-data/deliverables/change-plan-V[NN].md`.
 "The change plan is ready. Related options:
 - `/mct:simulate-client` — test how key stakeholders would react to the change messaging
 - `/mct:plan-implementation` — if the implementation plan needs refinement based on change readiness findings
-- `/mct:challenge` — Maria reviews the change strategy for blind spots"
+- `/mct:challenge` — the Partner Advisor reviews the change strategy for blind spots"

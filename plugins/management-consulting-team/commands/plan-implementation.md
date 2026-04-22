@@ -27,8 +27,8 @@ Read:
 - `project-data/research/` — benchmarks, industry practices for implementation
 - `project-data/findings/` — key findings that inform implementation design
 
-**Step 3 — Delegate to Tom (Business Analyst).**
-Brief Tom with:
+**Step 3 — Delegate to the Business Analyst.**
+Brief the Business Analyst with:
 - The approved recommendation and its evidence base
 - All available context from Step 2
 - Instruction: "Break this down step-by-step. Design a comprehensive implementation plan covering:"
@@ -46,19 +46,19 @@ Brief Tom with:
 - Save to `project-data/analysis/AXXX-implementation-plan-V01.md`
 
 **Step 4 — Delegate dependency mapping (if complex).**
-If the implementation involves 4+ workstreams with interdependencies, brief a second analyst or Tom separately:
+If the implementation involves 4+ workstreams with interdependencies, brief a second analyst or the Business Analyst separately:
 - "Map the critical path and dependencies between workstreams. Identify: parallel vs. sequential work, bottleneck resources, and the minimum viable sequence."
 - Save to `project-data/analysis/AXXX-implementation-dependencies-V01.md`
 
 **Step 5 — QA review.**
-Brief James (QA Reviewer):
+Brief the QA Reviewer:
 - "Review this implementation plan for: MECE coverage (are we missing any workstream?), realistic phasing, clear dependencies, measurable milestones, and actionable quick wins."
 - Focus: "Could a client PMO execute this plan? Is anything vague, missing, or unrealistic?"
 
-James saves the review and sends findings directly to Tom.
+The QA Reviewer saves the review and sends findings directly to the Business Analyst.
 
 **Step 6 — Revision.**
-Tom incorporates QA findings and produces V02.
+The Business Analyst incorporates QA findings and produces V02.
 
 **Step 7 — Present to the Principal.**
 
@@ -112,7 +112,7 @@ Tom incorporates QA findings and produces V02.
 [Decision rights, escalation, reporting cadence]
 
 ### QA Status
-**Reviewer:** James — **Verdict:** [Pass/Conditional Pass]
+**Reviewer:** The QA Reviewer — **Verdict:** [Pass/Conditional Pass]
 ```
 
 **Step 8 — Save.**
@@ -122,4 +122,4 @@ Save to `project-data/deliverables/implementation-plan-V[NN].md`.
 "The implementation plan is ready. Related next steps:
 - `/mct:plan-change` — design the change management approach for this implementation
 - `/mct:design-org` — if the implementation requires organizational restructuring
-- `/mct:challenge` — Maria stress-tests whether this plan will survive client scrutiny"
+- `/mct:challenge` — the Partner Advisor stress-tests whether this plan will survive client scrutiny"

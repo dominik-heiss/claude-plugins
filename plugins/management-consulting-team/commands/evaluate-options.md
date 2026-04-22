@@ -43,7 +43,7 @@ Present:
 
 Ask: "Does this framework capture the right decision dimensions? Any criteria to add or adjust?"
 
-**Step 4 — Delegate to Tom (Business Analyst).**
+**Step 4 — Delegate to the Business Analyst.**
 Brief the Business Analyst with:
 - The confirmed options, criteria, weights, and scoring scale
 - All available evidence (point to specific files in research/, analysis/, findings/)

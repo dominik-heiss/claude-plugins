@@ -88,10 +88,10 @@ Based on report type, propose a structure:
 
 Present the structure to the Principal: "Here's the proposed report structure. Shall I adjust the emphasis or sections?"
 
-**Step 5 — Delegate drafting to Lisa (Slide Architect).**
+**Step 5 — Delegate drafting to the Slide Architect.**
 Brief the Slide Architect with:
 - The confirmed report structure
-- All source material (point to specific files — do not summarize, let Lisa read the originals)
+- All source material (point to specific files — do not summarize, let the Slide Architect read the originals)
 - The audience profile and their priorities
 - The governing thought (from storyline if available, or from hypothesis tree)
 - Tone and style guidance: "Write for [audience]. [Formal/direct/analytical] tone."
@@ -124,13 +124,13 @@ Review and let me know what to adjust."
 **Step 8 — Revision cycle.**
 On Principal feedback:
 - Incorporate changes and save as next version (V02, V03, etc.) — do not overwrite prior versions
-- If changes are substantive: re-delegate to Lisa with specific revision instructions
+- If changes are substantive: re-delegate to the Slide Architect with specific revision instructions
 - If changes are minor: make edits directly
 
 **Step 9 — QA review.**
 Once the Principal is satisfied with the content:
-- Route to QA Reviewer (James) for quality review
-- James reviews per the standard 6-check framework
+- Route to the QA Reviewer for quality review
+- The QA Reviewer reviews per the standard 6-check framework
 - Incorporate critical and major findings
 - Save final version
 

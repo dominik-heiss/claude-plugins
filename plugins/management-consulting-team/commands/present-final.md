@@ -39,7 +39,7 @@ Based on `$ARGUMENTS` and project state, confirm:
 Present to Principal: "Building the final deck as a [format] for [audience], targeting [N] slides, output as [Markdown wireframe / MARP → PDF]. The governing thought is: '[statement]'. Confirm?"
 
 **Step 3 — Assemble the content package.**
-The EM builds the complete content brief for Lisa:
+The EM builds the complete content brief for the Slide Architect:
 
 1. **Governing thought** — from the approved storyline
 2. **Narrative opening** — SCR or direct, from the storyline
@@ -49,8 +49,8 @@ The EM builds the complete content brief for Lisa:
 6. **Risk assessment** — honest risks with mitigations
 7. **Appendix material** — detailed data, methodology, sensitivity analyses, competitor profiles
 
-**Step 4 — Delegate to Lisa (Slide Architect).**
-Brief Lisa:
+**Step 4 — Delegate to the Slide Architect.**
+Brief the Slide Architect:
 - The complete content package
 - The approved storyline structure (file path)
 - Audience profile and format requirements
@@ -71,21 +71,21 @@ Brief Lisa:
 **Step 5 — Full review cascade.**
 Run in sequence — do not skip steps:
 
-**5a. QA Review (James)**
+**5a. QA Review (the QA Reviewer)**
 - Full 6-check review: logic, MECE, sources, so-what, devil's advocate, numerical plausibility
-- James saves review and sends findings directly to Lisa
-- Lisa produces V02 addressing critical and major findings
+- The QA Reviewer saves review and sends findings directly to the Slide Architect
+- The Slide Architect produces V02 addressing critical and major findings
 
-**5b. Partner Review (Maria)**
+**5b. Partner Review (the Partner Advisor)**
 - Strategic sharpness: Is the recommendation clear and defensible?
 - Governing thought: Does it answer the core question?
 - Client readiness: Would this survive a hostile boardroom?
-- Maria saves review; Lisa incorporates and produces V03 if needed
+- The Partner Advisor saves review; the Slide Architect incorporates and produces V03 if needed
 
 **5c. Client Lens Simulation (if configured)**
 - Run the presentation through the configured client persona(s)
 - Test buy-in probability, likely objections, political dynamics
-- Adjust framing based on simulation results; Lisa produces V04 if needed
+- Adjust framing based on simulation results; the Slide Architect produces V04 if needed
 
 **Step 6 — Present the final deck to the Principal.**
 
@@ -107,8 +107,8 @@ Slide 3: [Situation — action title]
 ...
 
 ### Review Summary
-**QA (James):** [Verdict] — [Key finding if any]
-**Partner (Maria):** [Verdict] — [Key finding if any]
+**QA (the QA Reviewer):** [Verdict] — [Key finding if any]
+**Partner (the Partner Advisor):** [Verdict] — [Key finding if any]
 **Client Lens:** [Buy-in probability] — [Key adjustment made]
 
 ### Presenter Notes
@@ -120,7 +120,7 @@ Slide 3: [Situation — action title]
 
 **Step 7 — Principal decision.**
 - **Approved:** "Deck is ready. The file is at [path]. Want me to prepare presenter notes or a rehearsal brief?"
-- **Revisions needed:** Assign to Lisa, re-run affected review steps (not the full cascade unless the revision is structural).
+- **Revisions needed:** Assign to the Slide Architect, re-run affected review steps (not the full cascade unless the revision is structural).
 - **Major rework:** Identify what changed, propose which work loops to re-run.
 
 **Step 8 — Save final version.**

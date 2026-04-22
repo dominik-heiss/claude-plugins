@@ -32,8 +32,8 @@ Based on `$ARGUMENTS` and the project state, determine:
 
 Present the narrative frame to the Principal: "The steerco message is: '[key message]'. We need decisions on [X, Y]. Does this frame the right conversation?"
 
-**Step 3 — Synthesize content for Lisa.**
-Before delegating to Lisa, the EM builds the content package:
+**Step 3 — Synthesize content for the Slide Architect.**
+Before delegating to the Slide Architect, the EM builds the content package:
 
 1. **Progress summary** — Where are we vs. plan? (From workstreams.json)
 2. **Key findings** — Top 3-5 findings with evidence and implications (from findings/)
@@ -43,8 +43,8 @@ Before delegating to Lisa, the EM builds the content package:
 6. **Decisions needed** — What the steerco must decide
 7. **Next steps** — What happens after the steerco decisions
 
-**Step 4 — Delegate to Lisa (Slide Architect).**
-Brief Lisa:
+**Step 4 — Delegate to the Slide Architect.**
+Brief the Slide Architect:
 - The complete content package from Step 3
 - The audience profile and what they care about
 - The narrative opening pattern: SCR (Situation-Complication-Resolution) for decision steercos, direct for progress updates
@@ -64,14 +64,14 @@ Brief Lisa:
   - **MARP (if `--marp` in `$ARGUMENTS`):** load the `marp-presentation` skill; use the `consulting.css` theme; save to `project-data/deliverables/presentations/PXXX-steerco-[topic]/PXXX-steerco-[topic]-V01.md` (next P-ID from `document-registry.json`); register in the document registry; after QA, run `/mct:marp-export` to produce the PDF
 
 **Step 5 — QA review.**
-Before presenting to the Principal, brief James (QA Reviewer):
+Before presenting to the Principal, brief the QA Reviewer:
 - Review the steerco deck for: logical flow, MECE structure, source coverage, action title quality, and numerical plausibility
 - Focus areas: "Are the findings properly sourced? Do the action titles tell a coherent story? Are the decisions framed as actionable asks?"
 
-James saves his review and sends findings directly to Lisa for immediate fixes.
+The QA Reviewer saves the review and sends findings directly to the Slide Architect for immediate fixes.
 
 **Step 6 — Revision.**
-Lisa incorporates QA findings and produces V02. If critical findings existed, James does a targeted re-review of the affected slides.
+The Slide Architect incorporates QA findings and produces V02. If critical findings existed, the QA Reviewer does a targeted re-review of the affected slides.
 
 **Step 7 — Present to the Principal.**
 
@@ -92,7 +92,7 @@ Slide 2: [Progress — action title]
 ...
 
 ### QA Status
-**Reviewer:** James — **Verdict:** [Pass/Conditional Pass]
+**Reviewer:** The QA Reviewer — **Verdict:** [Pass/Conditional Pass]
 [Summary of any open findings]
 
 ### Talking Points
@@ -103,7 +103,7 @@ Slide 2: [Progress — action title]
 ```
 
 **Step 8 — Offer Partner review.**
-"The steerco deck is ready and QA-reviewed. Recommend Maria (Partner Advisor) does a strategic review before presenting — want to run `/mct:challenge` on this?"
+"The steerco deck is ready and QA-reviewed. Recommend the Partner Advisor does a strategic review before presenting — want to run `/mct:challenge` on this?"
 
 **Step 9 — Save.**
 Final version saved to `project-data/deliverables/steerco-[topic]-V[NN].md`.

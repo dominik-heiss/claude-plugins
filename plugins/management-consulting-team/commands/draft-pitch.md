@@ -39,8 +39,8 @@ Before delegating, define the narrative arc for the Principal:
 
 Does this framing resonate, or should I adjust the angle?"
 
-**Step 4 — Delegate to Lisa (Slide Architect).**
-Brief Lisa with:
+**Step 4 — Delegate to the Slide Architect.**
+Brief the Slide Architect with:
 - The narrative arc from Step 3
 - All available context (client intel, proposal, RFP analysis)
 - Required deck structure:
@@ -60,14 +60,14 @@ Brief Lisa with:
 - Save to `project-data/deliverables/pitch-deck-V01.md`
 
 **Step 5 — QA review.**
-Brief James (QA Reviewer):
+Brief the QA Reviewer:
 - "Review this pitch deck for: narrative coherence, action title quality, specificity (no generic slides), persuasiveness, and flow."
 - Focus: "If you were the client, would you take the next meeting? What's the weakest slide?"
 
-James saves the review and sends findings directly to Lisa.
+The QA Reviewer saves the review and sends findings directly to the Slide Architect.
 
 **Step 6 — Revision.**
-Lisa incorporates QA findings and produces V02.
+The Slide Architect incorporates QA findings and produces V02.
 
 **Step 7 — Present to the Principal.**
 
@@ -92,7 +92,7 @@ Slide 3: [Why now — action title]
 ...
 
 ### QA Status
-**Reviewer:** James — **Verdict:** [Pass/Conditional Pass]
+**Reviewer:** The QA Reviewer — **Verdict:** [Pass/Conditional Pass]
 [Summary of any open findings]
 
 ### Talking Points
@@ -103,7 +103,7 @@ Slide 3: [Why now — action title]
 ```
 
 **Step 8 — Offer Partner review.**
-"The pitch deck is QA-reviewed. Want Maria (Partner Advisor) to stress-test the strategic positioning before the meeting? Run `/mct:challenge`."
+"The pitch deck is QA-reviewed. Want the Partner Advisor to stress-test the strategic positioning before the meeting? Run `/mct:challenge`."
 
 **Step 9 — Save.**
 Final version saved to `project-data/deliverables/pitch-deck-V[NN].md`.

@@ -40,8 +40,8 @@ Present to the Principal:
 
 Does this structure work, or should I adjust?"
 
-**Step 3 — Delegate the narrative to Lisa (Slide Architect).**
-Brief Lisa with:
+**Step 3 — Delegate the narrative to the Slide Architect.**
+Brief the Slide Architect with:
 - The proposal structure from Step 2
 - All available context (RFP analysis, client intel, engagement context)
 - Instruction: "Use executive-storylining principles. The proposal must answer four questions in order: Why act? Why now? Why this approach? Why us?"
@@ -51,16 +51,16 @@ Brief Lisa with:
 - Save to `project-data/deliverables/proposal-V01.md`
 
 **Step 4 — Delegate supporting content.**
-If needed, brief Tom (Business Analyst) in parallel:
+If needed, brief the Business Analyst in parallel:
 - "Structure the proposed approach section. Break the engagement into phases and workstreams with clear deliverables per phase. Make it specific to the client's situation — no generic methodology diagrams."
 - Save to `project-data/analysis/AXXX-proposal-approach-V01.md`
 
-If client research is thin, brief Sara (Research Analyst):
+If client research is thin, brief the Research Analyst:
 - "Research [client name]: strategic priorities, recent announcements, competitive position, known challenges. We need to demonstrate deep understanding of their situation in the proposal."
 - Save to `project-data/research/RXXX-proposal-client-context-V01.md`
 
 **Step 5 — Assemble the proposal.**
-Once Lisa delivers the draft:
+Once the Slide Architect delivers the draft:
 1. Review for completeness against the structure
 2. Verify the narrative flows: situation → complication → resolution → approach → proof
 3. Check that the executive summary is standalone and compelling
@@ -68,14 +68,14 @@ Once Lisa delivers the draft:
 5. Verify the team section names real roles with relevant credentials
 
 **Step 6 — QA review.**
-Brief James (QA Reviewer):
+Brief the QA Reviewer:
 - "Review this proposal for: logical flow, specificity (no generic boilerplate), client-centricity (is it about them or about us?), completeness against the RFP requirements, and competitive positioning."
 - Focus: "Would you award this proposal the contract? What's the weakest section?"
 
-James saves the review and sends findings directly to Lisa.
+The QA Reviewer saves the review and sends findings directly to the Slide Architect.
 
 **Step 7 — Revision.**
-Lisa incorporates QA findings and produces V02.
+The Slide Architect incorporates QA findings and produces V02.
 
 **Step 8 — Present to the Principal.**
 
@@ -96,7 +96,7 @@ Lisa incorporates QA findings and produces V02.
 [How this proposal differentiates from likely competitors]
 
 ### QA Status
-**Reviewer:** James — **Verdict:** [Pass/Conditional Pass]
+**Reviewer:** The QA Reviewer — **Verdict:** [Pass/Conditional Pass]
 [Summary of any open findings]
 
 ### Gaps / Decisions Needed
@@ -108,6 +108,6 @@ Final version saved to `project-data/deliverables/proposal-V[NN].md`.
 
 **Step 10 — Offer follow-up.**
 "The proposal is ready for your review. Options:
-- `/mct:challenge` — Maria stress-tests the strategic positioning
+- `/mct:challenge` — the Partner Advisor stress-tests the strategic positioning
 - Finalize pricing and team details for submission
 - Create a pitch deck companion with `/mct:draft-pitch`"

@@ -21,12 +21,12 @@ Read `project-data/hypotheses.json` (if it exists), `project-data/engagement.jso
 - Otherwise: do a general update reviewing all hypotheses against current evidence
 
 **Step 3 — If building from scratch:**
-Delegate to Tom (Business Analyst) to build the initial issue tree. Brief him:
+Delegate to the Business Analyst to build the initial issue tree. Brief with:
 - The core question from `engagement.json`
 - Key context and constraints
 - Any initial hypotheses the Principal mentioned during scoping
 
-Ask Tom to:
+Ask the Business Analyst to:
 1. Decompose the core question into 2-4 MECE top-level hypotheses
 2. Add 2-3 sub-hypotheses per top-level hypothesis
 3. Flag the critical path (which 2-3 hypotheses drive 80% of the answer)

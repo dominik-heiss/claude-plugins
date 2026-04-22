@@ -34,16 +34,16 @@ Before delegating, structure the analysis:
 
 Present the framework to the Principal: "Here's the benchmarking structure — [N] peers across [M] dimensions. Does this capture the right comparison?"
 
-**Step 4 — Delegate research to Sara (Research Analyst).**
-Brief Sara:
+**Step 4 — Delegate research to the Research Analyst.**
+Brief the Research Analyst:
 - The peer set and selection rationale
 - The specific KPIs and data points to collect per peer
 - Source quality expectations: public financials, annual reports, analyst reports, industry databases
 - Instruction to flag data gaps honestly: "If data is unavailable for a peer/dimension, say so — don't estimate without flagging it"
 - Register all sources in source-registry.json
 
-**Step 5 — Delegate analysis to Tom (Business Analyst).**
-Brief Tom with Sara's research output:
+**Step 5 — Delegate analysis to the Business Analyst.**
+Brief the Business Analyst with the Research Analyst's research output:
 - Build the comparison matrix
 - Calculate performance gaps (client vs. peer average, client vs. best-in-class)
 - Identify patterns: where does the client lead, where does it lag, where is it average?
@@ -98,7 +98,7 @@ Format:
 
 **Step 7 — Save.**
 Save the benchmarking analysis to `project-data/analysis/AXXX-benchmark-[topic]-V01.md`.
-If Sara produced supporting research: save to `project-data/research/RXXX-benchmark-data-[topic]-V01.md`.
+If the Research Analyst produced supporting research: save to `project-data/research/RXXX-benchmark-data-[topic]-V01.md`.
 
 **Step 8 — Update hypotheses.**
 Propose hypothesis status updates based on benchmarking findings. Confirm with Principal before writing to `hypotheses.json`.

@@ -33,22 +33,22 @@ Test the governing thought:
 
 Present the governing thought to the Principal: "Based on our analysis, the governing thought is: '[statement]'. This says [X] because [Y] and [Z]. Does this capture the right conclusion?"
 
-**Step 3 — Delegate storyline to Lisa (Slide Architect).**
-Brief Lisa:
+**Step 3 — Delegate storyline to the Slide Architect.**
+Brief the Slide Architect:
 - The confirmed governing thought
 - All confirmed findings and analysis (point to specific files)
 - The audience (who are they, what do they care about, what's their background?)
 - The format required (steerco deck, interim update, final presentation?)
 - Any known concerns from the client stakeholder profile in `engagement.json`
 
-Ask Lisa to:
+Ask the Slide Architect to:
 1. Develop 3-5 key line items that support the governing thought (MECE)
 2. Assign findings and analysis to each key line item
 3. Propose a slide-by-slide structure (wireframe — not yet full slides)
 4. Recommend the narrative opening pattern (SCR vs. direct vs. action-oriented)
 5. Save the storyline to `project-data/deliverables/storyline-v1.md`
 
-**Step 4 — EM reviews Lisa's storyline.**
+**Step 4 — EM reviews the Slide Architect's storyline.**
 Before presenting, check:
 - Does each key line item directly support the governing thought?
 - Are the key line items MECE? (No overlap, no major gap)
@@ -103,8 +103,8 @@ Format:
 
 **Step 7 — On confirmation:**
 - Update `project-data/deliverables/storyline-v1.md`
-- Proceed to deck build: "Storyline approved. Lisa is ready to build the full slide wireframes. Shall I proceed, or do you want to review the storyline with your team first?"
+- Proceed to deck build: "Storyline approved. The Slide Architect is ready to build the full slide wireframes. Shall I proceed, or do you want to review the storyline with your team first?"
 
 **Step 8 — Request QA review of the storyline** before deck building.
-Brief James (QA Reviewer): "Review storyline-v1.md for logical flow, MECE structure, and completeness of evidence coverage."
+Brief the QA Reviewer: "Review storyline-v1.md for logical flow, MECE structure, and completeness of evidence coverage."
 Incorporate QA findings before starting the deck.

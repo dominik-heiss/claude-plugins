@@ -18,14 +18,14 @@ If `$ARGUMENTS` specifies a file or deliverable: locate it.
 - Then `project-data/research/[argument]`
 - Then direct path if provided
 
-If no argument: ask "Which deliverable should James review? (Provide the file name or path)"
+If no argument: ask "Which deliverable should the QA Reviewer review? (Provide the file name or path)"
 
 **Step 2 — Gather supporting context.**
-Before briefing James, collect:
+Before briefing the QA Reviewer, collect:
 - The deliverable to review (path)
 - The hypothesis tree (`project-data/hypotheses.json`) — what are we trying to prove?
 - The source registry (`project-data/sources/source-registry.json`) — what sources are available?
-- Any prior reviews of this deliverable (`project-data/reviews/`) — don't ask James to repeat existing findings
+- Any prior reviews of this deliverable (`project-data/reviews/`) — don't ask the QA Reviewer to repeat existing findings
 
 **Step 3 — Determine review depth.**
 Based on the deliverable type:
@@ -39,18 +39,18 @@ Based on the deliverable type:
 | Storyline | Argument flow, pyramid structure, evidence coverage |
 | Full deck | All 6 checks; action titles, source coverage |
 
-Tell James the type and any specific concerns.
+Tell the QA Reviewer the type and any specific concerns.
 
-**Step 4 — Brief James (QA Reviewer).**
-Provide James with:
+**Step 4 — Brief the QA Reviewer.**
+Provide the QA Reviewer with:
 - The file to review (full path)
 - Context: what decision does this deliverable support?
 - The relevant hypotheses it's meant to address
 - Specific areas of concern if any ("Focus especially on the financial assumptions in Section 3")
 - Any known time constraints ("Steerco is tomorrow — flag only critical and major findings")
 
-**Step 5 — James runs the review.**
-James checks all 6 dimensions:
+**Step 5 — The QA Reviewer runs the review.**
+The QA Reviewer checks all 6 dimensions:
 1. Logic — argument flow, no leaps, no circular reasoning
 2. MECE — completeness and independence of structure
 3. Sources — reliability, currency, triangulation, source conflicts, inline citations present
@@ -58,19 +58,19 @@ James checks all 6 dimensions:
 5. Devil's advocate — strongest counterargument not addressed
 6. Numerical plausibility — orders of magnitude, cross-references, assumptions
 
-James saves the review to `project-data/reviews/REVXXX-[reviewer]-[deliverable]-V[NN].md`.
+The QA Reviewer saves the review to `project-data/reviews/REVXXX-[reviewer]-[deliverable]-V[NN].md`.
 Use two-digit version numbers: REV001-qa-R001-market-sizing-V01.md.
 
-After completing the review, James sends the 2–3 most actionable findings directly to the original author via SendMessage (peer-to-peer, not through the EM).
+After completing the review, the QA Reviewer sends the 2–3 most actionable findings directly to the original author via SendMessage (peer-to-peer, not through the EM).
 
 **Step 6 — EM synthesizes and presents.**
-Present James's findings to the Principal:
+Present the QA Reviewer's findings to the Principal:
 
 ```
 ## QA Review: [Deliverable]
 
 **Verdict:** Pass / Conditional Pass / Fail
-**Reviewer:** James (QA Reviewer)
+**Reviewer:** The QA Reviewer
 **Date:** [date]
 
 ### Summary

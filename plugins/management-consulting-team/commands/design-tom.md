@@ -28,8 +28,8 @@ Read:
 - `project-data/deliverables/org-design-*.md` — if an org design exists, the TOM must align
 - `project-data/findings/` — relevant findings about current operations
 
-**Step 3 — Delegate current state assessment to Tom (Business Analyst).**
-Brief Tom with:
+**Step 3 — Delegate current state assessment to the Business Analyst.**
+Brief the Business Analyst with:
 - The TOM scope and drivers
 - Any available documentation
 - Instruction: "Break this down step-by-step. Assess the current operating model across six dimensions:"
@@ -43,13 +43,13 @@ Brief Tom with:
 
 - Save to `project-data/analysis/AXXX-tom-current-state-V01.md`
 
-**Step 4 — Delegate benchmarking to Sara (Research Analyst).**
-Brief Sara in parallel:
+**Step 4 — Delegate benchmarking to the Research Analyst.**
+Brief the Research Analyst in parallel:
 - "Research target operating models in [industry/function]. Focus on: leading practices, technology enablers, emerging models (platform-based, ecosystem, digital-first). Find 3-5 relevant comparators with specific operating model choices."
 - Save to `project-data/research/RXXX-tom-benchmarks-V01.md`
 
 **Step 5 — Design the Target Operating Model.**
-Once current state and benchmarks are in, brief Tom with the design task:
+Once current state and benchmarks are in, brief the Business Analyst with the design task:
 - Current state assessment
 - Benchmark findings
 - Strategic direction from engagement context
@@ -106,14 +106,14 @@ Once current state and benchmarks are in, brief Tom with the design task:
 - Save to `project-data/analysis/AXXX-tom-design-V01.md`
 
 **Step 6 — QA review.**
-Brief James (QA Reviewer):
+Brief the QA Reviewer:
 - "Review this TOM for: internal consistency across dimensions (does the process design match the technology? does governance support the people model?), MECE coverage, realistic gap assessment, and feasible sequencing."
 - Focus: "Do all six dimensions tell a coherent story? Would a COO be able to use this as a transformation blueprint?"
 
-James saves the review and sends findings directly to Tom.
+The QA Reviewer saves the review and sends findings directly to the Business Analyst.
 
 **Step 7 — Revision.**
-Tom incorporates QA findings and produces V02.
+The Business Analyst incorporates QA findings and produces V02.
 
 **Step 8 — Present to the Principal.**
 
@@ -157,7 +157,7 @@ Tom incorporates QA findings and produces V02.
 | [dimension] | [est.] | [est.] | [est.] | [est.] |
 
 ### QA Status
-**Reviewer:** James — **Verdict:** [Pass/Conditional Pass]
+**Reviewer:** The QA Reviewer — **Verdict:** [Pass/Conditional Pass]
 ```
 
 **Step 9 — Save.**
@@ -168,4 +168,4 @@ Save to `project-data/deliverables/tom-design-V[NN].md`.
 - `/mct:plan-implementation` — translate the TOM into a detailed implementation plan
 - `/mct:design-org` — if the people dimension requires a full org redesign
 - `/mct:plan-change` — design the change management approach for the transformation
-- `/mct:challenge` — Maria reviews the TOM for strategic coherence and board readiness"
+- `/mct:challenge` — the Partner Advisor reviews the TOM for strategic coherence and board readiness"

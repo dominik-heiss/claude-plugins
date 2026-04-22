@@ -17,20 +17,20 @@ If `$ARGUMENTS` is provided, use it as the question to decompose. If not, ask: "
 **Step 2 — Load context.**
 Read `project-data/engagement.json` and `project-data/hypotheses.json` to understand how this question fits in the broader project.
 
-**Step 3 — Delegate to Tom (Business Analyst).**
-Brief Tom with:
+**Step 3 — Delegate to the Business Analyst.**
+Brief the Business Analyst with:
 - The specific question to decompose
 - The broader project context (what decision this serves)
 - Any relevant findings or research already done (point to specific files in `project-data/`)
 - Any initial hypotheses about the answer
 
-Ask Tom to:
+Ask the Business Analyst to:
 1. Build a MECE issue tree (top-down, 2-3 levels)
 2. Flag the critical path (which 2-3 branches drive 80% of the answer)
 3. For each branch: suggest what evidence or analysis is needed
 4. Reference `skills/hypothesis-thinking/references/issue-tree-patterns.md` if helpful for starting structure
 
-**Step 4 — EM reviews Tom's output.**
+**Step 4 — EM reviews the Business Analyst's output.**
 Before presenting to the Principal, check:
 - Is the tree truly MECE? (no overlapping branches, no major gaps)
 - Is the critical path labeled?
@@ -61,8 +61,8 @@ Format:
 [A] and [B1] drive 80% of the answer. Recommend starting here.
 
 ### Analysis Plan
-- Branch A → Delegate to Sara (Research Analyst): [specific research task]
-- Branch B1 → Delegate to Tom (Business Analyst): [specific analysis task]
+- Branch A → Delegate to the Research Analyst: [specific research task]
+- Branch B1 → Delegate to the Business Analyst: [specific analysis task]
 - Branch C → Defer to Phase 2 or deprioritize
 
 ### MECE Status

@@ -24,9 +24,9 @@ Determine the governance weight:
 
 Present to Principal: "Based on the project scope ([description]), I recommend [lightweight/standard/heavy] governance. This means [what's included]. Agree, or want to adjust?"
 
-**Step 2 — Delegate to Tom (Business Analyst).**
+**Step 2 — Delegate to the Business Analyst.**
 
-Brief Tom:
+Brief the Business Analyst:
 - The engagement context (core question, phase, workstreams, stakeholders)
 - The governance weight agreed with the Principal
 - Instruction to produce:
@@ -88,13 +88,13 @@ Format:
 
 | Activity | Responsible | Accountable | Consulted | Informed |
 |----------|-----------|------------|-----------|----------|
-| Hypothesis tree development | EM + Tom | Principal | Maria | Steerco |
-| Market research | Sara | EM | Tom | Principal |
-| Financial modeling | Alex | EM | Tom, Sara | Principal |
-| Deliverable creation | Lisa | EM | James (QA) | Principal |
-| QA reviews | James | EM | — | Principal |
-| Partner reviews | Maria | Maria | EM | Principal |
-| Phase gate decisions | EM | Principal | Maria | Steerco |
+| Hypothesis tree development | EM + the Business Analyst | Principal | the Partner Advisor | Steerco |
+| Market research | the Research Analyst | EM | the Business Analyst | Principal |
+| Financial modeling | the Financial Modeler | EM | the Business Analyst, the Research Analyst | Principal |
+| Deliverable creation | the Slide Architect | EM | the QA Reviewer (QA) | Principal |
+| QA reviews | the QA Reviewer | EM | — | Principal |
+| Partner reviews | the Partner Advisor | the Partner Advisor | EM | Principal |
+| Phase gate decisions | EM | Principal | the Partner Advisor | Steerco |
 | Client communication | Principal | Principal | EM | Team |
 | Scope changes | EM | Principal | Steerco | Team |
 
@@ -120,7 +120,7 @@ Format:
 |--------|----------|-----------|--------|-------|
 | Status brief | Principal | Every work loop | 3-5 sentences | EM |
 | Checkpoint summary | Principal | Every 2-3 loops | Structured memo | EM |
-| Steerco deck | Steerco | Phase gates | Slide deck | Lisa + EM |
+| Steerco deck | Steerco | Phase gates | Slide deck | the Slide Architect + EM |
 | Finding alerts | Principal | As they occur | Quick message | EM |
 
 ### Escalation Paths

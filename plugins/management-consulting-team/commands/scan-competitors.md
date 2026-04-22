@@ -20,8 +20,8 @@ If `$ARGUMENTS` specifies a market or competitors: use it. Otherwise ask:
 **Step 2 — Check existing work.**
 Read `project-data/sources/source-registry.json` and `project-data/research/` for any prior competitive research.
 
-**Step 3 — Delegate to Sara (Research Analyst).**
-Brief Sara:
+**Step 3 — Delegate to the Research Analyst.**
+Brief the Research Analyst:
 - Market / competitor scope
 - The hypotheses this scan will test (competitive dynamics, entry difficulty, differentiation)
 - Which competitors to prioritize (the 3-5 most relevant)
@@ -33,13 +33,13 @@ Brief Sara:
   5. **Differentiation** — what genuinely sets them apart from others
   6. **Competitive threat** — direct, indirect, or adjacent competitor to our client?
 
-Sara must:
+The Research Analyst must:
 - Register all sources
 - Be skeptical of company self-descriptions — corroborate with independent analysis
 - Note where data is unavailable (private companies have limited disclosure)
 
 **Step 4 — EM synthesizes the landscape.**
-After Sara delivers profiles:
+After the Research Analyst delivers profiles:
 1. Identify strategic groups (clusters of competitors with similar strategies)
 2. Map white space — where is the competitive gap our client could occupy?
 3. Assess barriers to competition — what makes incumbents hard to displace?

@@ -51,7 +51,7 @@ Present as a structured briefing. Ask: "Does this capture the project correctly?
 **Step 4b — Compose the engagement team.**
 Based on what you now know about the engagement type, propose a team with backgrounds specifically tuned to this project. Do not use the same generic defaults for every engagement.
 
-**First names only.** Every teammate gets a single first name (e.g., "Sara", "Tom", "Lisa", "James", "Maria", "Alex"). **Never use full names or last names** — they add no value and clutter every status update, memory reference, and file path. If the Principal proposes a full name, gently convert to the first name before recording it in `engagement.json`.
+**First names only.** Every teammate gets a single first name (e.g., "Sara", "Tom", "Lisa", "James", "Maria", "Alex" — these are the role defaults; propose engagement-specific alternatives where it makes sense). **Never use full names or last names** — they add no value and clutter every status update, memory reference, and file path. If the Principal proposes a full name, gently convert to the first name before recording it in `engagement.json`.
 
 Examples of how background should vary:
 - M&A due diligence → Research Analyst: "Ex-Goldman Sachs, 10 years M&A deal research, specialist in commercial due diligence"

@@ -58,9 +58,9 @@ Present as a structured status brief:
 ### Workstream Progress
 | Workstream | Lead | Status | Phase | Last Update |
 |-----------|------|--------|-------|-------------|
-| WS1: [name] | Sara | ████░ 80% | Phase 1 | [date] |
-| WS2: [name] | Tom | ███░░ 60% | Phase 1 | [date] |
-| WS3: [name] | Lisa | █░░░░ 20% | Phase 3 | Pending |
+| WS1: [name] | the Research Analyst | ████░ 80% | Phase 1 | [date] |
+| WS2: [name] | the Business Analyst | ███░░ 60% | Phase 1 | [date] |
+| WS3: [name] | the Slide Architect | █░░░░ 20% | Phase 3 | Pending |
 
 ### Recent Findings (last 3-5)
 - **F00X** — [claim in one sentence] — [confidence] — supports H[X]
@@ -72,7 +72,7 @@ Present as a structured status brief:
 ### Open Questions
 | Question | Priority | Assigned To | Due |
 |---------|----------|------------|-----|
-| [Question] | High | Sara | [date] |
+| [Question] | High | the Research Analyst | [date] |
 | [Question] | Medium | Pending | — |
 
 ### Upcoming Loop / Next Steps

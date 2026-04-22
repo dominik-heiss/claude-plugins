@@ -23,8 +23,8 @@ Confirm:
 **Step 2 — Check existing research.**
 Read `project-data/sources/source-registry.json` and `project-data/research/` for any existing market data.
 
-**Step 3 — Delegate to Sara (Research Analyst).**
-Brief Sara with:
+**Step 3 — Delegate to the Research Analyst.**
+Brief the Research Analyst with:
 - The precise market definition and scope
 - The hypotheses this sizing will test (from `hypotheses.json`)
 - Any existing sources already registered
@@ -33,13 +33,13 @@ Brief Sara with:
   2. **Bottom-up:** Units × revenue per unit
   3. **Analogy-based:** Comparable market × adjustment factors
 
-Sara should:
+The Research Analyst should:
 - Register all sources in `source-registry.json`
 - Document every assumption explicitly
 - Triangulate: if methods diverge by >30%, understand why before reporting
 - Follow the market sizing methodology in `skills/research-craft/references/market-sizing-methods.md`
 
-**Step 4 — EM reviews Sara's output.**
+**Step 4 — EM reviews the Research Analyst's output.**
 Check:
 - Are all sources registered?
 - Is the triangulation coherent? (If two methods give wildly different results, is the discrepancy explained?)

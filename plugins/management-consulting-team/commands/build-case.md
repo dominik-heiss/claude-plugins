@@ -22,8 +22,8 @@ If `$ARGUMENTS` specifies what the business case is for, use it. Otherwise ask:
 Read:
 - `project-data/engagement.json` — project context
 - `project-data/hypotheses.json` — what the business case should validate
-- `project-data/research/` — market size, growth rates from Sara's research
-- `project-data/analysis/` — any options evaluation or benchmarking from Tom
+- `project-data/research/` — market size, growth rates from the Research Analyst's research
+- `project-data/analysis/` — any options evaluation or benchmarking from the Business Analyst
 
 **Step 3 — Structure the business case.**
 Before modeling, define the structure:
@@ -39,7 +39,7 @@ Before modeling, define the structure:
 Present this structure to the Principal for confirmation before modeling: "Here's how I'd structure the business case — does this capture the right decision dimensions?"
 
 **Step 4 — Delegate modeling to the Financial Modeler (if available) or build directly.**
-Brief Alex (Financial Modeler) with:
+Brief the Financial Modeler with:
 - The complete structure agreed in Step 3
 - All available data sources (research findings, benchmarks)
 - Required outputs: 3 scenarios × key metrics × sensitivity table

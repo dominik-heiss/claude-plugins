@@ -23,8 +23,8 @@ Read:
 - `project-data/engagement.json` — if it exists, understand firm capabilities and prior work
 - The RFP document itself — read fully
 
-**Step 3 — Delegate to Tom (Business Analyst).**
-Brief Tom with:
+**Step 3 — Delegate to the Business Analyst.**
+Brief the Business Analyst with:
 - The full RFP document path
 - Instruction: "Break this down step-by-step. Extract and structure the following from this RFP:"
 
@@ -39,16 +39,16 @@ Brief Tom with:
 9. **Red flags** — Unrealistic timelines, vague scope, missing evaluation criteria, contradictions.
 10. **Strategic fit** — How well does this align with our capabilities? Where are the gaps?
 
-Tom saves the extraction to `project-data/analysis/rfp-extraction-V01.md`.
+The Business Analyst saves the extraction to `project-data/analysis/rfp-extraction-V01.md`.
 
-**Step 4 — Delegate win strategy to Sara (Research Analyst).**
-If the client is named, brief Sara:
+**Step 4 — Delegate win strategy to the Research Analyst.**
+If the client is named, brief the Research Analyst:
 - "Research the client: recent news, strategic priorities, known consulting relationships, procurement patterns."
 - "Research likely competitors for this RFP based on the scope and industry."
 - Save to `project-data/research/RXXX-rfp-client-intel-V01.md`
 
 **Step 5 — Synthesize the RFP analysis.**
-Combine Tom's extraction and Sara's intelligence into a structured analysis:
+Combine the Business Analyst's extraction and the Research Analyst's intelligence into a structured analysis:
 
 ```
 ## RFP Analysis: [Client / RFP Title]

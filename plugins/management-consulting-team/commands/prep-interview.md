@@ -25,11 +25,11 @@ Read:
 - `project-data/findings/` — existing findings that need validation or deepening
 - `project-data/sources/source-registry.json` — any prior information about the interviewee's organization
 
-**Step 3 — Delegate to Sara (Research Analyst).**
-Brief Sara:
+**Step 3 — Delegate to the Research Analyst.**
+Brief the Research Analyst:
 - The interviewee's role, organization, and expertise area
 - The hypotheses this interview should test (map from `hypotheses.json`)
-- What we already know (so Sara doesn't research what's confirmed)
+- What we already know (so the Research Analyst doesn't research what's confirmed)
 - Instruction to produce:
 
   1. **Background brief** — 1-page summary on the interviewee's organization, recent developments, and the interviewee's likely perspective. Cite sources.

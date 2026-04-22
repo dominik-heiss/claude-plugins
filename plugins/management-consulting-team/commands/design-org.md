@@ -27,8 +27,8 @@ Read:
 - `project-data/research/` — industry benchmarks on org structures
 - `project-data/findings/` — relevant findings about organizational effectiveness
 
-**Step 3 — Delegate current state assessment to Tom (Business Analyst).**
-Brief Tom with:
+**Step 3 — Delegate current state assessment to the Business Analyst.**
+Brief the Business Analyst with:
 - The org design scope and drivers
 - Any available org charts or headcount data
 - Instruction: "Break this down step-by-step. Assess the current organizational state:"
@@ -39,13 +39,13 @@ Brief Tom with:
 
 - Save to `project-data/analysis/AXXX-org-current-state-V01.md`
 
-**Step 4 — Delegate benchmarking to Sara (Research Analyst).**
-Brief Sara in parallel:
+**Step 4 — Delegate benchmarking to the Research Analyst.**
+Brief the Research Analyst in parallel:
 - "Research organizational structures in [industry] for companies of similar size and strategy. Focus on: reporting structures, spans of control benchmarks, emerging models (e.g., agile, matrix, platform). Find 3-5 relevant comparators."
 - Save to `project-data/research/RXXX-org-benchmarks-V01.md`
 
 **Step 5 — Design the new structure.**
-Once current state and benchmarks are in, brief Tom with the synthesis task:
+Once current state and benchmarks are in, brief the Business Analyst with the synthesis task:
 - Current state assessment
 - Benchmark findings
 - Instruction: "Design the target organizational structure. Cover:"
@@ -91,14 +91,14 @@ Once current state and benchmarks are in, brief Tom with the synthesis task:
 - Save to `project-data/analysis/AXXX-org-design-V01.md`
 
 **Step 6 — QA review.**
-Brief James (QA Reviewer):
+Brief the QA Reviewer:
 - "Review this org design for: MECE coverage of functions, realistic spans of control, clear accountability (no shared accountability without explicit coordination mechanism), and feasible transition plan."
 - Focus: "Does every function have a clear home? Are there accountability gaps or overlaps? Would this structure actually work in practice?"
 
-James saves the review and sends findings directly to Tom.
+The QA Reviewer saves the review and sends findings directly to the Business Analyst.
 
 **Step 7 — Revision.**
-Tom incorporates QA findings and produces V02.
+The Business Analyst incorporates QA findings and produces V02.
 
 **Step 8 — Present to the Principal.**
 
@@ -143,7 +143,7 @@ Tom incorporates QA findings and produces V02.
 | [risk] | [impact] | [mitigation] |
 
 ### QA Status
-**Reviewer:** James — **Verdict:** [Pass/Conditional Pass]
+**Reviewer:** The QA Reviewer — **Verdict:** [Pass/Conditional Pass]
 ```
 
 **Step 9 — Save.**
@@ -153,4 +153,4 @@ Save to `project-data/deliverables/org-design-V[NN].md`.
 "The org design is ready. Related next steps:
 - `/mct:plan-change` — design the change management approach for the restructuring
 - `/mct:design-tom` — if the org design needs to connect to a broader operating model
-- `/mct:challenge` — Maria tests whether this structure will survive board-level scrutiny"
+- `/mct:challenge` — the Partner Advisor tests whether this structure will survive board-level scrutiny"
