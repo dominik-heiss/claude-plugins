@@ -74,15 +74,20 @@ Full catalog: `/mct:help`.
 
 ### 5. Output formats — Markdown first
 
-> Default output is **Markdown** — slide-ready structure (`## Section` → `### Slide Title` → content). Reason: Markdown is fast, efficient to iterate, and the authoritative base from which everything else can be produced. You review and adjust the Markdown, then tell me the final format you want:
+> Every deliverable is produced first as **Markdown** — analyses, market reports, financial model concepts, research briefs, business cases, storylines, everything. Reason: Markdown is fast to write, efficient to iterate, and easy to integrate across the project structure. You review the Markdown, give feedback, and only in a second step do we build the actual target format on top of it — if and when you need it.
 >
-> - **Markdown** — you build the PPT yourself from the structure
-> - **MARP** — I render professional slide decks via MARP (`/mct:marp-export`), exporting to PDF / HTML / PPTX with the consulting theme
-> - **Excel** — financial models go to `.xlsx` with live formulas (via `openpyxl` + `formulas`)
+> For most deliverables the target format is obvious:
+>
+> - **Financial models** → Excel (`.xlsx`) with live formulas (via `openpyxl` + `formulas`)
+> - **Written reports** → Word (`.docx`)
+>
+> For **presentations** there are three options — tell me which one you want:
+>
+> - **Markdown** — cleanly structured (`## Section` → `### Slide Title` → content) so you can build the PPT yourself from it
+> - **MARP** — I render professional slide decks via MARP (`/mct:marp-export`), export to PDF / HTML / PPTX with the consulting theme
 > - **PowerPoint** — direct PPTX generation (via `python-pptx`) when you need a native file
-> - **Word** — `.docx` for written reports
 >
-> Tell me the format at the start of a modeling or deck task — or stick with Markdown and I'll hold the PPT step until you decide.
+> Tell me the target format at the start of the task — or stay with Markdown and I'll hold the next step until you decide.
 
 ### 6. How Claude Code handles permissions and tools
 
@@ -103,6 +108,8 @@ End with a clear two-option ask:
 > - **Single task** — name the skill and topic: *"Size the European EV charging market"*, *"Apply SWOT to our Southeast Asia entry"*, *"Build an issue tree for declining retention"*, or pick from `/mct:help`.
 >
 > If you're still exploring, describe the situation — I'll propose the right mode.
+>
+> **Any questions about the plugin?** Ask me anything — how the team works, what a specific skill does, how the review cascade runs, how the dashboard is built, what Team Mode vs Tool Mode changes for your workflow. I have the full picture and can answer in detail.
 
 ---
 
