@@ -24,7 +24,7 @@ Render to the chat (do not write to a file):
 > - **Team Mode** — full consulting engagement. Start with `/mct:start-engagement [description]`. Scoping → hypothesis tree → workstreams → discovery → analysis → synthesis. Deliverables under `project-data/`.
 > - **Tool Mode** — one skill for one task. No engagement setup. Deliverable goes to `outputs/`. I offer a QA review after. Compatible commands tagged **[Solo]** below.
 >
-> New here? Run `/mct:tour` for a 5-minute walkthrough.
+> New here? Run `/mct:start` for the short greeter, or `/mct:tour` for the 5-minute walkthrough.
 >
 > ---
 >
@@ -102,6 +102,7 @@ Render to the chat (do not write to a file):
 > | `/mct:present-status` | Current project status — workstreams, hypotheses, risks, next steps | [Team] |
 > | `/mct:dashboard` | Rebuild the HTML dashboard from project data | [Team] |
 > | `/mct:self-improve` | Plugin maintenance — analyze feedback, propose improvements | [Team/Meta] |
+> | `/mct:start` | First-contact greeter — Marcus introduces the team and the three entry paths | Any |
 > | `/mct:tour` | Guided walkthrough of the plugin | Any |
 > | `/mct:help` | This catalog | Any |
 >
@@ -111,6 +112,6 @@ Render to the chat (do not write to a file):
 >
 > - Team Mode: `/mct:start-engagement [short description]`
 > - Tool Mode: pick a **[Solo]** command above, or describe the task and I'll route it
-> - Not sure: `/mct:tour`
+> - Not sure: `/mct:start` (short greeter) or `/mct:tour` (full walkthrough)
 
 End of output. Stop. Do not spawn anything, do not write any files.

@@ -6,7 +6,7 @@ This is not a prompt template or a chatbot wrapper. It is a structured orchestra
 
 ## Getting Started — Three Entry Paths
 
-When you open Claude Code in an empty folder with this plugin installed, the Engagement Manager (Marcus) greets you and offers three ways to proceed:
+**First time?** Open Claude Code in your working folder and type `/mct:start`. The Engagement Manager (Marcus) introduces himself and offers three ways to proceed:
 
 **① Team Mode — full consulting project.**
 Structured end-to-end: scoping → hypothesis tree → workstreams → discovery → analysis → synthesis. Marcus orchestrates the team, runs review cascades, rebuilds the dashboard at every phase gate. Right for decision-shaping, multi-workstream problems.
@@ -369,6 +369,7 @@ The `Mode` column shows which commands work standalone in an empty folder (**[So
 | `/mct:dashboard` | Generate HTML dashboard from project data | [Team] |
 | `/mct:track-risks` | Risk register with likelihood/impact scoring | **[Solo]** |
 | `/mct:self-improve` | Analyze feedback files, propose plugin improvements | [Meta] |
+| `/mct:start` | First-contact greeter — Marcus introduces the team and the three entry paths | Any |
 | `/mct:tour` | 5-minute guided walkthrough of the plugin | Any |
 | `/mct:help` | Command catalog with mode tags | Any |
 

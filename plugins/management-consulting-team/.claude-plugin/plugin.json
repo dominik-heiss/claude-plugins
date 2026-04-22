@@ -1,6 +1,6 @@
 {
   "name": "mct",
-  "version": "1.20260422",
+  "version": "1.20260422.1",
   "description": "End-to-end strategy consulting team simulation. Multi-agent orchestration with hypothesis-driven workflows, iterative review cascades, and professional deliverables.",
   "author": {
     "name": "Dominik Heiß"
