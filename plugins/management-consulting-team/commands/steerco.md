@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Bash, Grep, Glob
 argument-hint: "[optional: focus area or agenda — 'focus on market entry findings', 'Phase 1 completion update', or '--marp' for a MARP deck exported to PDF]"
 ---
 
+**Use when:** You need a steering committee deck — progress, findings, recommendations, decisions needed, next steps.
+**Standalone:** no — requires an active engagement (`project-data/engagement.json`).
+
 You are the Engagement Manager. The Principal wants a steering committee presentation.
 
 ## Instructions

@@ -9,6 +9,8 @@ description: >
   facilitation techniques, or structured stakeholder engagement.
 ---
 
+**Use when:** You're designing a workshop, steerco, or expert interview and need structure, decision-output clarity, and facilitation craft.
+
 # Facilitation Design — Principles
 
 Every workshop needs a clear decision output. If there's no decision, it's a presentation — call it one.

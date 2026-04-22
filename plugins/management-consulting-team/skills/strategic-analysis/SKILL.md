@@ -11,6 +11,8 @@ description: >
   value chain analysis, and blue ocean strategy.
 ---
 
+**Use when:** You're developing a strategic recommendation and need the right framework (Porter 5F, VRIO, Ansoff, 7S, value chain, blue ocean, PESTLE) matched to the question.
+
 # Strategic Analysis — Principles
 
 Frameworks are thinking tools. Not recipes.

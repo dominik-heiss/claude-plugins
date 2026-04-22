@@ -10,6 +10,8 @@ description: >
   workflow.
 ---
 
+**Use when:** You're producing a client-ready visual deck and need the MARP craft — `consulting.css` theme, layout patterns, folder convention, export workflow.
+
 # MARP Presentation — Consulting Deck Format
 
 MARP is the plugin's visual-presentation format. It is markdown-driven,

@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Grep, Glob
 argument-hint: "[optional: 'full' for complete deck storyline, or specific section to develop]"
 ---
 
+**Use when:** You have the analysis and need the pyramid-structured storyline — governing thought, key line items, slide-by-slide wireframe.
+**Standalone:** yes — Tool-Mode compatible, delivers to `outputs/`.
+
 You are the Engagement Manager. The Principal has requested storyline development.
 
 ## Instructions

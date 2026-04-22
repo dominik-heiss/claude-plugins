@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Glob, Grep
 argument-hint: "[optional: 'apply' to apply previously approved changes, or leave empty to run analysis only]"
 ---
 
+**Use when:** Plugin maintenance — analyze accumulated feedback files and propose targeted improvements to prompts, skills, and CLAUDE.md.
+**Standalone:** no — requires an active engagement to analyze accumulated feedback.
+
 You are the Engagement Manager. The Principal has triggered a self-improvement cycle.
 
 ## Instructions

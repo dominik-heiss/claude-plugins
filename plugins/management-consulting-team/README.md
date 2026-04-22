@@ -4,6 +4,28 @@ Turn Claude into a full strategy consulting team. Seven specialist agents — re
 
 This is not a prompt template or a chatbot wrapper. It is a structured orchestration system where agents communicate directly, review each other's work, maintain memory across sessions, and produce traceable, sourced deliverables through a multi-phase engagement process.
 
+## Getting Started — Three Entry Paths
+
+When you open Claude Code in an empty folder with this plugin installed, the Engagement Manager (Marcus) greets you and offers three ways to proceed:
+
+**① Team Mode — full consulting project.**
+Structured end-to-end: scoping → hypothesis tree → workstreams → discovery → analysis → synthesis. Marcus orchestrates the team, runs review cascades, rebuilds the dashboard at every phase gate. Right for decision-shaping, multi-workstream problems.
+→ `/mct:start-engagement Should we acquire TargetCo at 8x EBITDA?`
+
+**② Tool Mode — one skill for a specific task.**
+Pick a single consulting tool: market sizing, issue tree, business case, RFP analysis, pitch deck, framework application. No engagement setup, deliverable lands in `outputs/`. Marcus actively offers a QA review after the result.
+→ `/mct:size-market industrial heat pumps >100kW in Europe`
+→ `/mct:issues why did our EBIT margin drop 4 points in FY25`
+→ `/mct:apply-framework porter European battery cells`
+
+**③ Tour — 5-minute walkthrough.**
+Marcus explains the team, both modes, the dashboard, output formats, and how Claude Code handles permissions. No commitment.
+→ `/mct:tour`
+
+**Still unsure?** Describe the situation in plain language — Marcus recognises whether your task fits Team or Tool Mode and proposes accordingly before running anything.
+
+**See all commands:** `/mct:help` lists the full catalog with a `[Solo]` tag on every command that works in Tool Mode without engagement setup.
+
 ## Why This Exists
 
 Most AI tools give you one generalist that does everything. This plugin gives you a **team of specialists** who collaborate:
@@ -105,14 +127,17 @@ The plugin's `consulting.css` theme (Navy + sparse red accent, Inter/Helvetica, 
 
 ## Installation
 
-```bash
-claude plugin install dominik-heiss/management-consulting-team
+Install via the marketplace (recommended):
+
+```
+/plugin marketplace add dominik-heiss/claude-plugins
+/plugin install mct@dh-claude-plugins
 ```
 
 Or clone and use locally (useful if you want to customize or improve the plugin):
 ```bash
-git clone https://github.com/dominik-heiss/management-consulting-team.git
-claude --plugin-dir /path/to/management-consulting-team
+git clone https://github.com/dominik-heiss/claude-plugins.git
+claude --plugin-dir /path/to/claude-plugins/plugins/management-consulting-team
 ```
 
 ## Recommended Setup
@@ -222,136 +247,137 @@ All session transcripts are stored under `~/.claude/projects/` keyed by working 
 
 ## Quick Start
 
-```bash
-claude --plugin-dir /path/to/management-consulting-team
-```
+Open an empty folder in Claude Code with the plugin loaded. Marcus greets you with the three-path opener. Pick one:
 
-### Scope the engagement
+### Path A — Team Mode (full engagement)
 
 ```
 /mct:start-engagement Should a PE fund acquire a European heat pump manufacturer?
 ```
 
-The EM runs a scoping dialog — asking about context, constraints, and success criteria — then proposes a hypothesis tree, workstream plan, and team composition tuned to your engagement type. You review and confirm before any work begins.
+Marcus runs the scoping dialog — context, constraints, stakeholders, your initial hypothesis. At the end you see: governing question, 2–3 top-level hypotheses with sub-hypotheses (MECE), 3–4 proposed workstreams, a team composition tuned to the engagement type, and a loop-based drumbeat. You confirm, then Phase 1 discovery begins.
 
-### Run discovery
-
-```
-/mct:discover
-```
-
-Research Analysts fan out across your workstreams in parallel — market sizing, competitive landscape, regulatory environment. Each finding is logged, sourced, and linked back to a hypothesis. The EM briefs you on material findings as they come in.
-
-### Go deeper
+What you run next in Team Mode:
 
 ```
-/mct:size-market European heat pump market
-/mct:scan-competitors Top 5 heat pump OEMs in DACH
-/mct:build-case Acquisition of TargetCo at 8x EBITDA
+/mct:discover                                           # fan out research across workstreams
+/mct:size-market European heat pump market              # triangulated market sizing
+/mct:scan-competitors Top 5 heat pump OEMs in DACH      # competitive landscape
+/mct:build-case Acquisition of TargetCo at 8x EBITDA    # NPV, IRR, scenarios
+/mct:present-status                                     # where we stand
+/mct:dashboard                                          # rebuild the HTML dashboard
+/mct:review <file>                                      # manual review of any deliverable
+/mct:storyline                                          # pyramid-structured argument
+/mct:present-final                                      # final client deck
 ```
 
-Targeted commands for specific analytical tasks. Market sizing triangulates top-down and bottom-up. Competitor scans map the landscape with positioning analysis. Business cases include scenario modeling and sensitivity analysis.
+Review cascade (QA → Partner → Client Lens) runs automatically before milestones; you can trigger it manually on any deliverable via `/mct:review`, `/mct:challenge`, `/mct:simulate-client`.
 
-### Check status
+### Path B — Tool Mode (single skill, no engagement)
 
-```
-/mct:present-status
-/mct:dashboard
-```
-
-See where each workstream stands, which hypotheses have been confirmed or contradicted, and what's next.
-
-### Review before presenting
+Drop a slash command in any folder. No scoping, no `engagement.json`. Marcus spawns the right teammate, the deliverable lands in `outputs/`, and Marcus offers a QA review before finishing.
 
 ```
-/mct:review project-data/deliverables/interim-report-V01.md
-/mct:challenge
-/mct:simulate-client
+/mct:size-market industrial heat pumps >100kW in Europe
+/mct:issues why did EBIT margin drop 4 points in FY25
+/mct:apply-framework porter European battery cells
+/mct:evaluate-options market entry options for SEA pharma pipeline
+/mct:build-case acquisition TargetCo at 450M
+/mct:draft-pitch strategy & operations offering for mid-cap industrials
+/mct:analyze-rfp path/to/rfp.pdf
+/mct:review path/to/my-draft.md
 ```
 
-The review cascade runs automatically before milestones, but you can trigger it manually on any deliverable. QA checks logic and sources. Partner review tests strategic sharpness. Client Lens simulates how your audience will react.
+Every command tagged **[Solo]** in `/mct:help` works in Tool Mode. If a command needs an active engagement (e.g. `/mct:discover`, `/mct:steerco`), Marcus tells you and suggests either starting one or picking a Solo command instead.
 
-### Build the final deliverable
+### Path C — Tour
 
 ```
-/mct:storyline
-/mct:present-final
+/mct:tour
 ```
 
-The Slide Architect builds a pyramid-structured storyline, then creates the deck. Every slide has an action title, supporting evidence, and source citations. The full review cascade runs before you see the output.
+5-minute walkthrough. No commitments, no files created.
+
+### Switching modes later
+
+Starting in Tool Mode and want the full engagement structure later? Just say so — Marcus converts existing `outputs/` into the Team-Mode project structure and runs scoping on top of your prior work.
 
 ## Commands
 
+The `Mode` column shows which commands work standalone in an empty folder (**[Solo]** → Tool Mode, no engagement needed) and which need an active engagement (**[Team]**). For the interactive catalog, run `/mct:help` in Claude Code. For a guided introduction, run `/mct:tour`.
+
 ### Engagement Setup
-| Command | What It Does |
-|---------|-------------|
-| `/mct:start-engagement [description]` | Run scoping dialog, create project files, assemble team |
-| `/mct:map-stakeholders` | Stakeholder map with influence/interest matrix |
-| `/mct:setup-governance` | RACI, steerco structure, reporting cadence |
+| Command | What It Does | Mode |
+|---------|-------------|------|
+| `/mct:start-engagement [description]` | Run scoping dialog, create project files, assemble team | [Team — creates state] |
+| `/mct:map-stakeholders` | Stakeholder map with influence/interest matrix | **[Solo]** |
+| `/mct:setup-governance` | RACI, steerco structure, reporting cadence | **[Solo]** |
 
 ### Research & Discovery
-| Command | What It Does |
-|---------|-------------|
-| `/mct:discover` | Run discovery phase: interviews, data requirements, quick wins |
-| `/mct:size-market` | Market sizing (top-down + bottom-up, triangulated) |
-| `/mct:scan-competitors` | Map competitive landscape |
-| `/mct:prep-interview` | Prepare expert interview guide |
-| `/mct:download-sources` | Batch-download cited sources to local storage |
+| Command | What It Does | Mode |
+|---------|-------------|------|
+| `/mct:discover` | Run discovery phase: interviews, data requirements, quick wins | [Team] |
+| `/mct:size-market` | Market sizing (top-down + bottom-up, triangulated) | **[Solo]** |
+| `/mct:scan-competitors` | Map competitive landscape | **[Solo]** |
+| `/mct:prep-interview` | Prepare expert interview guide | **[Solo]** |
+| `/mct:download-sources` | Batch-download cited sources to local storage | [Team] |
 
 ### Structuring & Analysis
-| Command | What It Does |
-|---------|-------------|
-| `/mct:hypotheses` | Build or update the hypothesis tree |
-| `/mct:issues` | Build or update the issue tree (MECE decomposition) |
-| `/mct:apply-framework` | Apply strategic framework (Porter, 7S, SWOT, etc.) |
-| `/mct:benchmark` | Peer benchmarking on KPIs and best practices |
-| `/mct:evaluate-options` | Generate, evaluate, and prioritize strategic options |
+| Command | What It Does | Mode |
+|---------|-------------|------|
+| `/mct:hypotheses` | Build or update the hypothesis tree | **[Solo]** |
+| `/mct:issues` | Build or update the issue tree (MECE decomposition) | **[Solo]** |
+| `/mct:apply-framework` | Apply strategic framework (Porter, 7S, SWOT, etc.) | **[Solo]** |
+| `/mct:benchmark` | Peer benchmarking on KPIs and best practices | **[Solo]** |
+| `/mct:evaluate-options` | Generate, evaluate, and prioritize strategic options | **[Solo]** |
 
 ### Financial & Quantitative
-| Command | What It Does |
-|---------|-------------|
-| `/mct:build-case` | Build business case or investment thesis |
-| `/mct:model-financials` | P&L projection, DCF, cash flow analysis |
+| Command | What It Does | Mode |
+|---------|-------------|------|
+| `/mct:build-case` | Build business case or investment thesis | **[Solo]** |
+| `/mct:model-financials` | P&L projection, DCF, cash flow analysis | **[Solo]** |
 
 ### Synthesis & Deliverables
-| Command | What It Does |
-|---------|-------------|
-| `/mct:storyline` | Develop pyramid-structured storyline |
-| `/mct:steerco` | Generate steering committee presentation (add `--marp` for client-ready PDF via MARP) |
-| `/mct:present-final` | Create final presentation with full evidence chain (add `--marp` for client-ready PDF via MARP) |
-| `/mct:marp-export [path]` | Export a MARP deck to PDF / HTML / PPTX using the consulting theme |
-| `/mct:write-report` | Create strategic report (executive summary + analyses) |
-| `/mct:chart-roadmap` | Create implementation roadmap |
+| Command | What It Does | Mode |
+|---------|-------------|------|
+| `/mct:storyline` | Develop pyramid-structured storyline | **[Solo]** |
+| `/mct:steerco` | Generate steering committee presentation (add `--marp` for client-ready PDF via MARP) | [Team] |
+| `/mct:present-final` | Create final presentation with full evidence chain (add `--marp` for client-ready PDF via MARP) | [Team] |
+| `/mct:marp-export [path]` | Export a MARP deck to PDF / HTML / PPTX using the consulting theme | **[Solo]** |
+| `/mct:write-report` | Create strategic report (executive summary + analyses) | **[Solo]** |
+| `/mct:chart-roadmap` | Create implementation roadmap | **[Solo]** |
 
 ### Quality & Review
-| Command | What It Does |
-|---------|-------------|
-| `/mct:review [file]` | QA review of any deliverable (6-dimension check) |
-| `/mct:challenge` | Strategic partner review (sharpness, IC readiness) |
-| `/mct:simulate-client` | Simulated client reaction from configured C-level perspective |
+| Command | What It Does | Mode |
+|---------|-------------|------|
+| `/mct:review [file]` | QA review of any deliverable (6-dimension check) | **[Solo]** |
+| `/mct:challenge` | Strategic partner review (sharpness, IC readiness) | [Team] |
+| `/mct:simulate-client` | Simulated client reaction from configured C-level perspective | [Team] |
 
 ### Implementation
-| Command | What It Does |
-|---------|-------------|
-| `/mct:plan-implementation` | Detailed implementation plan |
-| `/mct:plan-change` | Change management plan |
-| `/mct:design-org` | Organizational design |
-| `/mct:design-tom` | Target operating model design |
+| Command | What It Does | Mode |
+|---------|-------------|------|
+| `/mct:plan-implementation` | Detailed implementation plan | **[Solo]** |
+| `/mct:plan-change` | Change management plan | **[Solo]** |
+| `/mct:design-org` | Organizational design | **[Solo]** |
+| `/mct:design-tom` | Target operating model design | **[Solo]** |
 
 ### Project Management
-| Command | What It Does |
-|---------|-------------|
-| `/mct:present-status` | Project status: hypotheses, workstreams, next steps |
-| `/mct:dashboard` | Generate HTML dashboard from project data |
-| `/mct:track-risks` | Risk register with likelihood/impact scoring |
-| `/mct:self-improve` | Analyze feedback files, propose plugin improvements |
+| Command | What It Does | Mode |
+|---------|-------------|------|
+| `/mct:present-status` | Project status: hypotheses, workstreams, next steps | [Team] |
+| `/mct:dashboard` | Generate HTML dashboard from project data | [Team] |
+| `/mct:track-risks` | Risk register with likelihood/impact scoring | **[Solo]** |
+| `/mct:self-improve` | Analyze feedback files, propose plugin improvements | [Meta] |
+| `/mct:tour` | 5-minute guided walkthrough of the plugin | Any |
+| `/mct:help` | Command catalog with mode tags | Any |
 
 ### Business Development
-| Command | What It Does |
-|---------|-------------|
-| `/mct:analyze-rfp` | Analyze RFP with go/no-go recommendation |
-| `/mct:draft-proposal` | Create consulting proposal |
-| `/mct:draft-pitch` | Build client pitch deck |
+| Command | What It Does | Mode |
+|---------|-------------|------|
+| `/mct:analyze-rfp` | Analyze RFP with go/no-go recommendation | **[Solo]** |
+| `/mct:draft-proposal` | Create consulting proposal | **[Solo]** |
+| `/mct:draft-pitch` | Build client pitch deck | **[Solo]** |
 
 ## How It Works
 
@@ -415,6 +441,8 @@ Set in `engagement.json` under `autonomy_level`:
 
 ## Project Structure
 
+### Team Mode
+
 ```
 project-data/
 ├── engagement.json          # Project metadata, team, phase
@@ -443,6 +471,23 @@ project-data/
     ├── tom/                 # Business Analyst memory
     └── ...
 ```
+
+### Tool Mode
+
+```
+outputs/
+├── RXXX-market-sizing-heat-pumps.md        # One deliverable per Solo command
+├── AXXX-porter-battery-cells.md
+├── MXXX-business-case-targetco.md
+├── REVXXX-qa-heat-pump-sizing.md           # QA reviews (when accepted)
+├── source-registry.json                    # Created on demand if multiple runs share sources
+└── .agent-memory/
+    ├── sara/                               # Teammates keep memory across Tool-Mode runs
+    ├── tom/
+    └── ...
+```
+
+Flat structure, no phase gates, no hypothesis tree, no dashboard. If you decide mid-session that a Tool-Mode folder should become a full engagement, just say so — Marcus migrates the existing `outputs/` into the Team-Mode project structure.
 
 ## Design Decisions
 

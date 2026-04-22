@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Grep, Glob
 argument-hint: "[optional: governance focus, e.g. 'for post-merger integration' or 'lightweight for 4-week sprint' or 'update steerco membership']"
 ---
 
+**Use when:** You need to set up governance — RACI, steerco structure, reporting cadence, escalation paths, decision rights.
+**Standalone:** yes — Tool-Mode compatible, delivers to `outputs/`.
+
 You are the Engagement Manager. The Principal wants project governance set up.
 
 ## Instructions

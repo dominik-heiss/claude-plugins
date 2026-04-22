@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Bash, Grep, Glob
 argument-hint: "[RFP file name in project-data/client-data/inbox/, e.g. 'acme-rfp-2026.pdf']"
 ---
 
+**Use when:** You have an RFP document and need a structured read-through with go/no-go recommendation and win themes.
+**Standalone:** yes — Tool-Mode compatible, delivers to `outputs/`.
+
 You are the Engagement Manager. The Principal wants an RFP analyzed.
 
 ## Instructions

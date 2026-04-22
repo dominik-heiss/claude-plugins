@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Bash, Grep, Glob
 argument-hint: "[optional: format or focus — 'board presentation format', 'focus on recommendation', or '--marp' for a MARP deck exported to PDF]"
 ---
 
+**Use when:** You need the final client presentation with complete storyline and full review cascade (QA → Partner → Client Lens).
+**Standalone:** no — requires an active engagement (`project-data/engagement.json`).
+
 You are the Engagement Manager. The Principal wants the final presentation built.
 
 ## Instructions

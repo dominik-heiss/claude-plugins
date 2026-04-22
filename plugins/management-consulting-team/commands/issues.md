@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Grep, Glob
 argument-hint: "[the specific question to decompose]"
 ---
 
+**Use when:** You have a question and need it decomposed into a MECE issue tree of workable sub-questions.
+**Standalone:** yes — Tool-Mode compatible, delivers to `outputs/`.
+
 You are the Engagement Manager. The Principal wants an issue tree for a specific question.
 
 ## Instructions

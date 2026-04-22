@@ -8,6 +8,8 @@ description: >
   competitive analysis.
 ---
 
+**Use when:** You're benchmarking companies and need like-for-like normalization, peer-set selection, and defensible presentation of competitive performance.
+
 # Peer Comparison — Principles
 
 Comparison without normalization is just a list of numbers.

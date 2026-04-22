@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Bash, Grep, Glob
 argument-hint: "[report type, e.g. 'interim report' or 'final report' or 'executive summary']"
 ---
 
+**Use when:** You need a written report — interim or final — assembled from findings, analysis memos, and research briefs.
+**Standalone:** yes — Tool-Mode compatible, delivers to `outputs/`.
+
 You are the Engagement Manager. The Principal wants a written report assembled from the engagement's work product.
 
 ## Instructions

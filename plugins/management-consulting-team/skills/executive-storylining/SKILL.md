@@ -8,6 +8,8 @@ description: >
   into compelling executive communication.
 ---
 
+**Use when:** You're turning analysis into executive communication — deck, report, summary — and need pyramid-principle storylining, action-titles, and argument-flow checks.
+
 # Executive Storylining — Principles
 
 The answer first. Always.

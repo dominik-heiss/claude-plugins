@@ -8,6 +8,8 @@ description: >
   analysis, problem structuring, or avoiding cognitive biases in structuring.
 ---
 
+**Use when:** You're structuring a problem hypothesis-first — building an issue tree, testing MECE completeness, prioritising analysis branches, or checking for cognitive bias.
+
 # Hypothesis Thinking — Principles
 
 You reason hypothesis-first. Always.

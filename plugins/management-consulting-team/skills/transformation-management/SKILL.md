@@ -8,6 +8,8 @@ description: >
   organizational change, initiative management, or transformation execution.
 ---
 
+**Use when:** You're designing or running a transformation program and need PMO setup, initiative tracking, change readiness, or benefits governance.
+
 # Transformation Management — Principles
 
 Transformation succeeds through behavior change, not process change. Plans that ignore this fail.

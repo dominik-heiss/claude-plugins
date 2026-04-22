@@ -8,6 +8,8 @@ description: >
   or project governance.
 ---
 
+**Use when:** You're managing scope, quality, or cadence on an engagement and need craft principles for governance — escalation judgment, review cascade design, phase-gate discipline.
+
 Note: For the authoritative review cascade and phase gate procedures, see CLAUDE.md. This skill focuses on the consulting craft principles behind engagement governance — scope discipline, quality philosophy, and escalation judgment.
 
 # Engagement Governance — Principles

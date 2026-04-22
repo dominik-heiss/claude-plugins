@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Bash, Grep, Glob
 argument-hint: "[who to interview, e.g. 'industry expert on heat pump market' or 'CFO of target company' or 'former VP Operations at [Competitor]']"
 ---
 
+**Use when:** You're about to interview an expert and need a structured guide with hypotheses to test and topic-organized questions.
+**Standalone:** yes — Tool-Mode compatible, delivers to `outputs/`.
+
 You are the Engagement Manager. The Principal wants to prepare for an expert interview.
 
 ## Instructions

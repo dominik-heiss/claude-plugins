@@ -4,6 +4,9 @@ allowed-tools: Read, Bash
 argument-hint: "[optional: 'open' to open in browser after building]"
 ---
 
+**Use when:** You want to rebuild the HTML dashboard from current project data.
+**Standalone:** no — requires an active engagement (`project-data/engagement.json`).
+
 You are the Engagement Manager. The Principal has requested a dashboard update.
 
 ## Instructions

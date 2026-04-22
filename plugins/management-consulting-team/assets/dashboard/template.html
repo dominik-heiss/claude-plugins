@@ -316,6 +316,62 @@ body {
 }
 .modal-title { font-size: 18px; font-weight: 500; margin-bottom: 16px; }
 
+/* ===== Help Mode ===== */
+.help-btn {
+  position: fixed; bottom: 14px; left: 14px; z-index: 1000;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: #fff; border: 1px solid #dadce0; color: #5f6368;
+  font-size: 15px; font-weight: 700; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: background 0.15s, color 0.15s, border-color 0.15s;
+  font-family: inherit;
+}
+.help-btn:hover { background: #f1f3f4; color: #202124; }
+body.help-mode .help-btn {
+  background: #1a73e8; color: #fff; border-color: #1a73e8;
+  box-shadow: 0 2px 8px rgba(26,115,232,0.3);
+}
+.help-btn-label {
+  position: absolute; left: 42px; bottom: 50%; transform: translateY(50%);
+  font-size: 12px; color: #5f6368; background: #fff;
+  padding: 4px 8px; border-radius: 4px; border: 1px solid #dadce0;
+  white-space: nowrap; pointer-events: none; opacity: 0;
+  transition: opacity 0.15s;
+}
+.help-btn:hover + .help-btn-label,
+body.help-mode .help-btn-label { opacity: 1; }
+body.help-mode .help-btn-label { color: #1a73e8; border-color: #1a73e8; }
+
+/* Visual hint on hoverable elements when help mode is active */
+body.help-mode .nav-item[data-tip],
+body.help-mode .section-title[data-tip] {
+  box-shadow: inset 0 0 0 1px rgba(26,115,232,0.25);
+}
+body.help-mode .nav-item[data-tip]:hover,
+body.help-mode .section-title[data-tip]:hover {
+  box-shadow: inset 0 0 0 1px rgba(26,115,232,0.65);
+}
+
+/* Tooltip rendering */
+body.help-mode [data-tip] { position: relative; }
+body.help-mode [data-tip]:hover::after {
+  content: attr(data-tip);
+  position: absolute; z-index: 1001;
+  background: #202124; color: #fff;
+  padding: 10px 14px; border-radius: 6px;
+  font-size: 12.5px; font-weight: 400; line-height: 1.5;
+  white-space: normal; width: max-content; max-width: 320px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.22);
+  pointer-events: none;
+}
+body.help-mode .nav-item[data-tip]:hover::after {
+  left: calc(100% + 8px); top: 50%; transform: translateY(-50%);
+}
+body.help-mode .section-title[data-tip] { display: inline-block; padding-right: 6px; }
+body.help-mode .section-title[data-tip]:hover::after {
+  left: 0; top: calc(100% + 4px);
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
   .sidebar { width: 220px; min-width: 220px; }
@@ -342,6 +398,10 @@ body {
 </nav>
 
 <main class="main" id="main"></main>
+
+<!-- Help-mode toggle: adds tooltips to navigation and section headings on hover -->
+<button class="help-btn" id="help-btn" onclick="toggleHelpMode()" title="Toggle help mode">?</button>
+<span class="help-btn-label" id="help-btn-label">Help mode</span>
 
 <!-- Modal for agent memory/feedback -->
 <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
@@ -1446,30 +1506,41 @@ function renderSources() {
 // Navigation
 // ===================================================================
 const SECTIONS = [
-  { id: 'overview',      label: 'Overview',       icon: '\u25C9', render: renderOverview },
-  { id: 'team',          label: 'Team',           icon: '\u{1F465}', render: renderTeam },
-  { id: 'drumbeat',      label: 'Drumbeat',       icon: '\u{1F504}', render: renderDrumbeat },
+  { id: 'overview',      label: 'Overview',       icon: '\u25C9', render: renderOverview,
+    tip: 'One-glance summary of the engagement — name, core question, current phase, autonomy level, and top-line stats.' },
+  { id: 'team',          label: 'Team',           icon: '\u{1F465}', render: renderTeam,
+    tip: 'Every teammate on this engagement: name, role, background, current assignment. Click a card to read their memory and feedback files.' },
+  { id: 'drumbeat',      label: 'Drumbeat',       icon: '\u{1F504}', render: renderDrumbeat,
+    tip: 'The rhythm of the engagement — loops per workstream and phase-gate checklists. Shows what is done, in progress, or outstanding.' },
   { id: 'workstreams',   label: 'Workstreams',    icon: '\u{1F4CB}', render: renderWorkstreams,
-    count: () => DATA.workstreams?.workstreams?.length || 0 },
+    count: () => DATA.workstreams?.workstreams?.length || 0,
+    tip: 'The workstreams approved in scoping — status, ownership, and deliverables per workstream.' },
   { id: 'hypotheses',    label: 'Hypotheses',     icon: '\u{1F9EA}', render: renderHypotheses,
-    count: () => DATA.hypotheses?.hypotheses?.length || 0 },
+    count: () => DATA.hypotheses?.hypotheses?.length || 0,
+    tip: 'The hypothesis tree — top hypotheses with sub-hypotheses and status (testing / supported / rejected). Updated continuously as evidence comes in.' },
   { id: 'sep1' },
   { id: 'projectdata',   label: 'Project Data',   icon: '\u{1F4C1}', render: renderProjectData,
     count: () => {
       const r = _regDocsOfTypes(['research-brief','analysis-memo','model','model-summary','interim-report','deck','roadmap','appendix']);
       return (r.length + _unmatchedRegDocs().length) || (cnt(DATA.research) + cnt(DATA.analysis) + cnt(DATA.models));
-    }},
+    },
+    tip: 'All research briefs, analysis memos, and financial-model files produced by the team, grouped by document type.' },
   { id: 'findings',      label: 'Findings',       icon: '\u{1F4A1}', render: renderFindings,
-    count: () => _regDocsOfTypes(['finding']).length || cnt(DATA.findings) },
+    count: () => _regDocsOfTypes(['finding']).length || cnt(DATA.findings),
+    tip: 'Atomic findings — single-claim evidence notes linked to hypotheses. Each has a confidence level and source references.' },
   { id: 'deliverables',  label: 'Deliverables',   icon: '\u{1F4E6}', render: renderDeliverables,
-    count: () => _regDocsOfTypes(['deliverable']).length || cnt(DATA.deliverables) },
+    count: () => _regDocsOfTypes(['deliverable']).length || cnt(DATA.deliverables),
+    tip: 'Finished client-facing artefacts — storylines, decks, written reports, roadmaps.' },
   { id: 'reviews',       label: 'Reviews',        icon: '\u{1F50D}', render: renderReviews,
-    count: () => _regDocsOfTypes(['review']).length || cnt(DATA.reviews) },
+    count: () => _regDocsOfTypes(['review']).length || cnt(DATA.reviews),
+    tip: 'QA, Partner Advisor, and Client Lens reviews produced on drafts and deliverables. Each review documents issues and verdicts.' },
   { id: 'clientdata',    label: 'Client Data',    icon: '\u{1F4C2}', render: renderClientData,
-    count: () => cnt(DATA.client_data) },
+    count: () => cnt(DATA.client_data),
+    tip: 'Files you provided — business plans, financials, RFP documents, prior research. Agents use these as the baseline facts.' },
   { id: 'sep2' },
   { id: 'sources',       label: 'Sources',        icon: '\u{1F4DA}', render: renderSources,
-    count: () => realSources().length },
+    count: () => realSources().length,
+    tip: 'Source registry — every source cited in the work, with reliability rating and URL. Download locally via /mct:download-sources.' },
 ];
 
 let activeSection = 'overview';
@@ -1482,7 +1553,16 @@ function navigate(id) {
   const sec = SECTIONS.find(s => s.id === id);
   const main = document.getElementById('main');
   if (sec?.render) { docCounter = 0; main.innerHTML = sec.render(); }
+  // Attach tooltip to section title when help mode is active
+  if (sec?.tip) {
+    const title = main.querySelector('h2.section-title');
+    if (title) title.setAttribute('data-tip', sec.tip);
+  }
   window.scrollTo(0, 0);
+}
+
+function toggleHelpMode() {
+  document.body.classList.toggle('help-mode');
 }
 
 function init() {
@@ -1508,6 +1588,7 @@ function init() {
     const a = document.createElement('a');
     a.className = 'nav-item' + (s.id === activeSection ? ' active' : '');
     a.dataset.section = s.id;
+    if (s.tip) a.setAttribute('data-tip', s.tip);
     a.onclick = () => navigate(s.id);
     a.innerHTML = `<span class="nav-icon">${s.icon}</span>${s.label}`;
     if (s.count) {

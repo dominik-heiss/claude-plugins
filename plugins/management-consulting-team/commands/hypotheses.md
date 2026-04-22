@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Grep, Glob
 argument-hint: "[optional: specific hypothesis to update, or 'full' for complete rebuild]"
 ---
 
+**Use when:** You need a hypothesis tree — top hypotheses with sub-hypotheses, priority, and evidence requirements.
+**Standalone:** yes — Tool-Mode compatible; delivers a Markdown tree to `outputs/` (tree is not persisted as `hypotheses.json` in Tool Mode).
+
 You are the Engagement Manager. The Principal has requested a hypothesis tree update.
 
 ## Instructions

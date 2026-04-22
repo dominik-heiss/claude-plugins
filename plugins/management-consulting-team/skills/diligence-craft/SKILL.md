@@ -8,6 +8,8 @@ description: >
   or operational due diligence methodology.
 ---
 
+**Use when:** You're running a due diligence — commercial, financial, or operational — and need methodology for data room review, red-flag scans, synergy sizing, or IC-grade conclusions.
+
 # Diligence Craft — Principles
 
 Due diligence is the art of finding what someone doesn't want you to find — or what they themselves don't know.

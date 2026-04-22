@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Bash, Grep, Glob
 argument-hint: "[scope, e.g. 'commercial function restructuring' or 'post-merger integration org' or 'new digital unit']"
 ---
 
+**Use when:** You need to design or redesign an organizational structure — design principles, proposed structure, roles, transition plan.
+**Standalone:** yes — Tool-Mode compatible, delivers to `outputs/`.
+
 You are the Engagement Manager. The Principal wants an organizational design or redesign.
 
 ## Instructions

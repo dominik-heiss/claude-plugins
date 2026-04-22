@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Glob, WebFetch, Bash
 argument-hint: "[optional: 'all' to download all sources, or leave empty to download only high-reliability sources]"
 ---
 
+**Use when:** You want to download the sources registered in `source-registry.json` for offline review.
+**Standalone:** no — requires an active engagement (`project-data/engagement.json`).
+
 You are the Engagement Manager. The Principal has requested a source download.
 
 ## Instructions

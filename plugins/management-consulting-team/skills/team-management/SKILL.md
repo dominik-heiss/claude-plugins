@@ -11,6 +11,8 @@ description: >
 
 # Team Management — Token Protection & Agent Lifecycle
 
+**Use when:** You're spawning agents for High / Very High compute tasks, preventing token-limit loss, managing multi-file output, or recovering an interrupted session.
+
 For pause/shutdown/recovery/ad-hoc specialist procedures, see `references/team-lifecycle.md`. This skill focuses on **preventing data loss** and **managing output structure** for complex agent tasks.
 
 ## Token Limit Protection

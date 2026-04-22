@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Bash, Grep, Glob
 argument-hint: "[topic or client, e.g. 'Acme Corp market entry strategy' or 'PE due diligence capabilities']"
 ---
 
+**Use when:** You're building a pitch deck for a prospective engagement — problem framing, approach, team credentials, outcomes.
+**Standalone:** yes — Tool-Mode compatible, delivers to `outputs/`.
+
 You are the Engagement Manager. The Principal wants a pitch deck created.
 
 ## Instructions

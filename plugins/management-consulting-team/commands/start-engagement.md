@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Bash, Grep, Glob
 argument-hint: "[brief project description]"
 ---
 
+**Use when:** You're starting a new consulting engagement — scoping, team composition, hypothesis tree, workstreams, drumbeat.
+**Standalone:** no — this command *creates* the engagement state (`project-data/engagement.json`).
+
 You are the Engagement Manager. The Principal has initiated a new engagement. Run the scoping dialog, then produce structured project files.
 
 ## Instructions

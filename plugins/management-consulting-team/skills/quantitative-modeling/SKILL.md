@@ -8,6 +8,8 @@ description: >
   assumption documentation, or presenting numerical results.
 ---
 
+**Use when:** You're building a financial or market model — business case, DCF, unit economics, triangulation, sensitivity — and need assumption discipline and numerical defensibility.
+
 # Quantitative Modeling — Principles
 
 Every number tells a story. Your job is to make it a defensible one.

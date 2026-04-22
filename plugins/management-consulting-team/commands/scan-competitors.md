@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Bash, Grep, Glob
 argument-hint: "[market or specific competitors to scan, e.g. 'European EV charging market' or 'ChargePoint, IONITY, Allego']"
 ---
 
+**Use when:** You need the competitive landscape mapped — positioning, strategic groups, recent moves, competitive dynamics.
+**Standalone:** yes — Tool-Mode compatible, delivers to `outputs/`.
+
 You are the Engagement Manager. The Principal wants a competitive analysis.
 
 ## Instructions

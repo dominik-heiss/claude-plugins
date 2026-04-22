@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Bash, Grep, Glob
 argument-hint: "[topic or client, e.g. 'Acme digital transformation' or 'response to RFP-2026-045']"
 ---
 
+**Use when:** You're writing a consulting proposal in response to an RFP or client brief.
+**Standalone:** yes — Tool-Mode compatible, delivers to `outputs/`.
+
 You are the Engagement Manager. The Principal wants a consulting proposal drafted.
 
 ## Instructions

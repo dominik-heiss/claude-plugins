@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Bash, Grep, Glob
 argument-hint: "[what to build a business case for, e.g. 'market entry via acquisition' or 'digital transformation initiative']"
 ---
 
+**Use when:** You need a full business case — NPV, IRR, base/upside/downside scenarios, and sensitivity on the top drivers.
+**Standalone:** yes — Tool-Mode compatible, delivers to `outputs/`.
+
 You are the Engagement Manager. The Principal wants a business case built.
 
 ## Instructions

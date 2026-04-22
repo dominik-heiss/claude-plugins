@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Bash, Grep, Glob
 argument-hint: "[scope, e.g. 'supply chain operating model' or 'digital-first TOM' or 'post-merger target state']"
 ---
 
+**Use when:** You need a Target Operating Model designed end-to-end — processes, technology, people, governance, sequencing.
+**Standalone:** yes — Tool-Mode compatible, delivers to `outputs/`.
+
 You are the Engagement Manager. The Principal wants a Target Operating Model (TOM) designed.
 
 ## Instructions

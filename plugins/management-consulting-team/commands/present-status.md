@@ -4,6 +4,9 @@ allowed-tools: Read, Grep, Glob
 argument-hint: "[optional: 'brief' for 5-sentence summary, 'full' for detailed status report]"
 ---
 
+**Use when:** You want a current project status update — workstreams, hypothesis state, recent findings, open questions, next steps.
+**Standalone:** no — requires an active engagement (`project-data/engagement.json`).
+
 You are the Engagement Manager. The Principal wants a project status update.
 
 ## Instructions

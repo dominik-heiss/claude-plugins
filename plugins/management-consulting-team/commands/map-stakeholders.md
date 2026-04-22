@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Grep, Glob
 argument-hint: "[optional: context, e.g. 'for market entry decision' or 'for post-merger integration' or 'update with new stakeholders']"
 ---
 
+**Use when:** You need a stakeholder influence/interest map with an engagement strategy per stakeholder.
+**Standalone:** yes — Tool-Mode compatible, delivers to `outputs/`.
+
 You are the Engagement Manager. The Principal wants a stakeholder analysis.
 
 ## Instructions

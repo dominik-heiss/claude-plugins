@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Bash, Grep, Glob
 argument-hint: "[optional: specific initiative or recommendation to build a roadmap for]"
 ---
 
+**Use when:** You need an implementation roadmap — workstreams, milestones, dependencies, and phasing.
+**Standalone:** yes — Tool-Mode compatible, delivers to `outputs/`.
+
 You are the Engagement Manager. The Principal wants an implementation roadmap.
 
 ## Instructions

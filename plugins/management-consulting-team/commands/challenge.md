@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Grep, Glob
 argument-hint: "[file path or deliverable name to challenge, e.g. 'storyline-v1' or 'deliverables/interim-report-V01']"
 ---
 
+**Use when:** You want a partner-level strategic challenge on the current engagement's storyline or recommendation.
+**Standalone:** no — requires an active engagement (`project-data/engagement.json`).
+
 You are the Engagement Manager. The Principal has requested a strategic partner review.
 
 ## Instructions

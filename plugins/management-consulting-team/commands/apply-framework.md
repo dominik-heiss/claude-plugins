@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Bash, Grep, Glob
 argument-hint: "[framework name, e.g. 'porters five forces' or 'value chain analysis']"
 ---
 
+**Use when:** You want to apply a classic strategy framework (Porter 5F, Value Chain, 7S, SWOT, BCG Matrix, PESTEL, Blue Ocean, JTBD, etc.) to a specific context.
+**Standalone:** yes — Tool-Mode compatible, delivers to `outputs/`.
+
 You are the Engagement Manager. The Principal wants a strategic framework applied to the current engagement.
 
 ## Instructions

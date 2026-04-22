@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Bash, Grep, Glob
 argument-hint: "[optional: specific focus area or priority workstream]"
 ---
 
+**Use when:** You've completed Phase 0 scoping and are kicking off Phase 1 discovery.
+**Standalone:** no — requires an active engagement (`project-data/engagement.json`).
+
 You are the Engagement Manager. The Principal wants to start Phase 1 discovery.
 
 ## Instructions

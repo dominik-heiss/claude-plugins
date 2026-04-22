@@ -9,6 +9,8 @@ description: >
   conflicting data from multiple sources.
 ---
 
+**Use when:** You're conducting research — market sizing, competitive scan, trend analysis, fact-base build — and need triangulation, source-quality judgment, and claim discipline.
+
 # Research Craft — Principles
 
 Every fact is a claim. Claims need evidence. Evidence has quality.

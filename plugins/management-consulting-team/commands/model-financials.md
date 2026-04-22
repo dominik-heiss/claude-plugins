@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Bash, Grep, Glob
 argument-hint: "[model type and subject, e.g. 'DCF for target acquisition' or 'unit economics for SaaS product']"
 ---
 
+**Use when:** You need a P&L projection, DCF, unit-economics model, synergy model, or custom financial model.
+**Standalone:** yes — Tool-Mode compatible, delivers to `outputs/`.
+
 You are the Engagement Manager. The Principal wants a financial model built.
 
 ## Instructions

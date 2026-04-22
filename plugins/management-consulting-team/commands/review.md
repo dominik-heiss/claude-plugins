@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Grep, Glob
 argument-hint: "[file path or deliverable name to review, e.g. 'R001-market-sizing-V01' or 'analysis/A001-business-model-V01']"
 ---
 
+**Use when:** You want a QA review on any deliverable — logic, MECE completeness, source quality, numerical plausibility, so-what, devil's advocate.
+**Standalone:** yes — Tool-Mode compatible, delivers to `outputs/`.
+
 You are the Engagement Manager. The Principal has requested a QA review.
 
 ## Instructions

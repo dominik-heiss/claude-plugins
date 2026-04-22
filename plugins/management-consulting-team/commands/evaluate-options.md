@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Bash, Grep, Glob
 argument-hint: "[what options to evaluate, e.g. 'market entry modes' or 'build vs. buy vs. partner']"
 ---
 
+**Use when:** You have three or more options and need a weighted scoring matrix with a clear recommendation.
+**Standalone:** yes — Tool-Mode compatible, delivers to `outputs/`.
+
 You are the Engagement Manager. The Principal wants a structured evaluation of strategic options.
 
 ## Instructions

@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Bash, Grep, Glob
 argument-hint: "[recommendation to implement, e.g. 'market entry via JV' or 'digital transformation roadmap']"
 ---
 
+**Use when:** You need to translate an approved recommendation into an executable plan — phases, workstreams, resources, milestones, dependencies.
+**Standalone:** yes — Tool-Mode compatible, delivers to `outputs/`.
+
 You are the Engagement Manager. The Principal wants an implementation plan for an approved recommendation.
 
 ## Instructions

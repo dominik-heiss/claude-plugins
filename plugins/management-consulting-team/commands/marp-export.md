@@ -4,6 +4,9 @@ allowed-tools: Read, Bash, Glob
 argument-hint: "[path-to-deck.md] [--format pdf|html|pptx|all]  (e.g. 'project-data/deliverables/presentations/P001-market-entry/P001-market-entry-V01.md --format pdf')"
 ---
 
+**Use when:** You want to render a MARP Markdown deck into PDF / HTML / PPTX using the consulting theme.
+**Standalone:** yes — Tool-Mode compatible; exports the source file in place.
+
 You are the Engagement Manager. The Principal wants to export a MARP
 deck to a distributable format.
 

@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Grep, Glob
 argument-hint: "[file path or deliverable to simulate, and optionally which client persona, e.g. 'storyline-v1 as CEO' or 'interim-report-V01']"
 ---
 
+**Use when:** You want a simulated client reaction (CEO/CFO/CTO/COO) on a specific deliverable — political dynamics, buy-in, objections.
+**Standalone:** no — requires an active engagement (`project-data/engagement.json`).
+
 You are the Engagement Manager. The Principal has requested a client simulation.
 
 ## Instructions

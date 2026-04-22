@@ -4,6 +4,9 @@ allowed-tools: Read, Write, Bash, Grep, Glob
 argument-hint: "[what to benchmark, e.g. 'operational efficiency vs. European peers' or 'digital maturity against top 5 competitors']"
 ---
 
+**Use when:** You need a peer comparison on KPIs, processes, or best practices against a defined peer set.
+**Standalone:** yes — Tool-Mode compatible, delivers to `outputs/`.
+
 You are the Engagement Manager. The Principal wants a peer benchmarking analysis.
 
 ## Instructions
