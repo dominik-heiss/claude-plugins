@@ -542,63 +542,91 @@ section.two-col .columns ul li::before {
   font-size: 14px;
 }
 
-/* --- cards (3-up grid) ------------------------------------- */
-section.cards .grid {
+/* --- cards (3-up default, plus 2-up and 4-up variants) ------
+   All three classes share the same .grid + .card structure.
+   Differences: grid-template-columns, gaps, and card sizing. */
+section.cards .grid,
+section.cards-2 .grid,
+section.cards-4 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
   flex: 1;
   min-height: 0;
 }
-section.cards .card {
+section.cards   .grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+section.cards-2 .grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+section.cards-4 .grid { grid-template-columns: repeat(4, 1fr); gap: 14px; }
+
+section.cards .card,
+section.cards-2 .card,
+section.cards-4 .card {
   background: var(--c-paper-2);
-  padding: 24px 22px 22px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
   position: relative;
 }
-section.cards .card::before {
+section.cards   .card { padding: 24px 22px 22px; gap: 10px; }
+section.cards-2 .card { padding: 32px 30px 28px; gap: 14px; }
+section.cards-4 .card { padding: 16px 14px 14px; gap: 6px; }
+
+section.cards .card::before,
+section.cards-2 .card::before,
+section.cards-4 .card::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
   background: var(--c-accent);
 }
-section.cards .card .num {
+
+section.cards .card .num,
+section.cards-2 .card .num,
+section.cards-4 .card .num {
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 600;
-  font-size: 12px;
   letter-spacing: 0.04em;
   color: var(--c-accent);
   text-transform: uppercase;
   margin: 0;
   line-height: 1;
 }
-section.cards .card h4 {
+section.cards   .card .num { font-size: 12px; }
+section.cards-2 .card .num { font-size: 13px; }
+section.cards-4 .card .num { font-size: 11px; }
+
+section.cards .card h4,
+section.cards-2 .card h4,
+section.cards-4 .card h4 {
   font-family: var(--font-display);
   font-style: normal;
   font-weight: 600;
-  font-size: 19px;
   line-height: 1.2;
   letter-spacing: -0.015em;
   color: var(--c-ink);
   text-transform: none;
   margin: 0 0 4px;
 }
-section.cards .card p {
-  font-size: 13px;
+section.cards   .card h4 { font-size: 19px; }
+section.cards-2 .card h4 { font-size: 24px; }
+section.cards-4 .card h4 { font-size: 16px; }
+
+section.cards .card p,
+section.cards-2 .card p,
+section.cards-4 .card p {
   line-height: 1.5;
   color: var(--c-ink-soft);
   margin: 0;
   max-width: none;
 }
-section.cards .card .meta {
+section.cards   .card p { font-size: 13px; }
+section.cards-2 .card p { font-size: 15px; line-height: 1.55; }
+section.cards-4 .card p { font-size: 12px; line-height: 1.45; }
+
+section.cards .card .meta,
+section.cards-2 .card .meta,
+section.cards-4 .card .meta {
   margin-top: auto;
-  padding-top: 14px;
   font-family: var(--font-sans);
-  font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -607,10 +635,496 @@ section.cards .card .meta {
   justify-content: space-between;
   gap: 8px;
 }
-section.cards .card .meta strong {
+section.cards   .card .meta { padding-top: 14px; font-size: 10px; }
+section.cards-2 .card .meta { padding-top: 16px; font-size: 11px; }
+section.cards-4 .card .meta { padding-top: 10px; font-size: 9px; letter-spacing: 0.10em; }
+
+section.cards .card .meta strong,
+section.cards-2 .card .meta strong,
+section.cards-4 .card .meta strong {
   font-family: var(--font-display);
   font-weight: 600;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--c-ink);
+}
+section.cards   .card .meta strong { font-size: 14px; }
+section.cards-2 .card .meta strong { font-size: 16px; }
+section.cards-4 .card .meta strong { font-size: 12px; }
+
+/* ============================================================ */
+/*  Scalable patterns — children get `flex: 1`, so the layout    */
+/*  redistributes automatically as you add or remove items.      */
+/* ============================================================ */
+
+/* --- process (horizontal N-step) --------------------------- */
+section.process .steps {
+  display: flex;
+  gap: 14px;
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
+}
+section.process .step {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px 16px 16px;
+  background: var(--c-paper-2);
+  position: relative;
+}
+section.process .step::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 32px; height: 3px;
+  background: var(--c-accent);
+}
+section.process .step .step-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--c-accent);
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1;
+}
+section.process .step .step-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--c-ink);
+  margin: 0;
+}
+section.process .step .step-desc {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--c-ink-soft);
+  margin: 0;
+}
+
+/* --- matrix (2x2 quadrant) --------------------------------- */
+section.matrix .quadrants {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 96px 1fr 1fr;
+  grid-template-rows: 1fr 1fr 32px;
+  gap: 8px;
+}
+section.matrix .quadrants .q {
+  background: var(--c-paper-2);
+  padding: 18px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+section.matrix .quadrants .q::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--c-accent);
+  opacity: 0.35;
+}
+section.matrix .quadrants .q.highlight::before { opacity: 1; }
+section.matrix .quadrants .q h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--c-ink);
+  text-transform: none;
+  margin: 0;
+}
+section.matrix .quadrants .q p {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--c-ink-soft);
+  margin: 0;
+  max-width: none;
+}
+section.matrix .quadrants .axis-y {
+  grid-row: 1 / span 2;
+  grid-column: 1;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  padding: 8px 0;
+}
+section.matrix .quadrants .axis-x {
+  grid-row: 3;
+  grid-column: 2 / span 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  padding: 8px 4px 0;
+  border-top: 1px solid var(--c-rule-soft);
+}
+section.matrix .quadrants .q.q1 { grid-row: 1; grid-column: 2; }
+section.matrix .quadrants .q.q2 { grid-row: 1; grid-column: 3; }
+section.matrix .quadrants .q.q3 { grid-row: 2; grid-column: 2; }
+section.matrix .quadrants .q.q4 { grid-row: 2; grid-column: 3; }
+
+/* --- kpi-hero (one big number + supporting context) -------- */
+section.kpi-hero .hero-stat {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+}
+section.kpi-hero .hero-stat .big {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 144px;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--c-accent);
+  font-variation-settings: "opsz" 96;
+  margin: 0;
+}
+section.kpi-hero .hero-stat .big .cur {
+  font-size: 0.5em;
+  vertical-align: 0.32em;
+  margin-right: 0.04em;
+  color: var(--c-ink);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+section.kpi-hero .hero-stat .big small {
+  font-size: 0.4em;
+  vertical-align: 0.32em;
+  margin-left: 0.04em;
+  color: var(--c-ink);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+section.kpi-hero .hero-stat .ctx p {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.32;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--c-ink);
+  margin: 0 0 18px;
+  max-width: none;
+}
+section.kpi-hero .hero-stat .sub {
+  display: flex;
+  gap: 32px;
+  margin-top: 12px;
+}
+section.kpi-hero .hero-stat .sub div {
+  flex: 1;
+  border-top: 1px solid var(--c-rule);
+  padding-top: 8px;
+}
+section.kpi-hero .hero-stat .sub strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--c-ink);
+  line-height: 1;
+}
+section.kpi-hero .hero-stat .sub span {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  margin-top: 6px;
+  display: block;
+}
+
+/* --- kpi-strip (N stats in a row, scales via flex) --------- */
+section.kpi-strip .strip {
+  display: flex;
+  gap: 24px;
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
+}
+section.kpi-strip .strip .stat {
+  flex: 1;
+  min-width: 0;
+  border-top: 2px solid var(--c-accent);
+  padding: 14px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+section.kpi-strip .strip .stat .num {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 56px;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  color: var(--c-ink);
+  margin: 0;
+}
+section.kpi-strip .strip .stat .num em {
+  color: var(--c-accent);
+  font-style: normal;
+}
+section.kpi-strip .strip .stat .label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  margin: 4px 0 0;
+}
+section.kpi-strip .strip .stat .delta {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--c-ink-soft);
+  margin: auto 0 0;
+}
+
+/* --- compare (two-side "vs" layout) ------------------------ */
+section.compare .vs {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 32px;
+  align-items: stretch;
+}
+section.compare .vs .side {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+section.compare .vs .side h4 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+  color: var(--c-accent);
+  margin: 0 0 6px;
+  text-transform: none;
+}
+section.compare .vs .side p {
   font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 8px;
+  max-width: none;
+}
+section.compare .vs .side ul {
+  margin: 0;
+}
+section.compare .vs .side ul li {
+  font-size: 14px;
+  line-height: 1.45;
+  padding: 4px 0 4px 22px;
+  max-width: none;
+}
+section.compare .vs .side ul li::before {
+  top: 4px;
+  font-size: 14px;
+}
+section.compare .vs .divider {
+  width: 1px;
+  background: var(--c-rule);
+  position: relative;
+}
+section.compare .vs .divider::before {
+  content: "vs";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--c-paper);
+  padding: 8px 6px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--c-accent);
+  letter-spacing: -0.01em;
+}
+
+/* --- quote (pull-quote with attribution) ------------------- */
+section.quote { justify-content: center; }
+section.quote .quote-body {
+  max-width: 28ch;
+}
+section.quote .quote-body p {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--c-ink);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  margin: 0 0 28px;
+  max-width: none;
+}
+section.quote .quote-body p::before {
+  content: "“";
+  color: var(--c-accent);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+section.quote .quote-body p::after {
+  content: "”";
+  color: var(--c-accent);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+section.quote .attribution {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+section.quote .attribution strong {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--c-ink);
+}
+
+/* --- timeline (vertical events, scales via flex) ----------- */
+section.timeline .events {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  padding-left: 30px;
+}
+section.timeline .events::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: var(--c-rule);
+}
+section.timeline .events .event {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 24px;
+  align-items: start;
+  position: relative;
+}
+section.timeline .events .event::before {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: 8px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--c-paper);
+  border: 2px solid var(--c-accent);
+}
+section.timeline .events .event .when {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  margin: 4px 0 0;
+}
+section.timeline .events .event .what h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--c-ink);
+  text-transform: none;
+  margin: 0 0 4px;
+}
+section.timeline .events .event .what p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--c-ink-soft);
+  margin: 0;
+  max-width: none;
+}
+
+/* --- closing (Q&A / thanks / contact) ---------------------- */
+section.closing { justify-content: center; }
+section.closing .close-block {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+section.closing .close-block h1 {
+  font-size: 86px;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  margin: 0;
+  max-width: 16ch;
+  color: var(--c-accent);
+}
+section.closing .close-block .contact {
+  display: flex;
+  gap: 56px;
+  margin-top: 14px;
+}
+section.closing .close-block .contact div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+}
+section.closing .close-block .contact strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
   letter-spacing: -0.01em;
   text-transform: none;
   color: var(--c-ink);

@@ -7,6 +7,27 @@ header: ""
 footer: "Project name 2026 · Subtitle · Confidential"
 ---
 
+<!-- ===========================================================
+     STARTER DECK — minimal scaffold with the core patterns:
+       title, agenda, section-divider, default content, two-col, cards
+
+     For the full pattern catalog (cards-2, cards-4, process, matrix,
+     kpi-hero, kpi-strip, compare, quote, timeline, closing) see:
+       examples/reference-deck.md  →  rendered: examples/reference-deck.pdf
+       skills/marp-presentation/references/slide-patterns.md
+
+     None of the patterns are mandatory. When the content needs a
+     different shape, build a custom layout. For deck-local CSS
+     (e.g., a custom variant), use the frontmatter `style:` block
+     above — slide-internal <style> tags get stripped by MARP.
+
+     Example custom-CSS frontmatter:
+       style: |
+         section.my-custom .row { display: flex; gap: 16px; }
+         section.my-custom .row > * { flex: 1; }
+=========================================================== -->
+
+
 <!-- _class: title -->
 <!-- _paginate: false -->
 <!-- _footer: "" -->

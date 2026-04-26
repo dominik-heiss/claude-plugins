@@ -45,8 +45,42 @@ air-gapped environments, self-host the fonts (see above).
 
 MARP doesn't auto-shrink. If a slide overflows:
 - Cut content (preferred — usually too much on one slide)
-- Reduce font size for that slide via `<style scoped>` or a custom `_class`
+- Reduce font size for that slide via a custom `_class` whose CSS lives
+  in the frontmatter `style:` block (see "Custom CSS goes in frontmatter
+  `style:`" below — slide-internal `<style>` is stripped)
 - Split into two slides
+
+## Custom CSS goes in frontmatter `style:` — slide-internal `<style>` is stripped
+
+Putting `<style>...</style>` inside a slide body **does not work**. The
+MARP markdown parser strips those tags before rendering. Custom CSS
+must go in the `style:` key of the deck frontmatter:
+
+```yaml
+---
+marp: true
+theme: editorial
+style: |
+  section.cards-4 .grid { grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  section.cards-4 .card { padding: 16px 14px 14px; }
+  section.cards-4 .card h4 { font-size: 16px; }
+---
+```
+
+Then on the slide:
+
+```markdown
+<!-- _class: cards-4 -->
+```
+
+This is the supported MARP path for deck-local CSS — the editorial
+theme is global, the frontmatter `style:` block is per-deck. Every
+new pattern variant (e.g., a 5-up grid, a custom matrix) follows
+this shape.
+
+If you find a CSS rule isn't applying, the first thing to check is:
+"did I put it in a `<style>` block in the slide body?" — that's the
+most common cause.
 
 ## Wrong theme applied
 

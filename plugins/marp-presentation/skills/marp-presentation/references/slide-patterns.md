@@ -283,8 +283,330 @@ Card anatomy:
 - One or more `.meta` rows — `<span>label</span><strong>value</strong>`,
   bottom-anchored
 
-Three cards is the design intent. Two will work but look sparse; four
-overflow the grid.
+Three cards is the design intent for `cards`. For two or four cards use
+the dedicated variants — they tune padding and type sizes for the
+different column count.
+
+## cards-2
+
+Two larger cards side-by-side. Use when each option deserves more room
+(deeper description, more meta rows). Padding and type are scaled up.
+
+```markdown
+<!-- _class: cards-2 -->
+
+<span class="brand">03 · Recommendations</span>
+
+# Two larger cards for deeper content
+
+## Optional subtitle.
+
+<div class="grid">
+<div class="card">
+
+<p class="num">Option A</p>
+
+#### Card title
+
+Longer description — uses the extra room.
+
+<div class="meta"><span>Investment</span><strong>€2.4M</strong></div>
+<div class="meta"><span>Payback</span><strong>14 months</strong></div>
+
+</div>
+<div class="card">
+
+<p class="num">Option B</p>
+
+#### Card title
+
+Longer description.
+
+<div class="meta"><span>Investment</span><strong>€3.8M</strong></div>
+<div class="meta"><span>Payback</span><strong>22 months</strong></div>
+
+</div>
+</div>
+```
+
+## cards-4
+
+Four denser cards in a row. Use when you have parallel options that fit
+a compact format. Padding and type are scaled down.
+
+```markdown
+<!-- _class: cards-4 -->
+
+<div class="grid">
+<div class="card"><p class="num">Lever 01</p>
+#### Title
+Short description.
+<div class="meta"><span>Impact</span><strong>High</strong></div>
+</div>
+<!-- ...repeat for cards 2–4 ... -->
+</div>
+```
+
+Same `.grid` + `.card` structure as `cards`. Pick the variant by
+`_class`. **All three (`cards`, `cards-2`, `cards-4`) use the same
+wrappers** — switching is just a class change.
+
+## process
+
+Horizontal N-step process with numbered phase markers, titles, and
+short descriptions. **Children flex: 1** — the number of steps is
+determined by the number of `<div class="step">` children, no CSS
+change needed (3–7 work well; beyond that, type starts to crowd).
+
+```markdown
+<!-- _class: process -->
+
+<span class="brand">03 · Recommendations</span>
+
+# Five-phase implementation walks the program through one year
+
+## Optional subtitle.
+
+<div class="steps">
+<div class="step">
+<p class="step-num">Phase 01</p>
+<p class="step-title">Mobilize</p>
+<p class="step-desc">Steerco signs charter; workstream leads named.</p>
+</div>
+<div class="step">
+<p class="step-num">Phase 02</p>
+<p class="step-title">Pilot</p>
+<p class="step-desc">First two interventions live in two business units.</p>
+</div>
+<!-- ...add or remove steps; layout redistributes ... -->
+</div>
+```
+
+## kpi-strip
+
+N KPIs in a row — big numbers, terracotta accent, label, optional delta
+caption. **Children flex: 1**, so 3, 4, or 5 stats all distribute
+evenly.
+
+```markdown
+<!-- _class: kpi-strip -->
+
+<span class="brand">02 · Findings</span>
+
+# Four indicators tell the same story
+
+## Optional subtitle.
+
+<div class="strip">
+<div class="stat">
+<p class="num"><em>+34%</em></p>
+<p class="label">Throughput</p>
+<p class="delta">vs. Q4 2024 baseline</p>
+</div>
+<!-- ...repeat ... -->
+</div>
+```
+
+`<em>` inside `.num` paints that segment in terracotta — useful for
+"+12%" patterns where you want the value in accent color.
+
+## timeline
+
+Vertical timeline with date marker + event title + description per row.
+**Children flex: 1** — number of events is flexible.
+
+```markdown
+<!-- _class: timeline -->
+
+<span class="brand">04 · Next steps</span>
+
+# Milestones over the next six months
+
+<div class="events">
+<div class="event">
+<p class="when">Apr 2026</p>
+<div class="what">
+
+#### Mobilize and align
+
+Steerco signs charter; workstream leads named.
+
+</div>
+</div>
+<!-- ...repeat ... -->
+</div>
+```
+
+## matrix
+
+2×2 quadrant for strategic frameworks (impact/feasibility,
+effort/value, etc.). Mark the focus quadrant with `class="q highlight"`
+to give it a stronger accent bar.
+
+```markdown
+<!-- _class: matrix -->
+
+<span class="brand">02 · Findings</span>
+
+# Two dimensions reveal where the opportunity sits
+
+## Optional subtitle.
+
+<div class="quadrants">
+<div class="axis-y"><span>Low</span><span>High</span></div>
+<div class="q q1">
+<h4>Quick wins</h4>
+<p>Top-left quadrant description.</p>
+</div>
+<div class="q q2 highlight">
+<h4>Strategic bets</h4>
+<p>Top-right quadrant — the focus.</p>
+</div>
+<div class="q q3">
+<h4>Fill-ins</h4>
+<p>Bottom-left.</p>
+</div>
+<div class="q q4">
+<h4>Major projects</h4>
+<p>Bottom-right.</p>
+</div>
+<div class="axis-x"><span>Low ← Feasibility</span><span>Feasibility → High</span></div>
+</div>
+```
+
+`.q1` is upper-left, `.q2` upper-right, `.q3` lower-left, `.q4`
+lower-right. Y-axis spans go in display order (first = bottom because
+of vertical-rl rendering — so put `Low` first to put it at the bottom
+visually).
+
+## kpi-hero
+
+One big headline number with supporting context and up to ~3 sub-stats.
+
+```markdown
+<!-- _class: kpi-hero -->
+
+<span class="brand">02 · Findings</span>
+
+# One number captures the size of the prize
+
+## Optional subtitle.
+
+<div class="hero-stat">
+<div>
+<p class="big"><span class="cur">€</span>42<small>M</small></p>
+</div>
+<div class="ctx">
+
+<p>Annual run-rate value at maturity — context paragraph.</p>
+
+<div class="sub">
+<div><strong>+18 pp</strong><span>Margin uplift</span></div>
+<div><strong>2.4×</strong><span>Cycle-time gain</span></div>
+<div><strong>14 mo</strong><span>Payback</span></div>
+</div>
+
+</div>
+</div>
+```
+
+Use `<span class="cur">` for currency symbols and `<small>` for
+unit suffixes (M, k, %). They render at ~50% / 40% the main number
+size and in ink color, so the number itself dominates.
+
+## compare
+
+Two-side "vs" layout with a center divider. Use when the slide is
+explicitly about a trade-off between two options.
+
+```markdown
+<!-- _class: compare -->
+
+<span class="brand">03 · Recommendations</span>
+
+# Speed versus optionality
+
+## Recommended path picks reversibility over fastest delivery.
+
+<div class="vs">
+<div class="side">
+
+#### Build now
+
+Short framing paragraph.
+
+- Bullet
+- Bullet
+
+</div>
+<div class="divider"></div>
+<div class="side">
+
+#### Buy and adapt
+
+Short framing paragraph.
+
+- Bullet
+- Bullet
+
+</div>
+</div>
+```
+
+The empty `<div class="divider">` paints the central rule and the "vs"
+marker.
+
+## quote
+
+Pull-quote with attribution (name + role). Differs from `statement` by
+adding the source.
+
+```markdown
+<!-- _class: quote -->
+
+<!-- _footer: '' -->
+
+<span class="brand">02 · Findings</span>
+
+<div class="quote-body">
+
+The quote text — the leading and trailing curly quotes are added by
+CSS, so don't type them yourself.
+
+</div>
+
+<div class="attribution">
+<strong>Person Name</strong>
+<span>Role · Organization</span>
+</div>
+```
+
+## closing
+
+Final slide — Q&A, thanks, and contact details.
+
+```markdown
+<!-- _class: closing -->
+
+<!-- _paginate: false -->
+
+<!-- _footer: '' -->
+
+<span class="brand">Q&A</span>
+
+<div class="close-block">
+
+# Discussion *and questions.*
+
+<div class="contact">
+<div><span>Lead</span><strong>Name</strong></div>
+<div><span>Email</span><strong>name@org.com</strong></div>
+<div><span>Date</span><strong>26 April 2026</strong></div>
+</div>
+
+</div>
+```
+
 
 ## statement
 
@@ -311,6 +633,38 @@ use it to mark the load-bearing word.
 | Lay out the table of contents | `agenda` |
 | Transition into a new section | `section-divider` |
 | State a takeaway with supporting evidence | default (no class) |
-| Compare two options or perspectives | `two-col` |
+| Compare two options or perspectives | `two-col`, or `compare` for explicit "vs" framing |
 | Show 3 recommendations / levers / options | `cards` |
-| Anchor a single statement | `statement` |
+| Show 2 deeper options / 4 compact options | `cards-2` / `cards-4` |
+| Walk through a phased plan (3–7 steps) | `process` |
+| Headline a metric with supporting context | `kpi-hero` |
+| Show several KPIs side-by-side | `kpi-strip` |
+| Plot initiatives on a 2×2 framework | `matrix` |
+| Show milestones over time | `timeline` |
+| Anchor a single sentence | `statement` |
+| Quote a person with attribution | `quote` |
+| Close the deck (Q&A / contact) | `closing` |
+| Need something else? | Build a custom layout — see `SKILL.md` |
+
+## Custom CSS — frontmatter `style:` works, slide-internal `<style>` doesn't
+
+When a custom layout needs new CSS that lives only with the deck (not
+inside `editorial.css`), put it in the **frontmatter `style:` block**:
+
+```yaml
+---
+marp: true
+theme: editorial
+style: |
+  section.my-custom .row { display: flex; gap: 16px; }
+  section.my-custom .row > * { flex: 1; }
+---
+```
+
+Then use `<!-- _class: my-custom -->` on the slide. MARP injects the
+frontmatter `style:` value as a global `<style>` block.
+
+**Slide-internal `<style>` tags get stripped** by the MARP markdown
+parser — anything inside `<style>...</style>` placed directly in the
+markdown body has no effect. If you find your CSS isn't applying,
+this is the most likely cause. See `references/pitfalls.md`.

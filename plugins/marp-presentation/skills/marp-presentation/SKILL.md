@@ -103,12 +103,35 @@ Override `theme:` only if the user has supplied a custom CSS.
 These are the patterns the theme has CSS for out of the box. Pick one
 when it fits the content; otherwise build a custom layout (see above).
 
+**Core**
+
 | Pattern | `_class` | Wrappers expected in body |
 |---|---|---|
 | Title | `title` | `.t-top`, `.t-hero`, `.t-sub`, `.t-meta` |
 | Agenda | `agenda` | `<span class="brand">`, ordered list with inline `*em*` descriptions |
+| Section divider | `section-divider` | `<span class="brand">`, h3, h1, `<ol>` with `class="current"` on active item |
 | Content (default) | none | `<span class="brand">`, optional `.lead`, ul, optional `.source` |
 | Two-column | `two-col` | `.columns` with two child `<div>`s |
-| Card grid | `cards` | `.grid` with three `.card` children |
-| Section divider | `section-divider` | `<span class="brand">`, h3, h1 |
+| Cards 3-up | `cards` | `.grid` with three `.card` children |
+| Cards 2-up | `cards-2` | `.grid` with two larger `.card` children |
+| Cards 4-up | `cards-4` | `.grid` with four denser `.card` children |
 | Statement | `statement` | h1 with optional `*em*` for terracotta accent |
+
+**Scalable** — children get `flex: 1`, so the number of items can vary
+(typically 3–7) without touching CSS.
+
+| Pattern | `_class` | Body |
+|---|---|---|
+| Process | `process` | `.steps` + N× `.step` (each with `.step-num`, `.step-title`, `.step-desc`) |
+| KPI strip | `kpi-strip` | `.strip` + N× `.stat` (each with `.num`, `.label`, optional `.delta`) |
+| Timeline | `timeline` | `.events` + N× `.event` (each with `.when` + `.what` group) |
+
+**Specialty**
+
+| Pattern | `_class` | Body |
+|---|---|---|
+| 2×2 matrix | `matrix` | `.quadrants` with `.axis-y`, `.axis-x`, four `.q.q1..q4` cells |
+| KPI hero | `kpi-hero` | `.hero-stat` grid: big number on left, `.ctx` (with `.sub` stats) on right |
+| Compare | `compare` | `.vs` with two `.side` divs flanking a `.divider` |
+| Quote | `quote` | `.quote-body` (the quote) + `.attribution` (name, role) |
+| Closing | `closing` | `.close-block` with h1 and optional `.contact` row |
