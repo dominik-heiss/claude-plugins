@@ -219,6 +219,34 @@ Notes:
 - Blank lines around the inner markdown are required so MARP parses bold,
   italics, lists.
 
+## three-col / four-col
+
+Same `.columns` wrapper as `two-col`, just more children. Type and gap
+scale down with column count so the content stays readable.
+
+```markdown
+<!-- _class: three-col -->
+
+<div class="columns">
+<div>
+
+#### Column subhead
+
+Short paragraph.
+
+- Bullet
+- Bullet
+
+</div>
+<div>...</div>
+<div>...</div>
+</div>
+```
+
+For four columns, use `<!-- _class: four-col -->` and four children.
+Keep each column to a paragraph plus ~3 bullets — beyond that, type
+crowds.
+
 ## cards
 
 Three-card grid for recommendations, levers, options — anything that fits
@@ -634,6 +662,7 @@ use it to mark the load-bearing word.
 | Transition into a new section | `section-divider` |
 | State a takeaway with supporting evidence | default (no class) |
 | Compare two options or perspectives | `two-col`, or `compare` for explicit "vs" framing |
+| Lay out 3 or 4 themes side-by-side (text, not cards) | `three-col` / `four-col` |
 | Show 3 recommendations / levers / options | `cards` |
 | Show 2 deeper options / 4 compact options | `cards-2` / `cards-4` |
 | Walk through a phased plan (3–7 steps) | `process` |

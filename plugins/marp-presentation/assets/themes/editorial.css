@@ -118,12 +118,15 @@ footer {
   text-align: right;
 }
 
-/* Source / footnote slot — bottom-left, independent from footer */
+/* Source / footnote slot — bottom-left, sits to the left of the footer.
+   `right` reserves space for the footer + page number on the bottom-right
+   so the two never collide. */
 .source {
   position: absolute;
   left: var(--pad-x);
+  right: calc(var(--pad-x) + 280px);
   bottom: 26px;
-  max-width: 72ch;
+  max-width: none;
   padding: 0;
   font-family: var(--font-sans);
   font-style: italic;
@@ -507,40 +510,63 @@ section.statement h1 em {
   font-weight: 600;
 }
 
-/* --- two-col ----------------------------------------------- */
-section.two-col .columns {
+/* --- two-col / three-col / four-col ------------------------
+   Same .columns wrapper, type and gap scale down with column count. */
+section.two-col   .columns,
+section.three-col .columns,
+section.four-col  .columns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
   flex: 1;
   min-height: 0;
 }
-section.two-col .columns h4 {
+section.two-col   .columns { grid-template-columns: repeat(2, 1fr); gap: 56px; }
+section.three-col .columns { grid-template-columns: repeat(3, 1fr); gap: 36px; }
+section.four-col  .columns { grid-template-columns: repeat(4, 1fr); gap: 24px; }
+
+section.two-col .columns h4,
+section.three-col .columns h4,
+section.four-col .columns h4 {
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 600;
-  font-size: 18px;
   letter-spacing: -0.01em;
   color: var(--c-accent);
   margin: 0 0 12px;
   text-transform: none;
 }
-section.two-col .columns p {
-  font-size: 15px;
+section.two-col   .columns h4 { font-size: 18px; }
+section.three-col .columns h4 { font-size: 17px; margin-bottom: 10px; }
+section.four-col  .columns h4 { font-size: 15px; margin-bottom: 8px; }
+
+section.two-col .columns p,
+section.three-col .columns p,
+section.four-col .columns p {
   line-height: 1.5;
   margin: 0 0 14px;
   max-width: none;
 }
-section.two-col .columns ul li {
-  font-size: 14px;
+section.two-col   .columns p { font-size: 15px; }
+section.three-col .columns p { font-size: 14px; margin-bottom: 12px; }
+section.four-col  .columns p { font-size: 12px; line-height: 1.45; margin-bottom: 10px; }
+
+section.two-col .columns ul li,
+section.three-col .columns ul li,
+section.four-col .columns ul li {
   line-height: 1.45;
-  padding: 4px 0 4px 22px;
   max-width: none;
 }
-section.two-col .columns ul li::before {
+section.two-col   .columns ul li { font-size: 14px; padding: 4px 0 4px 22px; }
+section.three-col .columns ul li { font-size: 13px; padding: 3px 0 3px 20px; }
+section.four-col  .columns ul li { font-size: 12px; padding: 3px 0 3px 18px; }
+
+section.two-col .columns ul li::before,
+section.three-col .columns ul li::before,
+section.four-col .columns ul li::before {
   top: 4px;
-  font-size: 14px;
 }
+section.two-col   .columns ul li::before { font-size: 14px; }
+section.three-col .columns ul li::before { font-size: 13px; }
+section.four-col  .columns ul li::before { font-size: 12px; top: 3px; }
 
 /* --- cards (3-up default, plus 2-up and 4-up variants) ------
    All three classes share the same .grid + .card structure.
@@ -870,7 +896,7 @@ section.kpi-strip .strip {
   gap: 24px;
   flex: 1;
   min-height: 0;
-  align-items: stretch;
+  align-items: flex-start;
 }
 section.kpi-strip .strip .stat {
   flex: 1;
@@ -879,7 +905,6 @@ section.kpi-strip .strip .stat {
   padding: 14px 0 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
 }
 section.kpi-strip .strip .stat .num {
   font-family: var(--font-display);
@@ -901,14 +926,14 @@ section.kpi-strip .strip .stat .label {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--c-muted);
-  margin: 4px 0 0;
+  margin: 6px 0 0;
 }
 section.kpi-strip .strip .stat .delta {
   font-family: var(--font-display);
   font-style: italic;
   font-size: 13px;
   color: var(--c-ink-soft);
-  margin: auto 0 0;
+  margin: 4px 0 0;
 }
 
 /* --- compare (two-side "vs" layout) ------------------------ */
@@ -1037,10 +1062,10 @@ section.timeline .events {
 section.timeline .events::before {
   content: "";
   position: absolute;
-  left: 7px;
+  left: 6px;
   top: 6px;
   bottom: 6px;
-  width: 1px;
+  width: 2px;
   background: var(--c-rule);
 }
 section.timeline .events .event {
@@ -1055,13 +1080,17 @@ section.timeline .events .event {
 section.timeline .events .event::before {
   content: "";
   position: absolute;
+  box-sizing: border-box;
   left: -30px;
-  top: 8px;
-  width: 15px;
-  height: 15px;
+  top: 2px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background: var(--c-paper);
   border: 2px solid var(--c-accent);
+}
+section.timeline .events .event .when {
+  margin: 0;
 }
 section.timeline .events .event .when {
   font-family: var(--font-sans);

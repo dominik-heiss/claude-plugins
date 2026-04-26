@@ -16,7 +16,9 @@ footer: "Lorem ipsum 2026 · Dolor sit amet · Confidential"
        agenda             → numbered agenda with descriptions
        section-divider    → between sections — agenda layout, current item highlighted
        statement          → large pull-quote / single statement
-       two-col            → two-column content (with .columns wrapper)
+       two-col            → two-column content (.columns + 2× <div>)
+       three-col          → three-column content (.columns + 3× <div>)
+       four-col           → four-column content (.columns + 4× <div>)
        cards              → three-card grid (.grid + 3× .card)
        cards-2            → two-card grid (larger cards, more breathing room)
        cards-4            → four-card grid (denser type for tighter content)
@@ -157,6 +159,113 @@ At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praese
 </div>
 
 <p class="source">Source: Lorem ipsum dolor sit amet, consectetur adipiscing elit — Q1 2026.</p>
+
+---
+
+<!-- _class: three-col -->
+
+<span class="brand">02 · Findings</span>
+
+# Three columns when the comparison has three sides
+
+## Same wrapper as two-col — type and gap scaled down for the extra column.
+
+<div class="columns">
+<div>
+
+#### Lorem ipsum
+
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+
+- Nemo enim ipsam voluptatem
+- Neque porro quisquam est
+- Ut enim ad minima veniam
+
+</div>
+<div>
+
+#### Dolor sit amet
+
+At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.
+
+- Excepturi sint occaecati
+- Temporibus autem quibusdam
+- Itaque earum rerum hic tenetur
+
+</div>
+<div>
+
+#### Consectetur
+
+Et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis.
+
+- Eligendi optio cumque
+- Nihil impedit quo minus
+- Maxime placeat facere possimus
+
+</div>
+</div>
+
+<p class="source">Source: Lorem ipsum analysis — Q1 2026.</p>
+
+---
+
+<!-- _class: four-col -->
+
+<span class="brand">02 · Findings</span>
+
+# Four columns when parallel themes need equal weight
+
+## Type compresses again — keep each column to a paragraph plus three bullets.
+
+<div class="columns">
+<div>
+
+#### Lorem
+
+Sed ut perspiciatis unde omnis iste natus error.
+
+- Nemo enim ipsam
+- Neque porro quisquam
+- Ut enim ad minima
+
+</div>
+<div>
+
+#### Ipsum
+
+At vero eos et accusamus et iusto odio dignissimos.
+
+- Excepturi sint
+- Temporibus autem
+- Itaque earum rerum
+
+</div>
+<div>
+
+#### Dolor
+
+Et harum quidem rerum facilis est et expedita distinctio.
+
+- Eligendi optio
+- Nihil impedit
+- Maxime placeat
+
+</div>
+<div>
+
+#### Sit amet
+
+Nam libero tempore cum soluta nobis est eligendi optio.
+
+- Cumque quod facere
+- Quos voluptas asperiores
+- Repellat ad nauseam
+
+</div>
+</div>
+
+<p class="source">Source: Lorem ipsum thematic clustering — Q1 2026.</p>
 
 ---
 
@@ -358,7 +467,7 @@ Consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
 ## Initiatives in the upper right combine high impact with high feasibility.
 
 <div class="quadrants">
-<div class="axis-y"><span>Low</span><span>High</span></div>
+<div class="axis-y"><span>Low ← Impact</span><span>Impact → High</span></div>
 <div class="q q1">
 <h4>Quick wins</h4>
 <p>Lorem ipsum dolor sit amet — three initiatives, modest investment, near-term payback.</p>
@@ -569,11 +678,5 @@ Roll-out wave 1 — three additional units; training and tooling.
 <div class="close-block">
 
 # Discussion *and questions.*
-
-<div class="contact">
-<div><span>Lead</span><strong>Lorem Ipsum</strong></div>
-<div><span>Email</span><strong>lorem@dolor-sit.amet</strong></div>
-<div><span>Date</span><strong>26 April 2026</strong></div>
-</div>
 
 </div>

@@ -1,6 +1,6 @@
 {
   "name": "marp-presentation",
-  "version": "0.20260426.3",
+  "version": "0.20260426.4",
   "description": "Author and export MARP markdown presentations with the bundled editorial theme (Fraunces + Inter, terracotta accent, 16:9).",
   "author": {
     "name": "Dominik Heiß"

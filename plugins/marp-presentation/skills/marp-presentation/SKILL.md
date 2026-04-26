@@ -112,6 +112,8 @@ when it fits the content; otherwise build a custom layout (see above).
 | Section divider | `section-divider` | `<span class="brand">`, h3, h1, `<ol>` with `class="current"` on active item |
 | Content (default) | none | `<span class="brand">`, optional `.lead`, ul, optional `.source` |
 | Two-column | `two-col` | `.columns` with two child `<div>`s |
+| Three-column | `three-col` | `.columns` with three child `<div>`s (denser type) |
+| Four-column | `four-col` | `.columns` with four child `<div>`s (denser still) |
 | Cards 3-up | `cards` | `.grid` with three `.card` children |
 | Cards 2-up | `cards-2` | `.grid` with two larger `.card` children |
 | Cards 4-up | `cards-4` | `.grid` with four denser `.card` children |
