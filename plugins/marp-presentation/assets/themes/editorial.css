@@ -1,0 +1,617 @@
+/*
+ * Editorial — MARP theme
+ * @theme editorial
+ * @size 16:9 1280px 720px
+ *
+ * Magazine/editorial aesthetic: large display serif, generous whitespace,
+ * terracotta accent, asymmetric composition.
+ *
+ * Layout logic:
+ *   - Each slide reserves fixed top-chrome (brand zone) and bottom-chrome
+ *     (footer / source / pagination zone). Body content can't overflow into
+ *     those zones.
+ *   - Title slide uses an explicit flex column with t-top / t-hero /
+ *     t-sub / t-meta wrappers.
+ *
+ * Re-skin: edit the CSS variables under :root.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --c-ink:        #111111;
+  --c-ink-soft:   #2C2A28;
+  --c-paper:      #F4EFE6;       /* warm off-white */
+  --c-paper-2:    #E8E1D3;       /* card / soft surface */
+  --c-accent:     #C2410C;       /* terracotta */
+  --c-rule:       rgba(17,17,17,0.18);
+  --c-rule-soft:  rgba(17,17,17,0.10);
+  --c-muted:      #6B645A;
+  --c-dim:        rgba(17,17,17,0.30);    /* dimmed ink for inactive list items */
+  --c-dim-soft:   rgba(17,17,17,0.22);    /* dimmed accent for inactive numbers */
+
+  --font-display: "Fraunces", "Source Serif 4", Georgia, serif;
+  --font-sans:    "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Vertical rhythm — everything is anchored to these */
+  --pad-x: 80px;
+  --top-chrome: 56px;     /* brand zone */
+  --bottom-chrome: 64px;  /* footer / source / pagination zone */
+  --gap-top: 0px;         /* top-chrome → headings */
+  --gap-bottom: 32px;     /* content → bottom-chrome */
+}
+
+/* ============================================================ */
+/*  Slide base                                                   */
+/* ============================================================ */
+
+section {
+  width: 1280px;
+  height: 720px;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--c-ink);
+  background: var(--c-paper);
+  padding:
+    calc(var(--top-chrome) + var(--gap-top))
+    var(--pad-x)
+    calc(var(--bottom-chrome) + var(--gap-bottom));
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  letter-spacing: -0.005em;
+  overflow: hidden;
+}
+
+/* ============================================================ */
+/*  Top chrome — brand marker                                    */
+/* ============================================================ */
+
+.brand {
+  position: absolute;
+  top: 30px;
+  left: var(--pad-x);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  z-index: 3;
+  line-height: 1;
+}
+.brand-r {
+  position: absolute;
+  top: 32px;
+  right: var(--pad-x);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  color: var(--c-muted);
+  z-index: 3;
+  line-height: 1;
+}
+
+/* ============================================================ */
+/*  Bottom chrome — source (left), footer + pagination (right)   */
+/* ============================================================ */
+
+footer {
+  position: absolute;
+  right: calc(var(--pad-x) + 44px);
+  bottom: 30px;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--c-muted);
+  font-style: italic;
+  line-height: 1;
+  z-index: 2;
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+  text-align: right;
+}
+
+/* Source / footnote slot — bottom-left, independent from footer */
+.source {
+  position: absolute;
+  left: var(--pad-x);
+  bottom: 26px;
+  max-width: 72ch;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-style: italic;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--c-muted);
+  line-height: 1.4;
+  z-index: 1;
+}
+
+/* Pagination — overrides MARP's default ::after which inherits section padding.
+   `bottom: 28px` (vs footer's 30px) compensates for the larger font-size so
+   the baselines of pagination and footer text align. */
+section[data-marpit-pagination]::after {
+  content: attr(data-marpit-pagination);
+  position: absolute;
+  right: var(--pad-x);
+  bottom: 28px;
+  padding: 0;            /* override MARP default `padding: inherit` */
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--c-accent);
+  letter-spacing: -0.01em;
+  z-index: 3;
+  line-height: 1;
+}
+
+/* ============================================================ */
+/*  Typography                                                   */
+/* ============================================================ */
+
+h1, h2, h3, h4 { margin: 0; color: var(--c-ink); }
+
+section h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 46px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-wrap: pretty;
+  font-variation-settings: "opsz" 96;
+  margin: 0 0 14px;
+  max-width: none;
+}
+
+section h2 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 1.36;
+  letter-spacing: -0.005em;
+  color: var(--c-ink-soft);
+  margin: 0 0 30px;
+  padding-bottom: 0;
+  border-bottom: none;
+  max-width: none;
+  text-wrap: pretty;
+}
+
+section h3 {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin: 0 0 18px;
+  line-height: 1;
+}
+
+h4 {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--c-ink-soft);
+  margin: 0 0 8px;
+}
+
+p {
+  margin: 0 0 14px;
+  max-width: 60ch;
+  color: var(--c-ink-soft);
+  font-size: 17px;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+strong { color: var(--c-ink); font-weight: 600; }
+em { font-family: var(--font-display); font-style: italic; color: inherit; }
+
+.lead {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.36;
+  letter-spacing: -0.01em;
+  color: var(--c-ink);
+  max-width: 40ch;
+  margin: 0 0 20px;
+  text-wrap: pretty;
+}
+
+/* ============================================================ */
+/*  Lists                                                        */
+/* ============================================================ */
+
+ul, ol { margin: 0 0 14px; padding-left: 0; list-style: none; }
+
+ul li {
+  position: relative;
+  padding: 6px 0 6px 28px;
+  color: var(--c-ink-soft);
+  font-size: 17px;
+  line-height: 1.5;
+  max-width: 62ch;
+}
+ul li + li { margin-top: 4px; }
+ul li::before {
+  content: "—";
+  position: absolute;
+  left: 0; top: 6px;
+  color: var(--c-accent);
+  font-weight: 600;
+}
+
+ol { counter-reset: cnt; }
+ol li {
+  position: relative;
+  counter-increment: cnt;
+  padding: 6px 0 6px 56px;
+  color: var(--c-ink-soft);
+  max-width: 62ch;
+}
+ol li::before {
+  content: counter(cnt);
+  position: absolute;
+  left: 0; top: -2px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--c-accent);
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: var(--c-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+blockquote {
+  margin: 0 0 16px;
+  padding: 0;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--c-ink);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  max-width: 24ch;
+}
+blockquote p { font-size: inherit; color: inherit; max-width: none; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  margin: 8px 0 16px;
+}
+thead th {
+  text-align: left;
+  padding: 12px 16px 12px 0;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  border-bottom: none;
+}
+tbody td {
+  padding: 14px 16px 14px 0;
+  border-bottom: none;
+  color: var(--c-ink-soft);
+  vertical-align: top;
+}
+
+code {
+  font-family: "JetBrains Mono", "SF Mono", Menlo, monospace;
+  font-size: 0.9em;
+  background: var(--c-paper-2);
+  padding: 1px 6px;
+  border-radius: 2px;
+}
+
+img { max-width: 100%; }
+
+/* ============================================================ */
+/*  Layout patterns                                              */
+/* ============================================================ */
+
+/* --- title ------------------------------------------------- */
+section.title {
+  padding: 56px var(--pad-x) 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+section.title footer,
+section.title header { display: none; }
+section.title[data-marpit-pagination]::after { display: none; }
+
+section.title .t-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0 0 auto;
+  min-height: 14px;            /* keep layout stable when eyebrow is empty */
+}
+section.title .t-top h3,
+section.title h3 {
+  position: static;
+  margin: 0;
+  color: var(--c-accent);
+}
+
+section.title .t-hero {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: flex-end;
+  min-height: 0;
+  padding: 24px 0 16px;
+}
+section.title h1 {
+  font-size: 108px;
+  line-height: 0.94;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  margin: 0;
+  max-width: 14ch;
+  font-variation-settings: "opsz" 144;
+  color: var(--c-accent);      /* hero in accent color */
+}
+
+section.title .t-sub { flex: 0 0 auto; }
+section.title h2 {
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--c-ink-soft);
+  max-width: 64ch;
+  margin: 0;
+  border: none;
+  padding: 0;
+  text-wrap: pretty;
+}
+
+section.title .t-meta {
+  flex: 0 0 auto;
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: start;
+  gap: 56px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--c-muted);
+  text-transform: uppercase;
+}
+section.title .t-meta div {
+  line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+section.title .t-meta div > span { display: block; }
+section.title .t-meta strong {
+  display: block;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--c-ink);
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+/* --- agenda + section-divider (shared list styles) ---------- */
+section.agenda h1,
+section.section-divider h1 {
+  font-size: 46px;
+  margin-bottom: 22px;
+  max-width: none;
+}
+
+section.agenda ol,
+section.section-divider ol {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+section.agenda ol li,
+section.section-divider ol li {
+  padding: 8px 0 8px 64px;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.18;
+  color: var(--c-ink);
+  letter-spacing: -0.015em;
+  max-width: none;
+}
+section.agenda ol li::before,
+section.section-divider ol li::before {
+  font-size: 30px;
+  top: 6px;
+}
+section.agenda ol li em,
+section.section-divider ol li em {
+  display: block;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--c-muted);
+  letter-spacing: 0;
+  margin-top: 4px;
+  line-height: 1.45;
+  max-width: none;
+}
+
+/* --- section-divider — dim non-current items, highlight current.
+   Uses `visibility: hidden` (not `display: none`) on inactive em so the
+   list items keep the same vertical positions they have on the agenda. */
+section.section-divider ol li {
+  color: var(--c-dim);
+  font-weight: 400;
+}
+section.section-divider ol li::before {
+  color: var(--c-dim-soft);
+}
+section.section-divider ol li em {
+  visibility: hidden;
+}
+section.section-divider ol li.current {
+  color: var(--c-ink);
+  font-weight: 600;
+}
+section.section-divider ol li.current::before {
+  color: var(--c-accent);
+}
+section.section-divider ol li.current em {
+  visibility: visible;
+  color: var(--c-muted);
+}
+
+/* --- statement --------------------------------------------- */
+section.statement { justify-content: center; }
+section.statement h1 {
+  font-size: 76px;
+  line-height: 1.0;
+  max-width: 18ch;
+  letter-spacing: -0.035em;
+}
+section.statement h1 em {
+  color: var(--c-accent);
+  font-weight: 600;
+}
+
+/* --- two-col ----------------------------------------------- */
+section.two-col .columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  flex: 1;
+  min-height: 0;
+}
+section.two-col .columns h4 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  color: var(--c-accent);
+  margin: 0 0 12px;
+  text-transform: none;
+}
+section.two-col .columns p {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0 0 14px;
+  max-width: none;
+}
+section.two-col .columns ul li {
+  font-size: 14px;
+  line-height: 1.45;
+  padding: 4px 0 4px 22px;
+  max-width: none;
+}
+section.two-col .columns ul li::before {
+  top: 4px;
+  font-size: 14px;
+}
+
+/* --- cards (3-up grid) ------------------------------------- */
+section.cards .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  flex: 1;
+  min-height: 0;
+}
+section.cards .card {
+  background: var(--c-paper-2);
+  padding: 24px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+section.cards .card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--c-accent);
+}
+section.cards .card .num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--c-accent);
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1;
+}
+section.cards .card h4 {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--c-ink);
+  text-transform: none;
+  margin: 0 0 4px;
+}
+section.cards .card p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--c-ink-soft);
+  margin: 0;
+  max-width: none;
+}
+section.cards .card .meta {
+  margin-top: auto;
+  padding-top: 14px;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+section.cards .card .meta strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--c-ink);
+}
