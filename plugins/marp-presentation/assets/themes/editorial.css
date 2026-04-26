@@ -535,8 +535,8 @@ section.four-col .columns h4 {
   text-transform: none;
 }
 section.two-col   .columns h4 { font-size: 18px; }
-section.three-col .columns h4 { font-size: 17px; margin-bottom: 10px; }
-section.four-col  .columns h4 { font-size: 15px; margin-bottom: 8px; }
+section.three-col .columns h4 { font-size: 18px; }
+section.four-col  .columns h4 { font-size: 17px; margin-bottom: 10px; }
 
 section.two-col .columns p,
 section.three-col .columns p,
@@ -544,29 +544,26 @@ section.four-col .columns p {
   line-height: 1.5;
   margin: 0 0 14px;
   max-width: none;
+  font-size: 15px;
 }
-section.two-col   .columns p { font-size: 15px; }
-section.three-col .columns p { font-size: 14px; margin-bottom: 12px; }
-section.four-col  .columns p { font-size: 12px; line-height: 1.45; margin-bottom: 10px; }
+section.four-col .columns p { font-size: 14px; }
 
 section.two-col .columns ul li,
 section.three-col .columns ul li,
 section.four-col .columns ul li {
   line-height: 1.45;
   max-width: none;
+  font-size: 14px;
+  padding: 4px 0 4px 22px;
 }
-section.two-col   .columns ul li { font-size: 14px; padding: 4px 0 4px 22px; }
-section.three-col .columns ul li { font-size: 13px; padding: 3px 0 3px 20px; }
-section.four-col  .columns ul li { font-size: 12px; padding: 3px 0 3px 18px; }
+section.four-col .columns ul li { padding: 4px 0 4px 20px; }
 
 section.two-col .columns ul li::before,
 section.three-col .columns ul li::before,
 section.four-col .columns ul li::before {
   top: 4px;
+  font-size: 14px;
 }
-section.two-col   .columns ul li::before { font-size: 14px; }
-section.three-col .columns ul li::before { font-size: 13px; }
-section.four-col  .columns ul li::before { font-size: 12px; top: 3px; }
 
 /* --- cards (3-up default, plus 2-up and 4-up variants) ------
    All three classes share the same .grid + .card structure.
@@ -633,8 +630,8 @@ section.cards-4 .card h4 {
   margin: 0 0 4px;
 }
 section.cards   .card h4 { font-size: 19px; }
-section.cards-2 .card h4 { font-size: 24px; }
-section.cards-4 .card h4 { font-size: 16px; }
+section.cards-2 .card h4 { font-size: 22px; }
+section.cards-4 .card h4 { font-size: 17px; }
 
 section.cards .card p,
 section.cards-2 .card p,
@@ -643,10 +640,10 @@ section.cards-4 .card p {
   color: var(--c-ink-soft);
   margin: 0;
   max-width: none;
+  font-size: 14px;
 }
-section.cards   .card p { font-size: 13px; }
 section.cards-2 .card p { font-size: 15px; line-height: 1.55; }
-section.cards-4 .card p { font-size: 12px; line-height: 1.45; }
+section.cards-4 .card p { font-size: 13px; line-height: 1.45; }
 
 section.cards .card .meta,
 section.cards-2 .card .meta,
@@ -722,7 +719,7 @@ section.process .step .step-num {
 section.process .step .step-title {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.2;
   letter-spacing: -0.015em;
   color: var(--c-ink);
@@ -730,7 +727,7 @@ section.process .step .step-title {
 }
 section.process .step .step-desc {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--c-ink-soft);
   margin: 0;
@@ -765,7 +762,7 @@ section.matrix .quadrants .q.highlight::before { opacity: 1; }
 section.matrix .quadrants .q h4 {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.2;
   letter-spacing: -0.015em;
   color: var(--c-ink);
@@ -773,7 +770,7 @@ section.matrix .quadrants .q h4 {
   margin: 0;
 }
 section.matrix .quadrants .q p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--c-ink-soft);
   margin: 0;
@@ -1082,7 +1079,7 @@ section.timeline .events .event::before {
   position: absolute;
   box-sizing: border-box;
   left: -30px;
-  top: 2px;
+  top: 5px;
   width: 14px;
   height: 14px;
   border-radius: 50%;
@@ -1104,7 +1101,7 @@ section.timeline .events .event .when {
 section.timeline .events .event .what h4 {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.2;
   letter-spacing: -0.015em;
   color: var(--c-ink);
@@ -1112,7 +1109,7 @@ section.timeline .events .event .what h4 {
   margin: 0 0 4px;
 }
 section.timeline .events .event .what p {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--c-ink-soft);
   margin: 0;
