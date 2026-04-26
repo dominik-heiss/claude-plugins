@@ -6,5 +6,15 @@
   "metadata": {
     "description": "Dominik Heiß's personal marketplace of Claude Code plugins"
   },
-  "plugins": []
+  "plugins": [
+    {
+      "name": "email",
+      "source": "./plugins/email",
+      "description": "IMAP/SMTP email client. Read inbox, search, and send (or save as draft) from within Claude Code.",
+      "version": "0.20260426.1",
+      "author": { "name": "Dominik Heiß" },
+      "license": "MIT",
+      "keywords": ["email", "imap", "smtp", "mail", "automation"]
+    }
+  ]
 }

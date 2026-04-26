@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "email_skill"
+version = "0.20260424.1"
+description = "IMAP/SMTP email client as a Claude Code skill"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "dheiss" }]
+dependencies = [
+    "keyring>=24",
+    "pyyaml>=6",
+]
+
+[project.scripts]
+email-skill = "email_skill.cli:main"
+
+[project.optional-dependencies]
+linux-headless = ["keyrings.alt>=5"]
+
+[tool.setuptools.packages.find]
+include = ["email_skill*"]

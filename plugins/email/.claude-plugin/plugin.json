@@ -1,0 +1,10 @@
+{
+  "name": "email",
+  "version": "0.20260426.1",
+  "description": "IMAP/SMTP email client. Read inbox, search, and send (or save as draft) from within Claude Code.",
+  "author": {
+    "name": "Dominik Heiß"
+  },
+  "license": "MIT",
+  "keywords": ["email", "imap", "smtp", "mail", "automation"]
+}

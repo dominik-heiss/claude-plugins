@@ -12,7 +12,15 @@ Then install any plugin from the list below.
 
 ## Available plugins
 
-_None published yet — plugins are added here as they're released._
+| Plugin | Description |
+|---|---|
+| [`email`](plugins/email) | Read, search, and send emails via IMAP/SMTP. Cross-platform, secure credential storage via OS keyring, draft-mode by default. |
+
+Install any plugin with:
+
+```shell
+/plugin install <name>@dh-claude-plugins
+```
 
 ## Repository layout
 
