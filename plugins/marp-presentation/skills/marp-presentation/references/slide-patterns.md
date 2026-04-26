@@ -1,7 +1,17 @@
 # Slide patterns
 
-The editorial theme ships six layout patterns. Apply via `<!-- _class: NAME -->`
-at the top of a slide. Default (no `_class`) is a single-column content slide.
+The editorial theme ships seven layout patterns out of the box. Apply
+via `<!-- _class: NAME -->` at the top of a slide. Default (no `_class`)
+is a single-column content slide.
+
+> **These are examples, not a closed catalog.** They cover the common
+> shapes (cover, agenda, content, two-col, cards, divider, pull-quote)
+> and are the right default when they fit. When the content needs
+> something different — a 2×2 matrix, a timeline, a KPI hero, an
+> asymmetric split, an annotated chart — **build a custom layout**
+> using the design language (CSS variables, typography scale, chrome
+> zones). See "Patterns are examples, not a cage" in `SKILL.md` for
+> guidance.
 
 ## Per-slide chrome conventions
 

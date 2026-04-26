@@ -34,8 +34,8 @@
   --font-sans:    "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Vertical rhythm — everything is anchored to these */
-  --pad-x: 80px;
-  --top-chrome: 56px;     /* brand zone */
+  --pad-x: 64px;
+  --top-chrome: 46px;     /* brand zone */
   --bottom-chrome: 64px;  /* footer / source / pagination zone */
   --gap-top: 0px;         /* top-chrome → headings */
   --gap-bottom: 32px;     /* content → bottom-chrome */
@@ -164,12 +164,12 @@ h1, h2, h3, h4 { margin: 0; color: var(--c-ink); }
 section h1 {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 46px;
+  font-size: 38px;
   line-height: 1.1;
   letter-spacing: -0.02em;
   text-wrap: pretty;
   font-variation-settings: "opsz" 96;
-  margin: 0 0 14px;
+  margin: 0 0 10px;
   max-width: none;
 }
 
@@ -177,11 +177,11 @@ section h2 {
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 400;
-  font-size: 25px;
-  line-height: 1.36;
+  font-size: 21px;
+  line-height: 1.32;
   letter-spacing: -0.005em;
   color: var(--c-ink-soft);
-  margin: 0 0 30px;
+  margin: 0 0 22px;
   padding-bottom: 0;
   border-bottom: none;
   max-width: none;
@@ -223,12 +223,12 @@ em { font-family: var(--font-display); font-style: italic; color: inherit; }
 .lead {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 24px;
-  line-height: 1.36;
-  letter-spacing: -0.01em;
+  font-size: 17px;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
   color: var(--c-ink);
-  max-width: 40ch;
-  margin: 0 0 20px;
+  max-width: 60ch;
+  margin: 0 0 16px;
   text-wrap: pretty;
 }
 
@@ -425,8 +425,8 @@ section.title .t-meta strong {
 /* --- agenda + section-divider (shared list styles) ---------- */
 section.agenda h1,
 section.section-divider h1 {
-  font-size: 46px;
-  margin-bottom: 22px;
+  font-size: 38px;
+  margin-bottom: 18px;
   max-width: none;
 }
 
