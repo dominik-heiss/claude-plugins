@@ -83,6 +83,26 @@ marp-presentation/
    ```
 5. Iterate
 
+## Reference deck must stay in sync
+
+`examples/reference-deck.pdf` is committed and linked from `README.md`
+as the public preview of the design language. Whenever you change the
+theme (`assets/themes/editorial.css`), the reference markdown
+(`examples/reference-deck.md`), or anything else that affects how the
+reference renders, **re-export the PDF** so the committed preview
+matches the current state:
+
+```bash
+npx @marp-team/marp-cli examples/reference-deck.md \
+  --theme assets/themes/editorial.css \
+  --pdf --allow-local-files \
+  -o examples/reference-deck.pdf
+```
+
+Commit the regenerated PDF in the same change. Note: `examples/` is
+**not** in `.gitignore` (only `exports/` is) — the PDF lives
+intentionally inside `examples/` so it ships with the repo.
+
 ## What NOT to do
 
 - Don't install `marp` globally — always `npx @marp-team/marp-cli`

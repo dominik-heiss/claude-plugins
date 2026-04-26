@@ -64,9 +64,10 @@ is a single-column content slide.
 | `section-divider` | Dark full-bleed divider between sections |
 | `statement` | Single large pull-quote slide |
 
-See `examples/reference-deck.md` for each pattern in use, and
-`skills/marp-presentation/references/slide-patterns.md` for the full
-catalog with content guidance.
+See `examples/reference-deck.md` for each pattern in use (rendered
+preview: [`examples/reference-deck.pdf`](examples/reference-deck.pdf)),
+and `skills/marp-presentation/references/slide-patterns.md` for the
+full catalog with content guidance.
 
 ## Per-slide chrome
 
