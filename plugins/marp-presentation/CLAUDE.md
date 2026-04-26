@@ -83,6 +83,24 @@ marp-presentation/
    ```
 5. Iterate
 
+## Bump the version on every user-facing change
+
+Plugin consumers refresh against the version string in
+`.claude-plugin/plugin.json` and the corresponding entry in the repo
+root `.claude-plugin/marketplace.json`. **Both** values must be bumped
+in lockstep — otherwise users won't see updates.
+
+Schema: `0.YYYYMMDD.N` — today's date plus a patch counter starting at
+`.1`. Increment `N` for each release on the same day. On a new day,
+roll the date and reset to `.1`.
+
+When to bump: any commit that changes the theme CSS, the skill docs,
+the bundled command, the templates, or anything else end users
+consume. Internal-only changes (CLAUDE.md, repo hygiene,
+`exports/`, comment-only edits) don't need a bump.
+
+Always update **both** files in the same commit as the change itself.
+
 ## Reference deck must stay in sync
 
 `examples/reference-deck.html` and `examples/reference-deck.pdf` are

@@ -20,7 +20,7 @@
       "name": "marp-presentation",
       "source": "./plugins/marp-presentation",
       "description": "Author and export MARP markdown presentations with the bundled editorial theme (Fraunces + Inter, terracotta accent, 16:9).",
-      "version": "0.20260426.1",
+      "version": "0.20260426.2",
       "author": { "name": "Dominik Heiß" },
       "license": "MIT",
       "keywords": ["marp", "presentation", "slides", "markdown", "pdf", "editorial"]
