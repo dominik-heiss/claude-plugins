@@ -381,10 +381,16 @@ wrappers** — switching is just a class change.
 
 ## process
 
-Horizontal N-step process with numbered phase markers, titles, and
-short descriptions. **Children flex: 1** — the number of steps is
-determined by the number of `<div class="step">` children, no CSS
-change needed (3–7 work well; beyond that, type starts to crowd).
+Horizontal N-step **sequential** process. Each step shows the phase
+number and title in a paper-2 head box (with the terracotta accent
+bar), and the description sits **outside the box** on the paper canvas
+below. A terracotta arrow (→) connects each step to the next,
+signalling sequentiality and distinguishing this pattern from the
+non-sequential cards / column layouts.
+
+**Children flex: 1** — the number of steps is determined by the
+number of `<div class="step">` children, no CSS change needed (3–7
+work well; beyond that, type starts to crowd).
 
 ```markdown
 <!-- _class: process -->
@@ -397,18 +403,30 @@ change needed (3–7 work well; beyond that, type starts to crowd).
 
 <div class="steps">
 <div class="step">
+<div class="step-head">
 <p class="step-num">Phase 01</p>
 <p class="step-title">Mobilize</p>
+</div>
 <p class="step-desc">Steerco signs charter; workstream leads named.</p>
 </div>
 <div class="step">
+<div class="step-head">
 <p class="step-num">Phase 02</p>
 <p class="step-title">Pilot</p>
+</div>
 <p class="step-desc">First two interventions live in two business units.</p>
 </div>
 <!-- ...add or remove steps; layout redistributes ... -->
 </div>
 ```
+
+Notes:
+- The `.step-head` wrapper is required — it's what becomes the box.
+- Keep `.step-desc` as a sibling **outside** `.step-head`; it must not
+  sit inside the head, otherwise it'll be drawn on the paper-2 surface.
+- The arrow between steps is auto-generated via `::after` on every
+  `.step` except the last one. No markup needed.
+- `.step-title` looks best at one line. Keep titles short (1–3 words).
 
 ## kpi-strip
 

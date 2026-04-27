@@ -59,6 +59,35 @@ How to do it well:
 Reach for a canned pattern when it fits. When it doesn't, design the
 slide for the content.
 
+## Density check — pick the layout BEFORE you author
+
+The slide canvas is fixed (1280×720) and the bottom-chrome zone (64px)
+is sacred. Default content with too many bullets silently overflows
+the bottom — `overflow: hidden` hides what doesn't fit. Always size
+the content against these budgets before committing to a layout:
+
+| Layout | Budget |
+|---|---|
+| Default content (h1 + h2 + lead + bullets) | ≤ 5 bullets, each ≤ 2 wrapped lines |
+| Default content without lead | ≤ 6–7 bullets |
+| `two-col` | per column: paragraph + ~3 bullets |
+| `three-col` | per column: short paragraph + ~3 short bullets |
+| `four-col` | per column: short paragraph + 2–3 short bullets |
+| `cards` (3-up) | per card: ~25 words description |
+| `cards-4` | per card: ~15 words description |
+| `process` | 3–7 phases, each with ≤ 1 sentence description |
+
+When the content exceeds the budget, **switch layout** before authoring:
+
+- 6+ short, parallel bullets → `cards` (3-up or 4-up) or `two-col`
+- 6+ longer bullets → split across two slides, or use `three-col` / `four-col`
+- A sequential plan with descriptions → `process` pattern
+- Several stats with context → `kpi-strip` or `kpi-hero`
+
+After rendering, **visually verify** every content-dense slide. If
+anything is cut off at the bottom, restructure — never shrink type
+below the theme defaults.
+
 ## Authoring rules
 
 - Every content slide has an **action title** as `h1` — full sentence
@@ -124,7 +153,7 @@ when it fits the content; otherwise build a custom layout (see above).
 
 | Pattern | `_class` | Body |
 |---|---|---|
-| Process | `process` | `.steps` + N× `.step` (each with `.step-num`, `.step-title`, `.step-desc`) |
+| Process | `process` | `.steps` + N× `.step` (each with `.step-head` containing `.step-num` + `.step-title`, plus `.step-desc` outside the head) |
 | KPI strip | `kpi-strip` | `.strip` + N× `.stat` (each with `.num`, `.label`, optional `.delta`) |
 | Timeline | `timeline` | `.events` + N× `.event` (each with `.when` + `.what` group) |
 

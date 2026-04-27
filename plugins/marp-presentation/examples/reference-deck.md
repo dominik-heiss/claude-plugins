@@ -428,28 +428,38 @@ Consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
 
 <div class="steps">
 <div class="step">
+<div class="step-head">
 <p class="step-num">Phase 01</p>
 <p class="step-title">Lorem ipsum</p>
+</div>
 <p class="step-desc">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</p>
 </div>
 <div class="step">
+<div class="step-head">
 <p class="step-num">Phase 02</p>
 <p class="step-title">Dolor sit amet</p>
+</div>
 <p class="step-desc">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit.</p>
 </div>
 <div class="step">
+<div class="step-head">
 <p class="step-num">Phase 03</p>
 <p class="step-title">Consectetur</p>
+</div>
 <p class="step-desc">Voluptatem sequi nesciunt neque porro quisquam est qui dolorem.</p>
 </div>
 <div class="step">
+<div class="step-head">
 <p class="step-num">Phase 04</p>
 <p class="step-title">Adipiscing elit</p>
+</div>
 <p class="step-desc">Quia dolor sit amet consectetur adipisci velit sed quia non.</p>
 </div>
 <div class="step">
+<div class="step-head">
 <p class="step-num">Phase 05</p>
 <p class="step-title">Tempor incidunt</p>
+</div>
 <p class="step-desc">Numquam eius modi tempora incidunt ut labore et dolore magnam.</p>
 </div>
 </div>
