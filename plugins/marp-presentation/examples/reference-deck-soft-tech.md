@@ -1,6 +1,6 @@
 ---
 marp: true
-theme: editorial
+theme: soft-tech
 paginate: true
 size: 16:9
 header: ""

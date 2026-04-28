@@ -2,7 +2,24 @@
 
 All exports go through `marp-cli`, invoked via `npx` — no global install.
 
-## PDF — client-ready
+**Default to HTML.** Render PDF only when the user explicitly asks for
+it. PDF needs Chromium and is slower; HTML opens in any browser.
+
+## HTML — default, fast preview / sharing
+
+```bash
+npx @marp-team/marp-cli your-deck.md \
+  --theme assets/themes/editorial.css \
+  --html \
+  -o exports/your-deck.html
+```
+
+Open the file in any browser. No server required.
+
+Substitute `assets/themes/soft-tech.css` if the deck's frontmatter has
+`theme: soft-tech`.
+
+## PDF — only on explicit request
 
 ```bash
 npx @marp-team/marp-cli your-deck.md \
@@ -14,16 +31,16 @@ npx @marp-team/marp-cli your-deck.md \
 
 `--allow-local-files` is needed if the deck references local images.
 
-## HTML — fast preview / sharing
+## Output filename — theme suffix only on conflict
 
-```bash
-npx @marp-team/marp-cli your-deck.md \
-  --theme assets/themes/editorial.css \
-  --html \
-  -o exports/your-deck.html
-```
+Default output filename is `exports/<deck-stem>.<ext>`. Add a
+`-<theme>` suffix **only when a previous export of the same deck used
+a different theme** and would otherwise be overwritten — e.g., the
+deck was first rendered under `editorial` (`exports/foo.html`) and is
+now being re-rendered under `soft-tech`. In that case write
+`exports/foo-soft-tech.html` so both renderings coexist.
 
-Open the file in any browser. No server required.
+For a fresh deck or a same-theme re-export, keep the filename plain.
 
 ## Watch mode
 

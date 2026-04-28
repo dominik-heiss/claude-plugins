@@ -1,7 +1,18 @@
 # Theme customization
 
-The default theme is `assets/themes/editorial.css`. CSS variables at the
-top let you re-skin without touching layout rules.
+Two themes ship with the plugin:
+
+- `assets/themes/editorial.css` (default) — magazine aesthetic,
+  Fraunces + Inter, terracotta accent on warm paper.
+- `assets/themes/soft-tech.css` — Linear/Vercel-style, all-Inter +
+  JetBrains Mono micro labels, indigo accent on near-white.
+
+Both implement the same pattern set and the same markdown contract
+(`.brand`, `.source`, frontmatter `footer:` + `paginate: true`), so
+swapping themes is a one-line change in frontmatter.
+
+CSS variables at the top of either file let you re-skin without
+touching layout rules.
 
 ## Re-skin: edit CSS variables
 

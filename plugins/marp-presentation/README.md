@@ -1,22 +1,27 @@
 # marp-presentation
 
 Standalone Claude Code plugin for authoring and exporting **MARP** markdown
-presentations. Bundles the **editorial** theme — magazine/editorial
-aesthetic with display-serif headings, terracotta accent, and warm
-off-white paper — plus a layout-pattern catalog, an example deck, and a
-`/marp-export` command that wraps `marp-cli`.
+presentations. Bundles **two themes** — `editorial` (magazine, terracotta
+on warm paper) and `soft-tech` (Linear-style, indigo on near-white) —
+plus a shared layout-pattern catalog, example decks for both themes, and
+a `/marp-export` command that wraps `marp-cli`.
 
 ## What you get
 
 - **Skill** `marp-presentation` — Claude knows how to write good decks
-  with this design language and where every asset lives.
+  with both design languages and where every asset lives.
 - **Command** `/marp-export` — render a deck to PDF or HTML using the
-  bundled theme.
-- **Default theme** `assets/themes/editorial.css` — 16:9, Fraunces +
-  Inter, terracotta accent, brand marker top-left, footer / page number /
-  source line in three explicit zones at the bottom.
+  selected theme.
+- **Themes** in `assets/themes/`:
+  - `editorial.css` — 16:9, Fraunces + Inter, terracotta accent, paper-2
+    surfaces. Magazine feel.
+  - `soft-tech.css` — 16:9, Inter + JetBrains Mono micro labels, indigo
+    accent on near-white, line-bordered surfaces. Linear/Vercel feel.
+  - Both implement the same pattern set and the same markdown contract,
+    so swapping themes is a one-line `theme:` change.
 - **Templates** — copy `templates/starter-deck.md`, edit, export.
-- **Examples** — `examples/reference-deck.md` shows every layout pattern
+- **Examples** — `examples/reference-deck.md` (editorial) and
+  `examples/reference-deck-soft-tech.md` show every layout pattern
   with abstract content so the patterns travel to any domain.
 
 ## Install
@@ -61,13 +66,18 @@ is a single-column content slide.
 | (none) | Single-column content (action title + lead + bullets) |
 | `two-col` | Two-column body (`.columns` wrapper) |
 | `cards` | Three-card grid (`.grid` + `.card` children) |
-| `section-divider` | Dark full-bleed divider between sections |
+| `options` | Two-option matrix with KPI grid per side and recommended badge |
+| `section-divider` | Section transition with the upcoming item highlighted |
 | `statement` | Single large pull-quote slide |
 
-See `examples/reference-deck.md` for each pattern in use — rendered
-previews are committed alongside the markdown:
+See `examples/reference-deck.md` (editorial) for each pattern in use —
+rendered previews are committed alongside the markdown:
 [`reference-deck.html`](examples/reference-deck.html) (open in browser)
 and [`reference-deck.pdf`](examples/reference-deck.pdf) (GitHub-viewable).
+The same content rendered with the soft-tech theme:
+[`reference-deck-soft-tech.html`](examples/reference-deck-soft-tech.html)
+and
+[`reference-deck-soft-tech.pdf`](examples/reference-deck-soft-tech.pdf).
 For the full catalog with content guidance, see
 `skills/marp-presentation/references/slide-patterns.md`.
 
@@ -156,9 +166,11 @@ marp-presentation/
     marp-export.md                   /marp-export command
   assets/themes/
     editorial.css                    bundled default theme
+    soft-tech.css                    second bundled theme (Linear-style)
   templates/
     starter-deck.md                  minimal new-deck template
   examples/
-    reference-deck.md                full pattern showcase
+    reference-deck.md                full pattern showcase (editorial)
+    reference-deck-soft-tech.md      same content, soft-tech theme
   exports/                           generated output (gitignored)
 ```

@@ -1,6 +1,6 @@
 ---
 marp: true
-theme: editorial
+theme: editorial          # or `soft-tech` — both ship with the plugin
 paginate: true
 size: 16:9
 header: ""

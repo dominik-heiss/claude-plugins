@@ -5,21 +5,38 @@ description: Use when the user wants to create, edit, or export a MARP markdown 
 
 # marp-presentation
 
-You help the user produce polished slide decks from markdown using MARP
-and the bundled `editorial` theme — magazine/editorial aesthetic with
-display-serif headings, terracotta accent, warm off-white paper.
+You help the user produce polished slide decks from markdown using
+MARP. Two themes ship with the plugin — the user picks one per deck
+via the `theme:` frontmatter. The same markdown contract (chrome via
+`.brand` / `.source` / frontmatter `footer:` + `paginate: true`,
+patterns via `_class:`) works for both, so swapping themes is a
+one-line change.
+
+## Bundled themes
+
+| Theme | `theme:` value | Aesthetic |
+|---|---|---|
+| Editorial (default) | `editorial` | Magazine/editorial — Fraunces display serif + Inter, terracotta accent, warm off-white paper, paper-2 surfaces on cards |
+| Soft Tech | `soft-tech` | Linear/Vercel/Stripe-doc — Inter sans + JetBrains Mono micro labels, indigo accent, near-white canvas, line-bordered surfaces |
+
+Both themes support the **same pattern set**, so a deck written for
+one renders cleanly under the other. Pick by the user's brief — when
+unsure, ask once.
 
 ## Workflow
 
-1. **Confirm format**: 16:9 PDF (default), or HTML for fast preview
-2. **Check the source**: existing `.md`, or start from
+1. **Confirm format**: HTML by default. Render PDF only when the user
+   explicitly asks (PDF needs Chromium and is slower).
+2. **Confirm theme** if not already set in the source: `editorial`
+   (default) or `soft-tech`
+3. **Check the source**: existing `.md`, or start from
    `templates/starter-deck.md`
-3. **Choose layout per slide**: the bundled patterns are starting points,
+4. **Choose layout per slide**: the bundled patterns are starting points,
    not a closed set — see "Patterns are examples, not a cage" below
-4. **Use the bundled theme**: `assets/themes/editorial.css` unless the
-   user specifies another
 5. **Export**: invoke `marp-cli` via `npx` — see
-   `references/export-workflow.md`
+   `references/export-workflow.md`. Default output filename is
+   `<deck>.html`; only add a `-<theme>` suffix if a render from a
+   different theme already exists for the same deck.
 
 ## Patterns are examples, not a cage
 
@@ -76,6 +93,7 @@ the content against these budgets before committing to a layout:
 | `cards` (3-up) | per card: ~25 words description |
 | `cards-4` | per card: ~15 words description |
 | `process` | 3–7 phases, each with ≤ 1 sentence description |
+| `options` | per option: 1 short lead + 3 short bullets + 4 KPIs |
 
 When the content exceeds the budget, **switch layout** before authoring:
 
@@ -107,7 +125,7 @@ below the theme defaults.
 ```yaml
 ---
 marp: true
-theme: editorial
+theme: editorial   # or `soft-tech`
 paginate: true
 size: 16:9
 header: ""
@@ -115,7 +133,9 @@ footer: "Project name 2026 · Subtitle · Confidential"
 ---
 ```
 
-Override `theme:` only if the user has supplied a custom CSS.
+Pick `theme:` based on the brief — `editorial` (default, magazine) or
+`soft-tech` (Linear-style). Override only if the user has supplied a
+custom CSS.
 
 ## When to read which reference
 
@@ -164,5 +184,6 @@ when it fits the content; otherwise build a custom layout (see above).
 | 2×2 matrix | `matrix` | `.quadrants` with `.axis-y`, `.axis-x`, four `.q.q1..q4` cells |
 | KPI hero | `kpi-hero` | `.hero-stat` grid: big number on left, `.ctx` (with `.sub` stats) on right |
 | Compare | `compare` | `.vs` with two `.side` divs flanking a `.divider` |
+| Options | `options` | `.opts` with two `.opt` columns (each: `.opt-head` + `.lead` + `ul` + `.stats` 2×2 grid) flanking a `.divider`; one column may carry the `recommended` badge |
 | Quote | `quote` | `.quote-body` (the quote) + `.attribution` (name, role) |
 | Closing | `closing` | `.close-block` with h1 and optional `.contact` row |

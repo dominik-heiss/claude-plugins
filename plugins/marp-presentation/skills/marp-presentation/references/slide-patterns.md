@@ -1,8 +1,9 @@
 # Slide patterns
 
-The editorial theme ships seven layout patterns out of the box. Apply
-via `<!-- _class: NAME -->` at the top of a slide. Default (no `_class`)
-is a single-column content slide.
+Both bundled themes (`editorial` and `soft-tech`) implement the same
+pattern set, so the markdown below renders cleanly under either
+theme. Apply via `<!-- _class: NAME -->` at the top of a slide.
+Default (no `_class`) is a single-column content slide.
 
 > **These are examples, not a closed catalog.** They cover the common
 > shapes (cover, agenda, content, two-col, cards, divider, pull-quote)
@@ -408,6 +409,11 @@ work well; beyond that, type starts to crowd).
 <p class="step-title">Mobilize</p>
 </div>
 <p class="step-desc">Steerco signs charter; workstream leads named.</p>
+
+- Charter signed
+- Leads named
+- Baseline lock
+
 </div>
 <div class="step">
 <div class="step-head">
@@ -415,6 +421,10 @@ work well; beyond that, type starts to crowd).
 <p class="step-title">Pilot</p>
 </div>
 <p class="step-desc">First two interventions live in two business units.</p>
+
+- Two pilot units
+- Weekly readout
+
 </div>
 <!-- ...add or remove steps; layout redistributes ... -->
 </div>
@@ -424,6 +434,9 @@ Notes:
 - The `.step-head` wrapper is required — it's what becomes the box.
 - Keep `.step-desc` as a sibling **outside** `.step-head`; it must not
   sit inside the head, otherwise it'll be drawn on the paper-2 surface.
+- An optional `<ul>` sibling below `.step-desc` adds short bullets
+  (deliverables, gates, owners). Keep them to 2–4 short items per step
+  so the row stays readable.
 - The arrow between steps is auto-generated via `::after` on every
   `.step` except the last one. No markup needed.
 - `.step-title` looks best at one line. Keep titles short (1–3 words).
@@ -448,13 +461,21 @@ evenly.
 <p class="num"><em>+34%</em></p>
 <p class="label">Throughput</p>
 <p class="delta">vs. Q4 2024 baseline</p>
+
+- Pilot units only
+- Verified Q1 2026
+
 </div>
 <!-- ...repeat ... -->
 </div>
 ```
 
-`<em>` inside `.num` paints that segment in terracotta — useful for
-"+12%" patterns where you want the value in accent color.
+`<em>` inside `.num` paints that segment in accent — useful for
+"+12%" patterns where you want the value highlighted.
+
+An optional `<ul>` below `.delta` adds short qualifying notes
+(scope, source, exclusions). Keep each to 2–3 short items so the
+strip stays scannable.
 
 ## timeline
 
@@ -602,6 +623,86 @@ Short framing paragraph.
 The empty `<div class="divider">` paints the central rule and the "vs"
 marker.
 
+## options
+
+Two-option matrix with the same shape on each side: title bar (with
+optional `recommended` badge), short lead paragraph, support bullets,
+and a 2×2 KPI grid anchored to the bottom of the column. A center
+hairline separates the two sides. Use this when the slide's job is to
+**recommend one of two paths** with the trade-off visible at a glance.
+
+```markdown
+<!-- _class: options -->
+
+<span class="brand">03 · Recommendations</span>
+
+# Two paths to capture the next 24 months
+
+## Both options reach the same target — they differ in capital, speed, and risk.
+
+<div class="opts">
+<div class="opt">
+
+<div class="opt-head">
+<div class="opt-title">Option A — Build in-house</div>
+<span class="badge recommended">Recommended</span>
+</div>
+
+<p class="lead">Short lead — invest in a dedicated team and own the customer relationship end-to-end.</p>
+
+- Bullet point one
+- Bullet point two
+- Bullet point three
+
+<div class="stats">
+<div><p class="k">Time to impact</p><p class="v">14 mo</p></div>
+<div><p class="k">Capex</p><p class="v warn">€ 8.4 m</p></div>
+<div><p class="k">EBIT lift Yr 3</p><p class="v pos">+ 6.2 pp</p></div>
+<div><p class="k">Strategic fit</p><p class="v">High</p></div>
+</div>
+
+</div>
+<div class="divider"></div>
+<div class="opt">
+
+<div class="opt-head">
+<div class="opt-title">Option B — Partner & integrate</div>
+<span class="badge">Alternative</span>
+</div>
+
+<p class="lead">Short lead — license the platform and focus on integration and channels.</p>
+
+- Bullet point one
+- Bullet point two
+- Bullet point three
+
+<div class="stats">
+<div><p class="k">Time to impact</p><p class="v pos">6 mo</p></div>
+<div><p class="k">Capex</p><p class="v">€ 2.1 m</p></div>
+<div><p class="k">EBIT lift Yr 3</p><p class="v">+ 3.4 pp</p></div>
+<div><p class="k">Strategic fit</p><p class="v warn">Medium</p></div>
+</div>
+
+</div>
+</div>
+
+<p class="source">Source: ...</p>
+```
+
+Notes:
+- The `.opt-title` is a plain `<div>` (not an h-tag) — this avoids
+  conflicting with the slide's own h1/h2.
+- `.badge` paints in muted style; add `.recommended` for the accent
+  variant on the preferred option.
+- Inside `.stats`, mark a value with `class="v pos"` for positive
+  framing and `class="v warn"` for caution — the colors come from the
+  active theme.
+- Keep each column tight — the budget is a one-sentence lead, three
+  short bullets, and the four KPIs.
+- Differs from `compare`: `compare` is a free-form "vs" layout for
+  arguments. `options` is a structured option matrix when the
+  audience needs a recommendation.
+
 ## quote
 
 Pull-quote with attribution (name + role). Differs from `statement` by
@@ -680,6 +781,7 @@ use it to mark the load-bearing word.
 | Transition into a new section | `section-divider` |
 | State a takeaway with supporting evidence | default (no class) |
 | Compare two options or perspectives | `two-col`, or `compare` for explicit "vs" framing |
+| Recommend one of two options with KPIs | `options` |
 | Lay out 3 or 4 themes side-by-side (text, not cards) | `three-col` / `four-col` |
 | Show 3 recommendations / levers / options | `cards` |
 | Show 2 deeper options / 4 compact options | `cards-2` / `cards-4` |

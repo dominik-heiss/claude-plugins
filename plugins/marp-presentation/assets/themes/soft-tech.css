@@ -1,44 +1,47 @@
 /*
- * Editorial — MARP theme
- * @theme editorial
+ * Soft Tech — MARP theme
+ * @theme soft-tech
  * @size 16:9 1280px 720px
  *
- * Magazine/editorial aesthetic: large display serif, generous whitespace,
- * terracotta accent, asymmetric composition.
+ * Linear / Vercel / Stripe-doc influence: cool indigo accent on a
+ * near-white canvas, sans-only typography, fine 1px structural
+ * lines, mono micro-labels.
  *
- * Layout logic:
- *   - Each slide reserves fixed top-chrome (brand zone) and bottom-chrome
- *     (footer / source / pagination zone). Body content can't overflow into
- *     those zones.
- *   - Title slide uses an explicit flex column with t-top / t-hero /
- *     t-sub / t-meta wrappers.
- *
- * Re-skin: edit the CSS variables under :root.
+ * Pattern parity with editorial.css — same _class names, same
+ * markdown contract (`.brand`, `.source`, frontmatter `footer:`,
+ * `paginate: true`). Switching themes is a frontmatter change.
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-  --c-ink:        #111111;
-  --c-ink-soft:   #2C2A28;
-  --c-paper:      #F4EFE6;       /* warm off-white */
-  --c-paper-2:    #E8E1D3;       /* card / soft surface */
-  --c-accent:     #C2410C;       /* terracotta */
-  --c-rule:       rgba(17,17,17,0.18);
-  --c-rule-soft:  rgba(17,17,17,0.10);
-  --c-muted:      #6B645A;
-  --c-dim:        rgba(17,17,17,0.30);    /* dimmed ink for inactive list items */
-  --c-dim-soft:   rgba(17,17,17,0.22);    /* dimmed accent for inactive numbers */
+  --c-bg:         #FAFAFA;
+  --c-surface:    #FFFFFF;
+  --c-ink:        #0B0B0F;
+  --c-ink-soft:   #2E2E36;
+  --c-muted:      #6B6B77;
+  --c-line:       #E6E6EC;
+  --c-line-soft:  #F0F0F4;
+  --c-accent:     #5B5BD6;        /* indigo */
+  --c-accent-2:   #ECEAFE;        /* indigo tint */
+  --c-pos:        #137A4D;
+  --c-warn:       #B14F00;
 
-  --font-display: "Fraunces", "Source Serif 4", Georgia, serif;
-  --font-sans:    "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
 
-  /* Vertical rhythm — everything is anchored to these */
+  /* Vertical rhythm — same anchors as editorial.css */
   --pad-x: 64px;
-  --top-chrome: 46px;     /* brand zone */
-  --bottom-chrome: 64px;  /* footer / source / pagination zone */
-  --gap-top: 0px;         /* top-chrome → headings */
-  --gap-bottom: 32px;     /* content → bottom-chrome */
+  --top-chrome: 46px;
+  --bottom-chrome: 64px;
+  --gap-top: 0px;
+  --gap-bottom: 32px;
+
+  /* Aliases used by editorial-style markup so `.source`, etc., work */
+  --c-paper:      var(--c-bg);
+  --c-paper-2:    var(--c-line-soft);
+  --c-rule:       var(--c-line);
+  --c-rule-soft:  var(--c-line-soft);
 }
 
 /* ============================================================ */
@@ -46,13 +49,15 @@
 /* ============================================================ */
 
 section {
+  box-sizing: border-box;
   width: 1280px;
   height: 720px;
-  font-family: var(--font-sans);
-  font-size: 18px;
-  line-height: 1.5;
+  background: var(--c-bg);
   color: var(--c-ink);
-  background: var(--c-paper);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
   padding:
     calc(var(--top-chrome) + var(--gap-top))
     var(--pad-x)
@@ -60,100 +65,102 @@ section {
   position: relative;
   display: flex;
   flex-direction: column;
-  letter-spacing: -0.005em;
   overflow: hidden;
 }
+section *, section *::before, section *::after { box-sizing: border-box; }
 
 /* ============================================================ */
-/*  Top chrome — brand marker                                    */
+/*  Top chrome — brand marker (mono, indigo dash)                */
 /* ============================================================ */
 
 .brand {
   position: absolute;
-  top: 30px;
+  top: 28px;
   left: var(--pad-x);
-  font-family: var(--font-sans);
-  font-size: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
   color: var(--c-muted);
   z-index: 3;
   line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-transform: none;
+}
+.brand::before {
+  content: "";
+  width: 14px;
+  height: 1px;
+  background: var(--c-accent);
+  display: inline-block;
 }
 .brand-r {
   position: absolute;
-  top: 32px;
+  top: 30px;
   right: var(--pad-x);
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: -0.01em;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
   color: var(--c-muted);
   z-index: 3;
   line-height: 1;
 }
 
 /* ============================================================ */
-/*  Bottom chrome — source (left), footer + pagination (right)   */
+/*  Bottom chrome — source / footer / pagination                 */
 /* ============================================================ */
 
 footer {
   position: absolute;
-  right: calc(var(--pad-x) + 44px);
-  bottom: 30px;
-  font-family: var(--font-sans);
-  font-size: 10px;
+  right: calc(var(--pad-x) + 56px);
+  bottom: 22px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
   font-weight: 500;
   letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--c-muted);
-  font-style: italic;
+  font-style: normal;
   line-height: 1;
   z-index: 2;
-  pointer-events: none;
   margin: 0;
   padding: 0;
   display: block;
   text-align: right;
 }
 
-/* Source / footnote slot — bottom-left, sits to the left of the footer.
-   `right` reserves space for the footer + page number on the bottom-right
-   so the two never collide. */
 .source {
   position: absolute;
   left: var(--pad-x);
-  right: calc(var(--pad-x) + 280px);
-  bottom: 26px;
+  right: calc(var(--pad-x) + 320px);
+  bottom: 22px;
   max-width: none;
   padding: 0;
   font-family: var(--font-sans);
   font-style: italic;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 400;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   color: var(--c-muted);
   line-height: 1.4;
   z-index: 1;
 }
 
-/* Pagination — overrides MARP's default ::after which inherits section padding.
-   `bottom: 28px` (vs footer's 30px) compensates for the larger font-size so
-   the baselines of pagination and footer text align. */
 section[data-marpit-pagination]::after {
   content: attr(data-marpit-pagination);
   position: absolute;
   right: var(--pad-x);
-  bottom: 28px;
-  padding: 0;            /* override MARP default `padding: inherit` */
+  bottom: 22px;
+  padding: 0;
   margin: 0;
-  font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 600;
-  font-style: italic;
-  color: var(--c-accent);
-  letter-spacing: -0.01em;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--c-ink);
   z-index: 3;
   line-height: 1;
 }
@@ -165,36 +172,30 @@ section[data-marpit-pagination]::after {
 h1, h2, h3, h4 { margin: 0; color: var(--c-ink); }
 
 section h1 {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-weight: 600;
   font-size: 38px;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  text-wrap: pretty;
-  font-variation-settings: "opsz" 96;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--c-ink);
   margin: 0 0 10px;
   max-width: none;
+  text-wrap: pretty;
 }
 
-/* Heading-block anchor — keep content start consistent across content
-   slides. When the slide has only h1 (no h2), pad h1's margin-bottom so
-   content begins at the same Y as it would with h1 (1 line) + h2 (1 line).
-   Multi-line headings still push content down naturally. Special-class
-   slides (title, agenda, statement, etc.) opt out and keep their own
-   spacing. */
+/* Heading-block anchor — same logic as editorial */
 section:not(.title):not(.agenda):not(.section-divider):not(.statement):not(.closing):not(.quote) > h1:not(:has(+ h2)) {
-  margin-bottom: 60px;
+  margin-bottom: 56px;
 }
 
 section h2 {
-  font-family: var(--font-display);
-  font-style: italic;
+  font-family: var(--font-sans);
   font-weight: 400;
-  font-size: 21px;
-  line-height: 1.32;
+  font-size: 18px;
+  line-height: 1.45;
   letter-spacing: -0.005em;
-  color: var(--c-ink-soft);
-  margin: 0 0 22px;
+  color: var(--c-muted);
+  margin: 0 0 28px;
   padding-bottom: 0;
   border-bottom: none;
   max-width: none;
@@ -202,45 +203,45 @@ section h2 {
 }
 
 section h3 {
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
+  font-weight: 500;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--c-accent);
-  margin: 0 0 18px;
+  margin: 0 0 14px;
   line-height: 1;
 }
 
 h4 {
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  color: var(--c-ink-soft);
+  letter-spacing: -0.005em;
+  color: var(--c-ink);
   margin: 0 0 8px;
 }
 
 p {
-  margin: 0 0 14px;
+  margin: 0 0 12px;
   max-width: 60ch;
   color: var(--c-ink-soft);
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.55;
   text-wrap: pretty;
 }
 
 strong { color: var(--c-ink); font-weight: 600; }
-em { font-family: var(--font-display); font-style: italic; color: inherit; }
+em { font-style: italic; color: inherit; }
 
 .lead {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-weight: 400;
-  font-size: 17px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.55;
   letter-spacing: -0.005em;
   color: var(--c-ink);
-  max-width: 60ch;
+  max-width: 64ch;
   margin: 0 0 16px;
   text-wrap: pretty;
 }
@@ -249,43 +250,46 @@ em { font-family: var(--font-display); font-style: italic; color: inherit; }
 /*  Lists                                                        */
 /* ============================================================ */
 
-ul, ol { margin: 0 0 14px; padding-left: 0; list-style: none; }
+ul, ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
 
 ul li {
   position: relative;
-  padding: 6px 0 6px 28px;
+  padding: 5px 0 5px 22px;
   color: var(--c-ink-soft);
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.5;
-  max-width: 62ch;
+  max-width: 64ch;
 }
-ul li + li { margin-top: 4px; }
+ul li + li { margin-top: 2px; }
 ul li::before {
-  content: "—";
+  content: "";
   position: absolute;
-  left: 0; top: 6px;
-  color: var(--c-accent);
-  font-weight: 600;
+  left: 0;
+  top: 13px;
+  width: 10px;
+  height: 1px;
+  background: var(--c-accent);
 }
 
 ol { counter-reset: cnt; }
 ol li {
   position: relative;
   counter-increment: cnt;
-  padding: 6px 0 6px 56px;
+  padding: 6px 0 6px 44px;
   color: var(--c-ink-soft);
-  max-width: 62ch;
+  max-width: 64ch;
 }
 ol li::before {
-  content: counter(cnt);
+  content: counter(cnt, decimal-leading-zero);
   position: absolute;
-  left: 0; top: -2px;
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 32px;
+  left: 0;
+  top: 9px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 13px;
   line-height: 1;
   color: var(--c-accent);
-  letter-spacing: -0.02em;
+  letter-spacing: 0.04em;
 }
 
 a {
@@ -299,47 +303,47 @@ blockquote {
   margin: 0 0 16px;
   padding: 0;
   border: none;
-  font-family: var(--font-display);
-  font-size: 36px;
-  font-style: italic;
-  font-weight: 400;
+  font-family: var(--font-sans);
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
   color: var(--c-ink);
-  line-height: 1.2;
+  line-height: 1.25;
   letter-spacing: -0.02em;
-  max-width: 24ch;
+  max-width: 28ch;
 }
 blockquote p { font-size: inherit; color: inherit; max-width: none; }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 15px;
+  font-size: 14px;
   margin: 8px 0 16px;
 }
 thead th {
   text-align: left;
   padding: 12px 16px 12px 0;
-  font-family: var(--font-sans);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--c-muted);
-  border-bottom: none;
+  border-bottom: 1px solid var(--c-line);
 }
 tbody td {
-  padding: 14px 16px 14px 0;
-  border-bottom: none;
+  padding: 12px 16px 12px 0;
+  border-bottom: 1px solid var(--c-line-soft);
   color: var(--c-ink-soft);
   vertical-align: top;
 }
 
 code {
-  font-family: "JetBrains Mono", "SF Mono", Menlo, monospace;
-  font-size: 0.9em;
-  background: var(--c-paper-2);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: var(--c-line-soft);
   padding: 1px 6px;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
 img { max-width: 100%; }
@@ -350,21 +354,30 @@ img { max-width: 100%; }
 
 /* --- title ------------------------------------------------- */
 section.title {
-  padding: 56px var(--pad-x) 56px;
+  padding: 56px var(--pad-x) 88px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
+section.title::after { display: none !important; }
 section.title footer,
 section.title header { display: none; }
 section.title[data-marpit-pagination]::after { display: none; }
 
+/* 4px indigo top accent bar on title */
+section.title {
+  background:
+    linear-gradient(var(--c-accent), var(--c-accent)) top/100% 4px no-repeat,
+    var(--c-bg);
+}
+
 section.title .t-top {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex: 0 0 auto;
-  min-height: 14px;            /* keep layout stable when eyebrow is empty */
+  min-height: 14px;
+  margin-bottom: auto;
 }
 section.title .t-top h3,
 section.title h3 {
@@ -374,31 +387,37 @@ section.title h3 {
 }
 
 section.title .t-hero {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   display: flex;
   align-items: flex-end;
-  min-height: 0;
-  padding: 24px 0 16px;
+  padding: 24px 0 14px;
 }
 section.title h1 {
-  font-size: 108px;
-  line-height: 0.94;
+  font-family: var(--font-sans);
+  font-size: 64px;
+  line-height: 1.04;
   font-weight: 600;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
   margin: 0;
-  max-width: 14ch;
-  font-variation-settings: "opsz" 144;
-  color: var(--c-accent);      /* hero in accent color */
+  max-width: 24ch;
+  color: var(--c-accent);
+  text-wrap: pretty;
+}
+section.title h1 em {
+  color: inherit;
+  font-style: normal;
 }
 
-section.title .t-sub { flex: 0 0 auto; }
+section.title .t-sub { flex: 0 0 auto; margin-bottom: 36px; }
 section.title h2 {
-  font-size: 22px;
-  font-style: italic;
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-style: normal;
   font-weight: 400;
+  line-height: 1.45;
   color: var(--c-ink-soft);
   max-width: 64ch;
-  margin: 0;
+  margin: 18px 0 0;
   border: none;
   padding: 0;
   text-wrap: pretty;
@@ -406,122 +425,172 @@ section.title h2 {
 
 section.title .t-meta {
   flex: 0 0 auto;
-  margin-top: 18px;
-  display: grid;
-  grid-template-columns: auto auto;
-  justify-content: start;
+  display: flex;
+  flex-wrap: wrap;
   gap: 56px;
-  font-family: var(--font-sans);
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  color: var(--c-muted);
-  text-transform: uppercase;
+  padding-top: 22px;
+  border-top: 1px solid var(--c-line);
 }
 section.title .t-meta div {
-  line-height: 1.4;
   display: flex;
   flex-direction: column;
   gap: 6px;
+  line-height: 1.4;
 }
-section.title .t-meta div > span { display: block; }
+section.title .t-meta span {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--c-muted);
+}
 section.title .t-meta strong {
   display: block;
-  font-family: var(--font-display);
-  font-style: normal;
-  font-size: 16px;
-  font-weight: 600;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
   color: var(--c-ink);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
   text-transform: none;
 }
 
-/* --- agenda + section-divider (shared list styles) ---------- */
+/* --- agenda + section-divider (shared) --------------------- */
 section.agenda h1,
 section.section-divider h1 {
-  font-size: 38px;
-  margin-bottom: 18px;
+  font-size: 36px;
+  margin-bottom: 20px;
   max-width: none;
 }
 
 section.agenda ol,
 section.section-divider ol {
+  list-style: none;
+  counter-reset: ag;
+  padding: 0;
+  margin: 4px 0 0;
   display: flex;
   flex-direction: column;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  flex: 1;
+  align-content: start;
+  gap: 0;
 }
 section.agenda ol li,
 section.section-divider ol li {
-  padding: 8px 0 8px 64px;
-  border: none;
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 600;
-  line-height: 1.18;
+  counter-increment: ag;
+  display: grid;
+  grid-template-columns: 56px 320px 1fr;
+  align-items: baseline;
+  gap: 32px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--c-line);
   color: var(--c-ink);
-  letter-spacing: -0.015em;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
   max-width: none;
 }
 section.agenda ol li::before,
 section.section-divider ol li::before {
-  font-size: 30px;
-  top: 6px;
+  content: counter(ag, decimal-leading-zero);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--c-accent);
+  letter-spacing: 0.04em;
+  align-self: center;
+  position: static;
+  top: auto;
+  padding: 0;
 }
 section.agenda ol li em,
 section.section-divider ol li em {
   display: block;
   font-family: var(--font-sans);
   font-style: normal;
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 400;
   color: var(--c-muted);
   letter-spacing: 0;
-  margin-top: 4px;
+  margin-top: 0;
   line-height: 1.45;
   max-width: none;
+  align-self: center;
 }
 
-/* --- section-divider — dim non-current items, highlight current.
-   Uses `visibility: hidden` (not `display: none`) on inactive em so the
-   list items keep the same vertical positions they have on the agenda. */
-section.section-divider ol li {
-  color: var(--c-dim);
+/* When agenda items use markdown 1. syntax (no inner spans),
+   the title text is the li's direct text and em is the description.
+   When using `<li><span class="title">…</span><span class="sub">…</span>`
+   structure (D-style), pull both spans into the grid. */
+section.agenda ol li .title,
+section.section-divider ol li .title {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--c-ink);
+  align-self: center;
+}
+section.agenda ol li .sub,
+section.section-divider ol li .sub {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
   font-weight: 400;
+  line-height: 1.45;
+  color: var(--c-muted);
+  letter-spacing: 0;
+  align-self: center;
+}
+
+/* section-divider — dim non-current, highlight current */
+section.section-divider ol li {
+  color: var(--c-muted);
+  font-weight: 400;
+  opacity: 0.55;
 }
 section.section-divider ol li::before {
-  color: var(--c-dim-soft);
+  color: var(--c-muted);
+  opacity: 0.7;
 }
 section.section-divider ol li em {
   visibility: hidden;
 }
 section.section-divider ol li.current {
   color: var(--c-ink);
-  font-weight: 600;
+  font-weight: 500;
+  opacity: 1;
 }
 section.section-divider ol li.current::before {
   color: var(--c-accent);
+  opacity: 1;
 }
 section.section-divider ol li.current em {
   visibility: visible;
   color: var(--c-muted);
 }
+section.section-divider ol li.current .title { color: var(--c-accent); }
 
 /* --- statement --------------------------------------------- */
 section.statement { justify-content: center; }
 section.statement h1 {
-  font-size: 76px;
-  line-height: 1.0;
-  max-width: 18ch;
+  font-family: var(--font-sans);
+  font-size: 60px;
+  line-height: 1.05;
+  max-width: 22ch;
+  font-weight: 600;
   letter-spacing: -0.035em;
+  color: var(--c-ink);
 }
 section.statement h1 em {
   color: var(--c-accent);
+  font-style: normal;
   font-weight: 600;
 }
 
-/* --- two-col / three-col / four-col ------------------------
-   Same .columns wrapper, type and gap scale down with column count. */
+/* --- two-col / three-col / four-col ------------------------ */
 section.two-col   .columns,
 section.three-col .columns,
 section.four-col  .columns {
@@ -533,51 +602,48 @@ section.two-col   .columns { grid-template-columns: repeat(2, 1fr); gap: 56px; }
 section.three-col .columns { grid-template-columns: repeat(3, 1fr); gap: 36px; }
 section.four-col  .columns { grid-template-columns: repeat(4, 1fr); gap: 24px; }
 
-section.two-col .columns h4,
+section.two-col   .columns h4,
 section.three-col .columns h4,
-section.four-col .columns h4 {
-  font-family: var(--font-display);
-  font-style: italic;
+section.four-col  .columns h4 {
+  font-family: var(--font-sans);
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
   color: var(--c-accent);
-  margin: 0 0 12px;
+  margin: 0 0 10px;
   text-transform: none;
 }
-section.two-col   .columns h4 { font-size: 18px; }
-section.three-col .columns h4 { font-size: 18px; }
-section.four-col  .columns h4 { font-size: 17px; margin-bottom: 10px; }
+section.two-col   .columns h4 { font-size: 16px; }
+section.three-col .columns h4 { font-size: 15px; }
+section.four-col  .columns h4 { font-size: 14px; margin-bottom: 8px; }
 
-section.two-col .columns p,
+section.two-col   .columns p,
 section.three-col .columns p,
-section.four-col .columns p {
+section.four-col  .columns p {
   line-height: 1.5;
-  margin: 0 0 14px;
+  margin: 0 0 12px;
   max-width: none;
-  font-size: 15px;
+  font-size: 14px;
 }
-section.four-col .columns p { font-size: 14px; }
+section.four-col  .columns p { font-size: 13px; }
 
-section.two-col .columns ul li,
+section.two-col   .columns ul li,
 section.three-col .columns ul li,
-section.four-col .columns ul li {
+section.four-col  .columns ul li {
   line-height: 1.45;
   max-width: none;
-  font-size: 14px;
-  padding: 4px 0 4px 22px;
+  font-size: 13.5px;
+  padding: 4px 0 4px 20px;
 }
-section.four-col .columns ul li { padding: 4px 0 4px 20px; }
+section.four-col  .columns ul li { padding: 4px 0 4px 18px; font-size: 13px; }
 
-section.two-col .columns ul li::before,
+section.two-col   .columns ul li::before,
 section.three-col .columns ul li::before,
-section.four-col .columns ul li::before {
-  top: 4px;
-  font-size: 14px;
+section.four-col  .columns ul li::before {
+  top: 11px;
+  width: 8px;
 }
 
-/* --- cards (3-up default, plus 2-up and 4-up variants) ------
-   All three classes share the same .grid + .card structure.
-   Differences: grid-template-columns, gaps, and card sizing. */
+/* --- cards (3-up default + 2-up + 4-up variants) ----------- */
 section.cards .grid,
 section.cards-2 .grid,
 section.cards-4 .grid {
@@ -592,13 +658,14 @@ section.cards-4 .grid { grid-template-columns: repeat(4, 1fr); gap: 14px; }
 section.cards .card,
 section.cards-2 .card,
 section.cards-4 .card {
-  background: var(--c-paper-2);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
   display: flex;
   flex-direction: column;
   position: relative;
 }
-section.cards   .card { padding: 24px 22px 22px; gap: 10px; }
-section.cards-2 .card { padding: 32px 30px 28px; gap: 14px; }
+section.cards   .card { padding: 22px 22px 20px; gap: 10px; }
+section.cards-2 .card { padding: 30px 28px 26px; gap: 14px; }
 section.cards-4 .card { padding: 16px 14px 14px; gap: 6px; }
 
 section.cards .card::before,
@@ -607,41 +674,40 @@ section.cards-4 .card::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 3px;
+  height: 2px;
   background: var(--c-accent);
 }
 
 section.cards .card .num,
 section.cards-2 .card .num,
 section.cards-4 .card .num {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.06em;
   color: var(--c-accent);
   text-transform: uppercase;
   margin: 0;
   line-height: 1;
 }
-section.cards   .card .num { font-size: 12px; }
-section.cards-2 .card .num { font-size: 13px; }
-section.cards-4 .card .num { font-size: 11px; }
+section.cards   .card .num { font-size: 11px; }
+section.cards-2 .card .num { font-size: 12px; }
+section.cards-4 .card .num { font-size: 10px; }
 
 section.cards .card h4,
 section.cards-2 .card h4,
 section.cards-4 .card h4 {
-  font-family: var(--font-display);
-  font-style: normal;
+  font-family: var(--font-sans);
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.25;
   letter-spacing: -0.015em;
   color: var(--c-ink);
   text-transform: none;
   margin: 0 0 4px;
 }
-section.cards   .card h4 { font-size: 19px; }
-section.cards-2 .card h4 { font-size: 22px; }
-section.cards-4 .card h4 { font-size: 17px; }
+section.cards   .card h4 { font-size: 17px; }
+section.cards-2 .card h4 { font-size: 20px; }
+section.cards-4 .card h4 { font-size: 15px; }
 
 section.cards .card p,
 section.cards-2 .card p,
@@ -650,64 +716,46 @@ section.cards-4 .card p {
   color: var(--c-ink-soft);
   margin: 0;
   max-width: none;
-  font-size: 14px;
+  font-size: 13.5px;
 }
-section.cards-2 .card p { font-size: 15px; line-height: 1.55; }
-section.cards-4 .card p { font-size: 13px; line-height: 1.45; }
+section.cards-2 .card p { font-size: 14.5px; line-height: 1.55; }
+section.cards-4 .card p { font-size: 12.5px; line-height: 1.45; }
 
 section.cards .card .meta,
 section.cards-2 .card .meta,
 section.cards-4 .card .meta {
   margin-top: auto;
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--c-muted);
   display: flex;
   justify-content: space-between;
   gap: 8px;
 }
-section.cards   .card .meta { padding-top: 14px; font-size: 10px; }
-section.cards-2 .card .meta { padding-top: 16px; font-size: 11px; }
-section.cards-4 .card .meta { padding-top: 10px; font-size: 9px; letter-spacing: 0.10em; }
+section.cards   .card .meta { padding-top: 12px; font-size: 10px; }
+section.cards-2 .card .meta { padding-top: 14px; font-size: 10.5px; }
+section.cards-4 .card .meta { padding-top: 10px; font-size: 9px; }
 
 section.cards .card .meta strong,
 section.cards-2 .card .meta strong,
 section.cards-4 .card .meta strong {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
   text-transform: none;
   color: var(--c-ink);
 }
-section.cards   .card .meta strong { font-size: 14px; }
-section.cards-2 .card .meta strong { font-size: 16px; }
-section.cards-4 .card .meta strong { font-size: 12px; }
+section.cards   .card .meta strong { font-size: 13px; }
+section.cards-2 .card .meta strong { font-size: 14px; }
+section.cards-4 .card .meta strong { font-size: 11.5px; }
 
 /* ============================================================ */
-/*  Scalable patterns — children get `flex: 1`, so the layout    */
-/*  redistributes automatically as you add or remove items.      */
+/*  Scalable patterns — children flex: 1                          */
 /* ============================================================ */
 
-/* --- process (horizontal N-step, sequential) ---------------
-   Phase number + title sit in a paper-2 head box (terracotta accent
-   bar). The description renders OUTSIDE the box on the paper canvas
-   below. A terracotta arrow connects each step to the next, signalling
-   sequentiality. Children flex: 1 — 3–7 steps redistribute evenly.
-
-   Markup:
-     <div class="steps">
-       <div class="step">
-         <div class="step-head">
-           <p class="step-num">…</p>
-           <p class="step-title">…</p>
-         </div>
-         <p class="step-desc">…</p>
-       </div>
-       …
-     </div>
-*/
+/* --- process (horizontal N-step) --------------------------- */
 /* Subgrid layout — every step uses the same 3 rows (head / desc / bullets),
    so bullet lists across columns start on the same baseline regardless of
    how many lines the step-desc above them runs. */
@@ -735,15 +783,16 @@ section.process .step:not(:last-child)::after {
   left: 100%;
   margin-left: 14px;
   transform: translateX(-50%);
-  top: 22px;
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 24px;
+  top: 18px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 22px;
   color: var(--c-accent);
   line-height: 1;
 }
 section.process .step .step-head {
-  background: var(--c-paper-2);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
   padding: 16px 18px 14px;
   position: relative;
   display: flex;
@@ -754,14 +803,14 @@ section.process .step .step-head::before {
   content: "";
   position: absolute;
   top: 0; left: 0;
-  width: 32px; height: 3px;
+  width: 32px; height: 2px;
   background: var(--c-accent);
 }
 section.process .step .step-num {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 600;
-  font-size: 11px;
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10.5px;
   letter-spacing: 0.06em;
   color: var(--c-accent);
   text-transform: uppercase;
@@ -769,17 +818,17 @@ section.process .step .step-num {
   line-height: 1;
 }
 section.process .step .step-title {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 18px;
-  line-height: 1.2;
+  font-size: 16px;
+  line-height: 1.25;
   letter-spacing: -0.015em;
   color: var(--c-ink);
   margin: 0;
 }
 section.process .step .step-desc {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 1.5;
   color: var(--c-ink-soft);
   margin: 0;
@@ -793,14 +842,14 @@ section.process .step ul {
   gap: 0;
 }
 section.process .step ul li {
-  font-size: 13px;
+  font-size: 12.5px;
   line-height: 1.45;
   padding: 3px 0 3px 18px;
   max-width: none;
 }
 section.process .step ul li::before {
-  top: 3px;
-  font-size: 13px;
+  top: 9px;
+  width: 8px;
 }
 
 /* --- matrix (2x2 quadrant) --------------------------------- */
@@ -813,7 +862,8 @@ section.matrix .quadrants {
   gap: 8px;
 }
 section.matrix .quadrants .q {
-  background: var(--c-paper-2);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
   padding: 18px 18px 16px;
   display: flex;
   flex-direction: column;
@@ -824,23 +874,27 @@ section.matrix .quadrants .q::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 3px;
+  height: 2px;
   background: var(--c-accent);
   opacity: 0.35;
 }
 section.matrix .quadrants .q.highlight::before { opacity: 1; }
+section.matrix .quadrants .q.highlight {
+  background: var(--c-accent-2);
+  border-color: var(--c-accent-2);
+}
 section.matrix .quadrants .q h4 {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 18px;
-  line-height: 1.2;
+  font-size: 16px;
+  line-height: 1.25;
   letter-spacing: -0.015em;
   color: var(--c-ink);
   text-transform: none;
   margin: 0;
 }
 section.matrix .quadrants .q p {
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 1.5;
   color: var(--c-ink-soft);
   margin: 0;
@@ -854,10 +908,10 @@ section.matrix .quadrants .axis-y {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--c-muted);
   padding: 8px 0;
@@ -868,21 +922,21 @@ section.matrix .quadrants .axis-x {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--c-muted);
   padding: 8px 4px 0;
-  border-top: 1px solid var(--c-rule-soft);
+  border-top: 1px solid var(--c-line);
 }
 section.matrix .quadrants .q.q1 { grid-row: 1; grid-column: 2; }
 section.matrix .quadrants .q.q2 { grid-row: 1; grid-column: 3; }
 section.matrix .quadrants .q.q3 { grid-row: 2; grid-column: 2; }
 section.matrix .quadrants .q.q4 { grid-row: 2; grid-column: 3; }
 
-/* --- kpi-hero (one big number + supporting context) -------- */
+/* --- kpi-hero --------------------------------------------- */
 section.kpi-hero .hero-stat {
   flex: 1;
   min-height: 0;
@@ -892,36 +946,30 @@ section.kpi-hero .hero-stat {
   align-items: center;
 }
 section.kpi-hero .hero-stat .big {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 144px;
+  font-size: 132px;
   line-height: 0.95;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.035em;
   color: var(--c-accent);
-  font-variation-settings: "opsz" 96;
   margin: 0;
 }
-section.kpi-hero .hero-stat .big .cur {
-  font-size: 0.5em;
-  vertical-align: 0.32em;
-  margin-right: 0.04em;
-  color: var(--c-ink);
-  font-weight: 600;
-  letter-spacing: 0;
-}
+section.kpi-hero .hero-stat .big .cur,
 section.kpi-hero .hero-stat .big small {
-  font-size: 0.4em;
+  font-family: var(--font-sans);
+  font-size: 0.42em;
   vertical-align: 0.32em;
-  margin-left: 0.04em;
   color: var(--c-ink);
   font-weight: 600;
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
 }
+section.kpi-hero .hero-stat .big .cur { margin-right: 0.04em; }
+section.kpi-hero .hero-stat .big small { margin-left: 0.04em; }
 section.kpi-hero .hero-stat .ctx p {
-  font-family: var(--font-display);
-  font-size: 22px;
-  line-height: 1.32;
-  font-style: italic;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.5;
+  font-style: normal;
   font-weight: 400;
   color: var(--c-ink);
   margin: 0 0 18px;
@@ -934,30 +982,30 @@ section.kpi-hero .hero-stat .sub {
 }
 section.kpi-hero .hero-stat .sub div {
   flex: 1;
-  border-top: 1px solid var(--c-rule);
+  border-top: 1px solid var(--c-line);
   padding-top: 8px;
 }
 section.kpi-hero .hero-stat .sub strong {
   display: block;
-  font-family: var(--font-display);
-  font-size: 28px;
+  font-family: var(--font-sans);
+  font-size: 22px;
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--c-ink);
   line-height: 1;
 }
 section.kpi-hero .hero-stat .sub span {
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--c-muted);
   margin-top: 6px;
   display: block;
 }
 
-/* --- kpi-strip (N stats in a row, scales via flex) --------- */
+/* --- kpi-strip -------------------------------------------- */
 section.kpi-strip .strip {
   display: flex;
   gap: 24px;
@@ -974,9 +1022,9 @@ section.kpi-strip .strip .stat {
   flex-direction: column;
 }
 section.kpi-strip .strip .stat .num {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 56px;
+  font-size: 48px;
   line-height: 0.95;
   letter-spacing: -0.035em;
   color: var(--c-ink);
@@ -987,16 +1035,16 @@ section.kpi-strip .strip .stat .num em {
   font-style: normal;
 }
 section.kpi-strip .strip .stat .label {
-  font-family: var(--font-sans);
-  font-size: 11px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--c-muted);
   margin: 6px 0 0;
 }
 section.kpi-strip .strip .stat .delta {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-style: italic;
   font-size: 13px;
   color: var(--c-ink-soft);
@@ -1010,17 +1058,17 @@ section.kpi-strip .strip .stat ul {
   gap: 0;
 }
 section.kpi-strip .strip .stat ul li {
-  font-size: 13px;
+  font-size: 12.5px;
   line-height: 1.4;
   padding: 3px 0 3px 18px;
   max-width: none;
 }
 section.kpi-strip .strip .stat ul li::before {
-  top: 3px;
-  font-size: 13px;
+  top: 9px;
+  width: 8px;
 }
 
-/* --- compare (two-side "vs" layout) ------------------------ */
+/* --- compare ---------------------------------------------- */
 section.compare .vs {
   flex: 1;
   min-height: 0;
@@ -1035,11 +1083,10 @@ section.compare .vs .side {
   gap: 10px;
 }
 section.compare .vs .side h4 {
-  font-family: var(--font-display);
-  font-style: italic;
+  font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 19px;
-  letter-spacing: -0.01em;
+  font-size: 17px;
+  letter-spacing: -0.015em;
   color: var(--c-accent);
   margin: 0 0 6px;
   text-transform: none;
@@ -1050,22 +1097,20 @@ section.compare .vs .side p {
   margin: 0 0 8px;
   max-width: none;
 }
-section.compare .vs .side ul {
-  margin: 0;
-}
+section.compare .vs .side ul { margin: 0; }
 section.compare .vs .side ul li {
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 1.45;
-  padding: 4px 0 4px 22px;
+  padding: 4px 0 4px 20px;
   max-width: none;
 }
 section.compare .vs .side ul li::before {
-  top: 4px;
-  font-size: 14px;
+  top: 11px;
+  width: 8px;
 }
 section.compare .vs .divider {
   width: 1px;
-  background: var(--c-rule);
+  background: var(--c-line);
   position: relative;
 }
 section.compare .vs .divider::before {
@@ -1074,40 +1119,17 @@ section.compare .vs .divider::before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: var(--c-paper);
+  background: var(--c-bg);
   padding: 8px 6px;
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 600;
-  font-size: 18px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 12px;
   color: var(--c-accent);
-  letter-spacing: -0.01em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-/* --- options (two options + KPI grid at bottom) ------------
-   Side-by-side option matrix with optional `Recommended` badge,
-   short lead, support bullets, and a 2x2 KPI grid anchored to the
-   bottom of each column. The two columns are split by a center
-   hairline.
-
-   Markup:
-     <div class="opts">
-       <div class="opt">
-         <div class="opt-head">
-           <div class="opt-title">Option A</div>
-           <span class="badge recommended">Recommended</span>
-         </div>
-         <p class="lead">…</p>
-         <ul><li>…</li></ul>
-         <div class="stats">
-           <div><p class="k">Time</p><p class="v">14 mo</p></div>
-           …
-         </div>
-       </div>
-       <div class="divider"></div>
-       <div class="opt">…</div>
-     </div>
-*/
+/* --- options (two options + KPI grid) --------------------- */
 section.options .opts {
   flex: 1;
   min-height: 0;
@@ -1116,7 +1138,7 @@ section.options .opts {
   gap: 32px;
 }
 section.options .opts .divider {
-  background: var(--c-rule);
+  background: var(--c-line);
   width: 1px;
 }
 section.options .opts .opt {
@@ -1131,34 +1153,34 @@ section.options .opts .opt-head {
   justify-content: space-between;
   align-items: center;
   padding-bottom: 14px;
-  border-bottom: 1px solid var(--c-rule-soft);
+  border-bottom: 1px solid var(--c-line);
 }
 section.options .opts .opt-title {
-  font-family: var(--font-display);
-  font-size: 20px;
+  font-family: var(--font-sans);
+  font-size: 17px;
   font-weight: 600;
   letter-spacing: -0.015em;
   color: var(--c-ink);
 }
 section.options .opts .badge {
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.06em;
   padding: 4px 8px;
-  background: var(--c-paper-2);
+  border-radius: 3px;
+  background: var(--c-line-soft);
   color: var(--c-muted);
 }
 section.options .opts .badge.recommended {
-  background: var(--c-accent);
-  color: var(--c-paper);
+  background: var(--c-accent-2);
+  color: var(--c-accent);
 }
 section.options .opts .opt .lead {
-  font-family: var(--font-display);
-  font-size: 15px;
+  font-size: 14.5px;
   line-height: 1.5;
-  color: var(--c-ink);
+  color: var(--c-ink-soft);
   margin: 0;
   max-width: none;
 }
@@ -1169,14 +1191,14 @@ section.options .opts .opt ul {
   gap: 0;
 }
 section.options .opts .opt ul li {
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 1.45;
   padding: 4px 0 4px 22px;
   max-width: none;
 }
 section.options .opts .opt ul li::before {
-  top: 4px;
-  font-size: 14px;
+  top: 11px;
+  width: 10px;
 }
 section.options .opts .opt .stats {
   display: grid;
@@ -1184,42 +1206,39 @@ section.options .opts .opt .stats {
   gap: 14px;
   margin-top: auto;
   padding-top: 14px;
-  border-top: 1px dashed var(--c-rule-soft);
+  border-top: 1px dashed var(--c-line);
 }
 section.options .opts .opt .stats div { padding: 0; }
 section.options .opts .opt .stats .k {
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   font-size: 10px;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--c-muted);
   margin: 0 0 4px;
-  font-weight: 500;
 }
 section.options .opts .opt .stats .v {
-  font-family: var(--font-display);
-  font-size: 24px;
+  font-family: var(--font-sans);
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--c-ink);
   margin: 0;
   line-height: 1;
 }
-section.options .opts .opt .stats .v.pos { color: #137A4D; }
-section.options .opts .opt .stats .v.warn { color: var(--c-accent); }
+section.options .opts .opt .stats .v.pos { color: var(--c-pos); }
+section.options .opts .opt .stats .v.warn { color: var(--c-warn); }
 
-/* --- quote (pull-quote with attribution) ------------------- */
+/* --- quote ------------------------------------------------ */
 section.quote { justify-content: center; }
-section.quote .quote-body {
-  max-width: 28ch;
-}
+section.quote .quote-body { max-width: 32ch; }
 section.quote .quote-body p {
-  font-family: var(--font-display);
-  font-size: 44px;
-  font-style: italic;
-  font-weight: 400;
+  font-family: var(--font-sans);
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
   color: var(--c-ink);
-  line-height: 1.18;
+  line-height: 1.22;
   letter-spacing: -0.025em;
   margin: 0 0 28px;
   max-width: none;
@@ -1227,20 +1246,18 @@ section.quote .quote-body p {
 section.quote .quote-body p::before {
   content: "“";
   color: var(--c-accent);
-  font-family: var(--font-display);
   font-weight: 600;
 }
 section.quote .quote-body p::after {
   content: "”";
   color: var(--c-accent);
-  font-family: var(--font-display);
   font-weight: 600;
 }
 section.quote .attribution {
-  font-family: var(--font-sans);
-  font-size: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--c-muted);
   display: flex;
@@ -1248,16 +1265,15 @@ section.quote .attribution {
   gap: 4px;
 }
 section.quote .attribution strong {
-  font-family: var(--font-display);
-  font-style: italic;
+  font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 17px;
-  letter-spacing: -0.01em;
+  font-size: 16px;
+  letter-spacing: -0.005em;
   text-transform: none;
   color: var(--c-ink);
 }
 
-/* --- timeline (vertical events, scales via flex) ----------- */
+/* --- timeline --------------------------------------------- */
 section.timeline .events {
   display: flex;
   flex-direction: column;
@@ -1274,7 +1290,7 @@ section.timeline .events::before {
   top: 6px;
   bottom: 6px;
   width: 2px;
-  background: var(--c-rule);
+  background: var(--c-line);
 }
 section.timeline .events .event {
   flex: 1;
@@ -1294,40 +1310,37 @@ section.timeline .events .event::before {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--c-paper);
+  background: var(--c-bg);
   border: 2px solid var(--c-accent);
 }
 section.timeline .events .event .when {
-  margin: 0;
-}
-section.timeline .events .event .when {
-  font-family: var(--font-sans);
+  margin: 4px 0 0;
+  font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--c-muted);
-  margin: 4px 0 0;
 }
 section.timeline .events .event .what h4 {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 19px;
-  line-height: 1.2;
+  font-size: 17px;
+  line-height: 1.25;
   letter-spacing: -0.015em;
   color: var(--c-ink);
   text-transform: none;
   margin: 0 0 4px;
 }
 section.timeline .events .event .what p {
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 1.5;
   color: var(--c-ink-soft);
   margin: 0;
   max-width: none;
 }
 
-/* --- closing (Q&A / thanks / contact) ---------------------- */
+/* --- closing ---------------------------------------------- */
 section.closing { justify-content: center; }
 section.closing .close-block {
   display: flex;
@@ -1335,14 +1348,16 @@ section.closing .close-block {
   gap: 18px;
 }
 section.closing .close-block h1 {
-  font-size: 86px;
+  font-family: var(--font-sans);
+  font-size: 72px;
   line-height: 1;
   letter-spacing: -0.035em;
   margin: 0;
-  max-width: 16ch;
+  max-width: 18ch;
   color: var(--c-accent);
   font-style: italic;
 }
+section.closing .close-block h1 em { color: inherit; }
 section.closing .close-block .contact {
   display: flex;
   gap: 56px;
@@ -1352,18 +1367,20 @@ section.closing .close-block .contact div {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  font-family: var(--font-sans);
-  font-size: 11px;
+}
+section.closing .close-block .contact span {
+  font-family: var(--font-mono);
+  font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--c-muted);
 }
 section.closing .close-block .contact strong {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 16px;
-  letter-spacing: -0.01em;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: -0.005em;
   text-transform: none;
   color: var(--c-ink);
 }
