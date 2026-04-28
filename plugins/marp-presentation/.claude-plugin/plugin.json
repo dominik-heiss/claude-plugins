@@ -1,6 +1,6 @@
 {
   "name": "marp-presentation",
-  "version": "0.20260428.3",
+  "version": "0.20260428.4",
   "description": "Author and export MARP markdown presentations with two bundled themes (editorial and soft-tech, 16:9).",
   "author": {
     "name": "Dominik Heiß"

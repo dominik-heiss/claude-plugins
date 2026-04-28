@@ -25,18 +25,40 @@ unsure, ask once.
 
 ## Workflow
 
-1. **Confirm format**: HTML by default. Render PDF only when the user
-   explicitly asks (PDF needs Chromium and is slower).
-2. **Confirm theme** if not already set in the source: `editorial`
-   (default) or `soft-tech`
+1. **Resolve the active design.** Before generating or exporting any
+   deck, determine which theme to use using this precedence:
+   1. The deck's own frontmatter `theme:` if present — author's intent
+      always wins.
+   2. Otherwise, read `.marp-design` from the current working directory
+      if it exists. The file is a single line containing either a
+      bundled design name (`editorial`, `soft-tech`) or a path to a
+      custom CSS file. The user manages this via `/define-design`.
+   3. Otherwise, fall back to `editorial`.
+   When generating new deck markdown, write the resolved design into
+   the deck's frontmatter `theme:` line so the deck is portable.
+2. **Confirm format**: HTML by default. Render PDF only when the user
+   explicitly asks (PDF needs Chromium and is slower). Never render
+   PDF speculatively or "as a bonus".
 3. **Check the source**: existing `.md`, or start from
-   `templates/starter-deck.md`
-4. **Choose layout per slide**: the bundled patterns are starting points,
-   not a closed set — see "Patterns are examples, not a cage" below
+   `templates/starter-deck.md`.
+4. **Choose layout per slide**: the bundled patterns are starting
+   points, not a closed set — see "Patterns are examples, not a cage"
+   below.
 5. **Export**: invoke `marp-cli` via `npx` — see
    `references/export-workflow.md`. Default output filename is
    `<deck>.html`; only add a `-<theme>` suffix if a render from a
    different theme already exists for the same deck.
+
+## Switching designs
+
+The user can pin a design for the current project via the
+`/define-design` command:
+
+- `/define-design` (no args) — lists bundled designs with their use
+  cases and offers to switch, re-skin, or fork.
+- `/define-design <name|path>` — writes the choice to `.marp-design`
+  in the cwd. From that point on, follow the precedence chain in
+  step 1 above.
 
 ## Patterns are examples, not a cage
 
@@ -134,8 +156,10 @@ footer: "Project name 2026 · Subtitle · Confidential"
 ```
 
 Pick `theme:` based on the brief — `editorial` (default, magazine) or
-`soft-tech` (Linear-style). Override only if the user has supplied a
-custom CSS.
+`soft-tech` (Linear-style). If the project has a `.marp-design` file
+set via `/define-design`, prefer that value unless the user has asked
+for a different design for this specific deck. Override only if the
+user has supplied a custom CSS.
 
 ## When to read which reference
 

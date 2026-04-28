@@ -10,8 +10,11 @@ a `/marp-export` command that wraps `marp-cli`.
 
 - **Skill** `marp-presentation` — Claude knows how to write good decks
   with both design languages and where every asset lives.
-- **Command** `/marp-export` — render a deck to PDF or HTML using the
-  selected theme.
+- **Command** `/marp-export` — render a deck to HTML (default) or PDF
+  using the selected theme.
+- **Command** `/define-design` — list bundled designs and pin one
+  (writes `.marp-design` at the cwd root). Without arguments it lists
+  the available designs and offers to switch, re-skin, or fork.
 - **Themes** in `assets/themes/`:
   - `editorial.css` — 16:9, Fraunces + Inter, terracotta accent, paper-2
     surfaces. Magazine feel.
@@ -102,16 +105,9 @@ It anchors to the bottom-left, separately from the footer.
 
 ## Export
 
-PDF (client-ready):
+**HTML is the default** — PDF only when explicitly requested.
 
-```bash
-npx @marp-team/marp-cli your-deck.md \
-  --theme assets/themes/editorial.css \
-  --pdf --allow-local-files \
-  -o exports/your-deck.pdf
-```
-
-HTML (fast preview):
+HTML (default):
 
 ```bash
 npx @marp-team/marp-cli your-deck.md \
@@ -120,7 +116,18 @@ npx @marp-team/marp-cli your-deck.md \
   -o exports/your-deck.html
 ```
 
-Or use `/marp-export` and let Claude assemble the command.
+PDF (only on explicit request — needs Chromium, slower):
+
+```bash
+npx @marp-team/marp-cli your-deck.md \
+  --theme assets/themes/editorial.css \
+  --pdf --allow-local-files \
+  -o exports/your-deck.pdf
+```
+
+Or use `/marp-export` and let Claude assemble the command. Pin a
+design with `/define-design <name>` to skip per-deck `theme:`
+frontmatter.
 
 ## Design decisions (settled)
 
@@ -164,6 +171,7 @@ marp-presentation/
     references/                      Claude-facing reference docs
   commands/
     marp-export.md                   /marp-export command
+    define-design.md                 /define-design command
   assets/themes/
     editorial.css                    bundled default theme
     soft-tech.css                    second bundled theme (Linear-style)

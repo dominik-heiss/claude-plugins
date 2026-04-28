@@ -12,11 +12,18 @@ Workflow:
 2. **Pick the format.** **Default is HTML.** Render PDF only when the
    user explicitly passes `--pdf` or asks for it. PDF needs Chromium
    and is slower, so don't render it speculatively.
-3. **Pick the theme.** Read `theme:` from the deck's frontmatter. If
-   it's `editorial` (default) or `soft-tech`, resolve to the matching
-   bundled CSS at `assets/themes/<theme>.css`. If the user supplied a
-   custom path, pass that through. If frontmatter says nothing, default
-   to `editorial`.
+3. **Pick the theme** using this precedence:
+   1. A `--theme <value>` flag passed on the command line (one-off
+      override) — wins over everything.
+   2. The deck's own frontmatter `theme:` line.
+   3. A `.marp-design` file at the cwd root, written by
+      `/define-design`. The file holds a single line: either
+      `editorial`, `soft-tech`, or a path to a custom CSS file.
+   4. Fall back to `editorial`.
+
+   Resolve the value to a CSS path: `editorial` / `soft-tech` map to
+   `assets/themes/<name>.css`; anything else is treated as a path
+   (verify it exists). Pass the resolved path via `--theme`.
 4. **Resolve the output path.** Default to `exports/<deck-stem>.<ext>`.
    **Add a `-<theme>` suffix only if a same-stem export from a
    different theme already exists** in `exports/` (e.g., if
