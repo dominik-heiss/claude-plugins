@@ -15,7 +15,7 @@ Then install any plugin from the list below.
 | Plugin | Description |
 |---|---|
 | [`email`](plugins/email) | Read, search, and send emails via IMAP/SMTP. Cross-platform, secure credential storage via OS keyring, draft-mode by default. |
-| [`marp-presentation`](plugins/marp-presentation) | Author and export MARP markdown presentations with the bundled editorial theme (display serif + sans, terracotta accent, 16:9). |
+| [`marp-presentation`](plugins/marp-presentation) | Author and export MARP markdown presentations with two bundled themes (editorial — magazine; soft-tech — Linear/Vercel-style), 16:9. |
 
 Install any plugin with:
 
